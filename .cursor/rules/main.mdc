@@ -1,0 +1,58 @@
+---
+description: Main workspace rules for Cursor IDE and Antigravity (VSCode-based AI tools)
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Cursor / Antigravity Workspace Rules
+
+> Canonical rules in `CLAUDE.md`. These rules apply to all AI assistance in this workspace.
+
+## Access Policy
+
+- ALLOWED: `~/Documents/Work/**`
+- FORBIDDEN: `~/Documents/General/**` — personal and sensitive documents
+
+## Code Generation
+
+### Minimal & Focused
+- Write only what is needed for the current task
+- No speculative features or future abstractions
+- Three similar lines > premature abstraction
+- No backwards-compatibility shims for removed code
+
+### Security First
+- Never hardcode API keys, tokens, or passwords
+- Always use parameterized queries for database access
+- Sanitize all user inputs at system boundaries
+- Reference secrets via environment variables
+
+### Comments & Docs
+- Only add comments where logic is not self-evident
+- No docstrings for obvious functions
+- Code and comments in English
+
+## Workflow
+
+1. Read existing code before suggesting changes
+2. Match the existing patterns and conventions in each file
+3. Make the smallest change that achieves the goal
+4. Flag security issues immediately
+
+## Commits
+
+- Format: `type(scope): description` (Conventional Commits)
+- Types: feat, fix, docs, refactor, test, chore, ci
+- English only for all commit content
+
+## Language
+
+- User conversation: Korean accepted
+- All code, commits, file names: English
+
+## File Types & Patterns
+
+- TypeScript/JavaScript: follow existing ESLint/Prettier config
+- Python: follow existing Black/Ruff config
+- Go: follow `gofmt` standards
+- Markdown: use ATX headers (`#`), fenced code blocks
