@@ -8,8 +8,12 @@
 
 | 프로젝트 | 설명 | GitHub | 상태 |
 |---------|------|--------|------|
-| stock-automation | 주식 자동화 트레이딩 봇 | [링크 추가]() | 🚧 진행중 |
-| my-ui-lib | 개인 UI 컴포넌트 라이브러리 | [링크 추가]() | 📋 예정 |
+| profile | 개인 프로필 페이지 | [Junseop-Shin/profile](https://github.com/Junseop-Shin/profile) | 🚧 진행중 |
+| boldgobynd | boldgobynd 프로젝트 | [Junseop-Shin/boldgobynd](https://github.com/Junseop-Shin/boldgobynd) | 🚧 진행중 |
+| my-ui-lib | 개인 UI 컴포넌트 라이브러리 | [Junseop-Shin/my-ui-lib](https://github.com/Junseop-Shin/my-ui-lib) | 🚧 진행중 |
+| Junseop-Shin | GitHub 프로필 README | [Junseop-Shin/Junseop-Shin](https://github.com/Junseop-Shin/Junseop-Shin) | 🚧 진행중 |
+| kis-trader | KIS API 기반 자동 트레이딩 | [Junseop-Shin/kis-trader](https://github.com/Junseop-Shin/kis-trader) | 🚧 진행중 |
+| EY-hy-2026 | EY 2026 관련 프로젝트 | [Junseop-Shin/EY-hy-2026](https://github.com/Junseop-Shin/EY-hy-2026) | 🚧 진행중 |
 
 ---
 
