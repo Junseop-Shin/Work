@@ -2,6 +2,7 @@
 
 > This file configures Claude Code behavior for `~/Documents/Work`.
 > It is the **canonical source** — other AI tool configs (GEMINI.md, AGENTS.md, etc.) summarize these rules.
+> Keep this file lean — review and trim periodically.
 
 ---
 
@@ -27,9 +28,9 @@
 | Code writing/editing, debugging, refactoring, test writing | **Sonnet** |
 | PR review, API design, complex logic analysis | **Sonnet** |
 | Architecture design, system planning, technology decisions | **Opus** |
-| Sub-agent: Explore (file/code exploration) | **Haiku** |
-| Sub-agent: Plan (architecture/design) | **Opus** |
-| Sub-agent: general-purpose (code tasks) | **Sonnet** |
+| Sub-agent: file-explorer | **Haiku** |
+| Sub-agent: architect | **Opus** |
+| Sub-agent: general-purpose, code-reviewer | **Sonnet** |
 
 Use the cheapest model that can handle the task. Escalate only when needed.
 
@@ -43,17 +44,44 @@ Always follow this sequence — do not skip steps:
 2. **Plan** — Outline changes before executing (use EnterPlanMode for non-trivial tasks)
 3. **Implement** — Make focused, minimal changes
 4. **Verify** — Run tests or check output before committing
-5. **Commit** — Only after explicit user approval (see commit rules below)
+5. **Commit** — Only after explicit user approval
 
 For complex multi-step tasks, use the Task tool to delegate to specialized sub-agents.
 
-### Chain-of-Thought
+Break down large problems into sub-problems. Identify intermediate milestones. Prefer the simplest solution that meets requirements.
 
-Apply step-by-step reasoning before coding:
-- Break down requirements into sub-problems
-- Identify edge cases and constraints
-- Consider trade-offs between approaches
-- Prefer the simplest solution that meets requirements
+---
+
+## Context Management
+
+AI context degrades over long sessions — keep it fresh:
+
+- Start a new session when switching to an unrelated task
+- Use `/compact` to summarize and compress the current session
+- Before ending a long session, create a handoff doc: `echo "## Handoff\n..." > handoff.md` so the next session can pick up quickly
+- Run parallel work in separate terminal tabs (multiple Claude sessions)
+
+---
+
+## Verification Strategies
+
+Always verify before declaring done:
+
+- Write tests or run existing ones
+- Use `gh pr create --draft` to safely review changes via GitHub UI
+- Ask Claude to double-check its own output: "Review what you just wrote for bugs"
+- For UI changes, use screenshots or visual diffs
+- For long-running tasks, use background processes: `Ctrl+B` to background, check output later
+
+---
+
+## Bash Safety
+
+- Break complex bash commands into simple sequential steps — avoid chaining with `&&` unless steps are truly dependent
+- Avoid pipes (`|`) when possible — run steps individually or write intermediate results to files
+- Never mix stderr and stdout: do not use `2>&1`
+- Use `realpath` to get absolute file paths for reliable references
+- For risky or experimental scripts, isolate in a Docker container before running on host
 
 ---
 
