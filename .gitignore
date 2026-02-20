@@ -1,0 +1,52 @@
+# ─── macOS ───────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ─── Node.js ─────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+dist/
+.next/
+.nuxt/
+.cache/
+
+# ─── Python ──────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+
+# ─── Secrets & Keys ──────────────────────────────────
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*_credentials.json
+*_secret*
+
+# ─── IDEs ────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── Projects (각 프로젝트는 개별 git repo로 관리) ──
+Projects/*/
