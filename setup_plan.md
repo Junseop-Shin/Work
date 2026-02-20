@@ -7,7 +7,8 @@
 ## 전체 목표
 
 Apple Silicon Mac의 개발 환경을 초기 셋팅하고, `~/Documents/Work`를
-GitHub 블로그(TIL 방식) 저장소로 구축한다.
+GitHub 블로그(TIL 방식) 저장소로 구축하고,
+Claude Code를 주 AI 도구로 하는 멀티 AI 개발 환경을 구성한다.
 
 ---
 
@@ -47,12 +48,35 @@ GitHub 블로그(TIL 방식) 저장소로 구축한다.
 
 ---
 
-### Phase 3 — 향후 확장 (선택) `[예정]`
+### Phase 3 — AI 개발 환경 구축 `[완료]`
+
+Claude Code를 주 AI 도구로 하는 멀티 AI 개발 환경 구성.
+
+- [x] `CLAUDE.md` — 모델 선택 룰, 워크플로우, 행동 지침 (Canonical Source)
+- [x] `.mcp.json` — context7, git, github, memory MCP 서버 설정
+- [x] `.claude/commands/commit.md` — Conventional Commit 자동화
+- [x] `.claude/commands/review.md` — 코드 리뷰 리포트 생성
+- [x] `.claude/commands/plan.md` — Opus 기반 아키텍처 설계 문서
+- [x] `.claude/commands/standup.md` — 일일 스탠드업 노트 생성
+- [x] `.claude/agents/file-explorer.md` — Haiku 기반 파일탐색 서브에이전트
+- [x] `.claude/agents/architect.md` — Opus 기반 설계 서브에이전트
+- [x] `.claude/agents/code-reviewer.md` — Sonnet 기반 코드리뷰 서브에이전트
+- [x] `GEMINI.md` — Gemini CLI 설정
+- [x] `AGENTS.md` — OpenAI Codex CLI 설정
+- [x] `.github/copilot-instructions.md` — GitHub Copilot 설정
+- [x] `.cursor/rules/main.mdc` — Cursor/Antigravity IDE 룰
+- [x] `.gitignore` 업데이트 — AI 도구 로컬 캐시 제외
+- [x] `INSTALL_GUIDE.md` — 설치 필요 도구 목록
+
+---
+
+### Phase 4 — 향후 확장 (선택) `[예정]`
 
 - [ ] GitHub Actions를 이용한 README 자동 갱신 (학습 일지 카운터 등)
 - [ ] 각 서브폴더별 `README.md` 추가 (Projects, Study 등)
 - [ ] Homebrew 기반 개발 도구 설치 스크립트 (`Brewfile`)
 - [ ] dotfiles 관리 체계 구축
+- [ ] GitHub Actions CI — lint + test 자동화
 
 ---
 
@@ -61,6 +85,14 @@ GitHub 블로그(TIL 방식) 저장소로 구축한다.
 | 커밋 | 내용 |
 |------|------|
 | `Initial Mac Workspace Setup - Repo Blog Mode` | Phase 1 + Phase 2 전체 초기 셋팅 완료 |
+| `Add project repos to dashboard and link hub` | README 프로젝트 링크 추가 |
+| `feat: Add CLAUDE.md` | 모델 룰, 워크플로우, 행동 지침 |
+| `feat: Add .mcp.json` | context7, git, github, memory MCP 서버 |
+| `feat: Add custom slash commands` | commit, review, plan, standup |
+| `feat: Add custom sub-agents` | file-explorer, architect, code-reviewer |
+| `feat: Add multi-AI config files` | GEMINI, AGENTS, Copilot, Cursor rules |
+| `docs: Update setup_plan.md + .gitignore` | Phase 3 완료 기록 |
+| `docs: Add INSTALL_GUIDE.md` | 설치 도구 목록 및 환경변수 설정 가이드 |
 
 ---
 

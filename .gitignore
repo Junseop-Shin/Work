@@ -48,5 +48,13 @@ credentials/
 *.swp
 *.swo
 
+# ─── AI Tool Local Configs (keep rules, ignore local state) ──
+.cursor/chat/
+.cursor/logs/
+.gemini/
+.gemini_history
+.aider/
+.aider.chat.history.md
+
 # ─── Projects (각 프로젝트는 개별 git repo로 관리) ──
 Projects/*/
