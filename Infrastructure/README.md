@@ -24,7 +24,6 @@ graph LR
     User --> DNS
     DNS --> TW & TM & Vercel
     GHA -->|SSH :2222| TW
-    GHA -->|SSH :22| TM
 ```
 
 ---
