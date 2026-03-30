@@ -154,7 +154,35 @@ Use sub-agents via the Task tool for:
 | `/commit` | Analyze staged changes → generate Conventional Commit → commit + push + PR |
 | `/review` | Analyze changed files → generate bug/security/quality report |
 | `/plan` | Invoke Opus sub-agent → produce architecture design doc |
+| `/ai-plan` | Gemini second opinion on plan → comparison → user approval |
+| `/ai-review` | Gemini second opinion on code review |
 | `/standup` | Summarize today's commits → generate standup notes |
+
+### Workflow Harness (반드시 순서대로 실행)
+
+Planning → Implementation → Review 워크플로우:
+
+1. `/plan` — 아키텍처 설계 + 전문가 리뷰
+2. `/ai-plan` — Gemini 세컨드 오피니언 + 비교 + 유저 승인
+3. 구현 (승인 후에만 코드 작성)
+4. `/review` — 코드 리뷰 (버그/보안/품질)
+5. `/ai-review` — Gemini 세컨드 오피니언 코드 리뷰
+
+**Review Loop (이슈 0건이 될 때까지 반복):**
+```
+LOOP:
+  /review → 이슈 발견?
+    YES → 이슈 수정 → LOOP 재실행
+    NO  → /ai-review → 이슈 발견?
+      YES → 이슈 수정 → LOOP 재실행
+      NO  → 리뷰 통과 → 커밋/배포 진행
+```
+
+**강제 규칙:**
+- `/plan` 실행 후 반드시 `/ai-plan`을 이어서 실행할 것
+- 구현 완료 후 반드시 `/review` → `/ai-review` 순서로 실행할 것
+- 리뷰에서 이슈가 발견되면 수정 후 다시 리뷰 루프 재실행 (이슈 0건까지)
+- 유저가 명시적으로 스킵하지 않는 한 생략 금지
 
 ---
 
@@ -166,6 +194,36 @@ Use sub-agents via the Task tool for:
 - Trust framework guarantees — only validate at system boundaries
 - Delete unused code completely — no backwards-compatibility shims
 - No docstrings or comments for self-evident code
+
+---
+
+## Infrastructure Access
+
+### Windows Home Server (SSH)
+
+```bash
+ssh windows   # ~/.ssh/config alias → windows.nuclearbomb6518.com:2222
+```
+
+- 원격 파일 읽기: `ssh windows "type C:\path\to\file"`
+- 원격 명령 실행: `ssh windows "powershell -NoProfile -Command \"...\""` 또는 `ssh windows "cmd /c ..."`
+- 파일 전송: `scp -P 2222 local_file <user>@windows.nuclearbomb6518.com:C:/dest/` (user → `secrets/credentials.md`)
+
+### Cloudflare Tunnel (Windows)
+
+- **Config 파일:** `C:\Users\<user>\.cloudflared\config.yml` (user → `secrets/credentials.md`)
+- **Tunnel ID:** → `secrets/credentials.md`
+- **도메인 추가 시:** config.yml에 ingress 항목 추가 → DNS에 CNAME 레코드 추가 (`{hostname}` → tunnel UUID.cfargotunnel.com) → `cloudflared` 서비스 재시작
+
+```bash
+# config.yml 읽기
+ssh windows "type C:\Users\<user>\.cloudflared\config.yml"
+
+# config.yml 수정 후 tunnel 재시작
+ssh windows "net stop cloudflared && net start cloudflared"
+```
+
+현재 등록된 서비스 → 전체 목록은 `Infrastructure/services.md` 참조.
 
 ---
 
@@ -182,3 +240,22 @@ Configured in `.mcp.json`:
 
 Use `context7` when working with external libraries to get up-to-date docs.
 Use `github` MCP for PR management (complementary to SSH git operations).
+
+---
+
+## Gstack Skills
+
+Installed at `~/.claude/skills/gstack`. Use `/browse` for all web browsing — never use MCP browser tools directly.
+
+| Skill | When to use |
+|-------|------------|
+| `/office-hours` | 새 아이디어/기능 초기 검토 (코딩 전) |
+| `/plan-ceo-review` | 제품 관점 계획 검토 |
+| `/plan-eng-review` | 스태프 엔지니어 관점 아키텍처 검토 |
+| `/plan-design-review` | UI/UX 설계 검토 |
+| `/qa` | 실제 브라우저 QA 자동화 실행 |
+| `/cso` | OWASP + STRIDE 보안 감사 |
+| `/ship` | PR 생성 + 배포 준비 |
+| `/retro` | 작업 완료 후 회고 |
+| `/benchmark` | 성능 벤치마크 |
+| `/browse` | 웹 브라우징 (MCP 대신 사용) |

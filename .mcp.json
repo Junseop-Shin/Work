@@ -22,6 +22,31 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-memory"],
       "description": "Cross-session persistent memory storage"
+    },
+    "pdf-reader": {
+      "command": "npx",
+      "args": ["-y", "@dev.saqibaziz/mcp-pdf-reader"],
+      "description": "PDF text extraction — read, search, and extract metadata from local PDF files"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "description": "Structured multi-step reasoning chains — forces deliberate problem decomposition before acting"
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch"],
+      "description": "Fetch any URL and convert to clean text — docs, APIs, web pages"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"],
+      "description": "Browser automation — navigate, click, fill forms, scrape web pages (uses accessibility snapshots)"
+    },
+    "desktop-commander": {
+      "command": "npx",
+      "args": ["-y", "@wonderwhy-er/desktop-commander"],
+      "description": "Terminal control + file search + diff-based editing — long-running process management and interactive REPLs"
     }
   }
 }
