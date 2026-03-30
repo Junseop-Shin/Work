@@ -58,3 +58,11 @@ credentials/
 
 # ─── Projects (각 프로젝트는 개별 git repo로 관리) ──
 Projects/*/
+
+# ─── Local dev artifacts ──────────────────────────────
+network-logs.txt
+screenshot/
+.playwright-mcp/
+Coding_Tests/
+*.png
+*.mov

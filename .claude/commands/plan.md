@@ -1,76 +1,112 @@
-# /plan — Architecture Design Document Generator
+# /plan — Architecture Design with Parallel Expert Review
 
-Invoke the Opus sub-agent to produce a thorough architecture design document for the given task or feature.
+Generate an architecture design document using the architect agent, then validate it with parallel specialist agents before presenting to the user.
 
 ## Steps
 
 1. **Gather context** — read relevant existing files:
-   - Project structure (`ls`, `Glob`)
+   - Project structure (`Glob`, `Grep`)
    - Existing architecture patterns
    - Related code files
    - Any existing design documents
 
-2. **Delegate to Opus sub-agent** via the Task tool with `model: opus`:
+2. **Generate initial design** — delegate to `architect` agent (Opus) via Task tool:
    - Full problem description
    - Constraints and requirements
    - Current codebase context
+   - Produce full architecture document (see format below)
 
-3. **Produce architecture document** with this structure:
+3. **Parallel specialist review** — once architect completes, launch in parallel via Task tool:
+   - `security-auditor` — review design for security implications, threat surface, missing auth/authz
+   - `backend-developer` — review for backend feasibility, API design, DB schema, scalability
+   - `devops-engineer` — review for deployment complexity, infra requirements, CI/CD impact
+   - `frontend-developer` — if UI components involved, review for frontend feasibility and UX concerns
 
-   ```markdown
-   # Architecture Plan — <feature/task name>
-   ## Date: <date>
+   Each specialist receives: the architect's full design document + original requirements
 
-   ## Problem Statement
-   What we're solving and why.
+4. **Synthesize and present**:
+   - Present the architect's design document
+   - Append a **"Specialist Feedback"** section with concerns from each agent
+   - Highlight any conflicts or blockers (items that would require redesign)
 
-   ## Requirements
-   ### Functional
-   - ...
-   ### Non-Functional
-   - Performance, security, scalability constraints
+5. **Wait for user approval** before any implementation begins
 
-   ## Proposed Solution
-   High-level approach and rationale.
+## Architecture Document Format
 
-   ## System Design
-   ### Components
-   | Component | Responsibility | Technology |
-   |-----------|---------------|------------|
+```markdown
+# Architecture Plan — <feature/task name>
+## Date: <date>
 
-   ### Data Flow
-   1. Step 1
-   2. Step 2
+## Problem Statement
+What we're solving and why.
 
-   ### API/Interface Design
-   Key interfaces or APIs if applicable.
+## Requirements
+### Functional
+- ...
+### Non-Functional
+- Performance, security, scalability constraints
 
-   ## Trade-offs Considered
-   | Option | Pros | Cons | Decision |
-   |--------|------|------|---------|
+## Proposed Solution
+High-level approach and rationale.
 
-   ## Implementation Plan
-   ### Phase 1 — <name>
-   - [ ] Task 1
-   - [ ] Task 2
+## System Design
+### Components
+| Component | Responsibility | Technology |
+|-----------|---------------|------------|
 
-   ### Phase 2 — <name>
-   - [ ] Task 3
+### Data Flow
+1. Step 1
+2. Step 2
 
-   ## Risk Assessment
-   | Risk | Likelihood | Impact | Mitigation |
-   |------|-----------|--------|-----------|
+### API/Interface Design
+Key interfaces or APIs if applicable.
 
-   ## Open Questions
-   - Question 1
-   - Question 2
-   ```
+## Trade-offs Considered
+| Option | Pros | Cons | Decision |
+|--------|------|------|---------|
 
-4. **Present the document** to the user for review and discussion before implementation begins
+## Implementation Plan
+### Phase 1 — <name>
+- [ ] Task (Xmin) — verification: ...
+- [ ] Task (Xmin) — verification: ...
+
+### Phase 2 — <name>
+- [ ] Task (Xmin) — verification: ...
+
+## Risk Assessment
+| Risk | Likelihood | Impact | Mitigation |
+|------|-----------|--------|-----------|
+
+## Open Questions
+- Question 1
+```
+
+## Specialist Feedback Format
+
+```markdown
+## Specialist Feedback
+
+### Security (security-auditor)
+- ⚠️ Concern: ...
+- ✅ Looks good: ...
+
+### Backend (backend-developer)
+- ⚠️ Concern: ...
+
+### DevOps (devops-engineer)
+- ⚠️ Concern: ...
+
+### Frontend (frontend-developer) — if applicable
+- ⚠️ Concern: ...
+
+### Blockers (must resolve before implementation)
+- [ ] ...
+```
 
 ## Rules
 
-- Use Opus model for the design phase — this is an architecture decision task
-- Do not start implementation until the user approves the plan
-- Flag open questions explicitly rather than making assumptions
-- Consider security implications in the design
+- Always run architect + security-auditor + backend-developer + devops-engineer
+- Add frontend-developer only if the design involves UI components
+- Implementation tasks must be bite-sized: single responsibility + time estimate + verification method
+- Do not start implementation until user explicitly approves
+- Flag open questions rather than making assumptions
