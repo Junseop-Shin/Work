@@ -12,7 +12,7 @@
 | TypeScript | 언어 | 전체 | — | ⬜ |
 | React 19 | 프론트엔드 | techfeed, kis-trader, boldgobynd, profile | — | ⬜ |
 | Next.js 15 | 프론트엔드 | techfeed, kis-trader, boldgobynd, profile | — | ⬜ |
-| React Native / Expo | 모바일 | techfeed-mobile | — | ⬜ |
+| React Native / Expo | 모바일 | techfeed-mobile | [비교](2026-04-29-RN-vs-Flutter-비교.md), [아키텍처](2026-04-29-RN-Expo-WebView래퍼-아키텍처.md) | 🟨 |
 | Zustand | 상태관리 | techfeed-mobile, kis-trader | — | ⬜ |
 | TanStack Query (React Query) | 상태관리/서버상태 | techfeed-mobile, kis-trader, my-ui-lib | — | ⬜ |
 | Tailwind CSS | 스타일링 | kis-trader, boldgobynd, my-ui-lib | — | ⬜ |
