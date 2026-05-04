@@ -9,7 +9,7 @@
 
 | 기술 | 카테고리 | 사용 프로젝트 | 문서 | 상태 |
 |------|----------|--------------|------|------|
-| TypeScript | 언어 | 전체 | — | ⬜ |
+| TypeScript | 언어 | 전체 | [종합정리](2026-05-04-TypeScript-종합정리.md) | ✅ |
 | React 19 | 프론트엔드 | techfeed, kis-trader, boldgobynd, profile | — | ⬜ |
 | Next.js 15 | 프론트엔드 | techfeed, kis-trader, boldgobynd, profile | — | ⬜ |
 | React Native / Expo | 모바일 | techfeed-mobile | [비교](2026-04-29-RN-vs-Flutter-비교.md), [아키텍처](2026-04-29-RN-Expo-WebView래퍼-아키텍처.md) | 🟨 |
