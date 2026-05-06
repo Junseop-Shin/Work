@@ -11,7 +11,7 @@
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| TypeScript | [종합정리](2026-05-04-TypeScript-종합정리.md) | ✅ |
+| TypeScript | [종합정리](언어/TypeScript-종합정리.md) | ✅ |
 | Python | — | ⬜ |
 
 <details>
@@ -29,7 +29,7 @@
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| React | — | ⬜ |
+| React | [18+19 주요 변경사항](프론트엔드/React-18-19-주요변경사항.md) | 🟨 |
 | Next.js | — | ⬜ |
 
 <details>
@@ -37,7 +37,7 @@
 
 | 버전 | 주요 기능 | 문서 | 상태 |
 |------|----------|------|------|
-| 19 | Server Components 안정화, Actions, `use` Hook | — | ⬜ |
+| 18 + 19 | Concurrent Rendering, Server Components, Compiler, Actions | [문서](프론트엔드/React-18-19-주요변경사항.md) | ✅ |
 | 20 | — | — | ⬜ |
 
 </details>
@@ -57,7 +57,7 @@
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| React Native / Expo | [RN vs Flutter](2026-04-29-RN-vs-Flutter-비교.md), [Expo WebView 래퍼](2026-04-29-RN-Expo-WebView래퍼-아키텍처.md) | 🟨 |
+| React Native / Expo | [RN vs Flutter](모바일/RN-vs-Flutter-비교.md), [Expo WebView 래퍼](모바일/RN-Expo-WebView래퍼-아키텍처.md) | 🟨 |
 | expo-router | — | ⬜ |
 
 <details>
@@ -192,6 +192,8 @@
 
 ## 문서 작성 규칙
 
-- 파일명: `YYYY-MM-DD-<주제>.md`
+- 폴더 구조: `Study/<카테고리>/<주제>.md`
+- 카테고리는 위 학습 현황의 16개 분류를 따름 (예: `언어/`, `프론트엔드/`, `모바일/`)
+- 파일명: `<주제>.md` (날짜 미포함, 변경 이력은 git이 관리)
 - 학습 완료 시 위 표의 `문서` 칸에 링크, `상태` 칸을 ✅로 업데이트
 - 버전별 follow-up은 해당 카테고리의 `<details>` 블록에 추가
