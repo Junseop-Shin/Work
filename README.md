@@ -19,9 +19,21 @@
 
 ## 📚 Study
 
-> [Study 폴더 바로가기](./Study/)
+> [Study 폴더 바로가기](./Study/) · 카테고리별 학습 현황은 [Study/README.md](./Study/README.md) 참조
 
-자격증 취득 및 기술 학습 자료를 체계적으로 정리합니다.
+`/study` 커맨드로 대화형 학습 후 카테고리별 문서로 정리합니다.
+
+### 기술 학습
+
+| 카테고리 | 항목 |
+|---------|------|
+| 언어 | TypeScript (✅ 종합정리, 버전별 follow-up) |
+| 프론트엔드 | React 19/20, Next.js 15/16/17 |
+| 모바일 | React Native / Expo (✅ RN vs Flutter, ✅ WebView 래퍼) |
+| 상태관리 | Zustand, TanStack Query |
+| 스타일링 | Tailwind, Radix, shadcn, styled-components, Motion |
+
+### 자격증
 
 | 분야 | 항목 |
 |------|------|
