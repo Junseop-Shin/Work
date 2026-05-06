@@ -19,9 +19,32 @@
 
 ## 📚 Study
 
-> [Study 폴더 바로가기](./Study/)
+> [Study 폴더 바로가기](./Study/) · 카테고리별 학습 현황은 [Study/README.md](./Study/README.md) 참조
 
-자격증 취득 및 기술 학습 자료를 체계적으로 정리합니다.
+`/study` 커맨드로 대화형 학습 후 카테고리별 문서로 정리합니다.
+
+### 기술 학습
+
+> 카테고리별 상세 현황은 [Study/README.md](./Study/README.md)
+
+| 카테고리 | 주요 항목 |
+|---------|----------|
+| 언어 | TypeScript (✅ 종합정리), Python |
+| 프론트엔드 프레임워크 | React, Next.js (버전별 follow-up) |
+| 모바일 | React Native / Expo (✅ RN vs Flutter, ✅ WebView 래퍼), expo-router |
+| 상태관리 | Zustand, TanStack Query |
+| UI / 스타일링 | Tailwind, Radix, shadcn, styled-components, Motion, CVA |
+| 폼 / 유효성 | React Hook Form, Pydantic, class-validator |
+| 백엔드 | NestJS, FastAPI |
+| ORM / ODM | TypeORM, Mongoose, SQLAlchemy |
+| 인증 / 큐 | Passport.js / JWT, BullMQ, Celery |
+| DB | PostgreSQL/TimescaleDB, MongoDB, Redis, Elasticsearch |
+| 시각화 / 차트 | Three.js, Recharts, lightweight-charts |
+| 테스트 | Vitest, Testing Library, Playwright, Storybook |
+| 인프라 / CI | Docker, GitHub Actions, Cloudflare Tunnel |
+| 모니터링 | Prometheus, Grafana, Loki |
+
+### 자격증
 
 | 분야 | 항목 |
 |------|------|
