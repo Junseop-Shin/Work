@@ -14,17 +14,6 @@
 | TypeScript | [종합정리](언어/TypeScript-종합정리.md) | ✅ |
 | Python | — | ⬜ |
 
-<details>
-<summary>TypeScript 버전별 follow-up</summary>
-
-| 버전 | 문서 | 상태 |
-|------|------|------|
-| 5.x 신규 기능 | — | ⬜ |
-| 6.0 | — | ⬜ |
-| 7.0 (Go Native) | — | ⬜ |
-
-</details>
-
 ### 2. 프론트엔드 프레임워크
 
 | 기술 | 문서 | 상태 |
@@ -32,43 +21,12 @@
 | React | [18+19 주요 변경사항](프론트엔드/React-18-19-주요변경사항.md) | 🟨 |
 | Next.js | — | ⬜ |
 
-<details>
-<summary>React 버전별 follow-up</summary>
-
-| 버전 | 주요 기능 | 문서 | 상태 |
-|------|----------|------|------|
-| 18 + 19 | Concurrent Rendering, Server Components, Compiler, Actions | [문서](프론트엔드/React-18-19-주요변경사항.md) | ✅ |
-| 20 | — | — | ⬜ |
-
-</details>
-
-<details>
-<summary>Next.js 버전별 follow-up</summary>
-
-| 버전 | 주요 기능 | 문서 | 상태 |
-|------|----------|------|------|
-| 15 | App Router, RSC, 캐싱 변경 | — | ⬜ |
-| 16 | — | — | ⬜ |
-| 17 | — | — | ⬜ |
-
-</details>
-
 ### 3. 모바일
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
 | React Native / Expo | [RN vs Flutter](모바일/RN-vs-Flutter-비교.md), [Expo WebView 래퍼](모바일/RN-Expo-WebView래퍼-아키텍처.md) | 🟨 |
 | expo-router | — | ⬜ |
-
-<details>
-<summary>RN follow-up</summary>
-
-| 주제 | 문서 | 상태 |
-|------|------|------|
-| New Architecture (Fabric / TurboModules) | — | ⬜ |
-| Hermes 엔진 | — | ⬜ |
-
-</details>
 
 ### 4. 상태관리
 
@@ -196,4 +154,3 @@
 - 카테고리는 위 학습 현황의 16개 분류를 따름 (예: `언어/`, `프론트엔드/`, `모바일/`)
 - 파일명: `<주제>.md` (날짜 미포함, 변경 이력은 git이 관리)
 - 학습 완료 시 위 표의 `문서` 칸에 링크, `상태` 칸을 ✅로 업데이트
-- 버전별 follow-up은 해당 카테고리의 `<details>` 블록에 추가
