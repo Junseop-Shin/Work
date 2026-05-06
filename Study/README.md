@@ -9,10 +9,10 @@
 
 ### 1. 언어
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| TypeScript | 전체 | [종합정리](2026-05-04-TypeScript-종합정리.md) | ✅ |
-| Python | FastAPI 생태계 | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| TypeScript | [종합정리](2026-05-04-TypeScript-종합정리.md) | ✅ |
+| Python | — | ⬜ |
 
 <details>
 <summary>TypeScript 버전별 follow-up</summary>
@@ -27,10 +27,10 @@
 
 ### 2. 프론트엔드 프레임워크
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| React | techfeed, kis-trader, boldgobynd, profile | — | ⬜ |
-| Next.js | techfeed, kis-trader, boldgobynd, profile | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| React | — | ⬜ |
+| Next.js | — | ⬜ |
 
 <details>
 <summary>React 버전별 follow-up</summary>
@@ -55,10 +55,10 @@
 
 ### 3. 모바일
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| React Native / Expo | techfeed-mobile | [RN vs Flutter](2026-04-29-RN-vs-Flutter-비교.md), [Expo WebView 래퍼](2026-04-29-RN-Expo-WebView래퍼-아키텍처.md) | 🟨 |
-| expo-router | techfeed-mobile | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| React Native / Expo | [RN vs Flutter](2026-04-29-RN-vs-Flutter-비교.md), [Expo WebView 래퍼](2026-04-29-RN-Expo-WebView래퍼-아키텍처.md) | 🟨 |
+| expo-router | — | ⬜ |
 
 <details>
 <summary>RN follow-up</summary>
@@ -72,104 +72,104 @@
 
 ### 4. 상태관리
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| Zustand | techfeed-mobile, kis-trader | — | ⬜ |
-| TanStack Query (React Query) | techfeed-mobile, kis-trader, my-ui-lib | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| Zustand | — | ⬜ |
+| TanStack Query (React Query) | — | ⬜ |
 
 ### 5. UI / 스타일링
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| Tailwind CSS | kis-trader, boldgobynd, my-ui-lib | — | ⬜ |
-| Radix UI | kis-trader, my-ui-lib | — | ⬜ |
-| shadcn/ui | kis-trader | — | ⬜ |
-| styled-components | boldgobynd | — | ⬜ |
-| Motion (Framer Motion) | boldgobynd, profile, my-ui-lib | — | ⬜ |
-| class-variance-authority (CVA) | my-ui-lib | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| Tailwind CSS | — | ⬜ |
+| Radix UI | — | ⬜ |
+| shadcn/ui | — | ⬜ |
+| styled-components | — | ⬜ |
+| Motion (Framer Motion) | — | ⬜ |
+| class-variance-authority (CVA) | — | ⬜ |
 
 ### 6. 폼 / 유효성 검사
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| React Hook Form | my-ui-lib | — | ⬜ |
-| Pydantic | kis-trader, lotto-oracle | — | ⬜ |
-| class-validator | techfeed-api | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| React Hook Form | — | ⬜ |
+| Pydantic | — | ⬜ |
+| class-validator | — | ⬜ |
 
 ### 7. 백엔드 프레임워크
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| NestJS (Node.js) | techfeed-api | — | ⬜ |
-| FastAPI (Python) | kis-trader, lotto-oracle | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| NestJS (Node.js) | — | ⬜ |
+| FastAPI (Python) | — | ⬜ |
 
 ### 8. ORM / ODM
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| TypeORM | techfeed-api | — | ⬜ |
-| Mongoose | techfeed-api | — | ⬜ |
-| SQLAlchemy | kis-trader | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| TypeORM | — | ⬜ |
+| Mongoose | — | ⬜ |
+| SQLAlchemy | — | ⬜ |
 
 ### 9. 인증
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| Passport.js / JWT | techfeed-api | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| Passport.js / JWT | — | ⬜ |
 
 ### 10. 큐 / 스케줄링
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| BullMQ | techfeed-api, techfeed-crawler | — | ⬜ |
-| Celery | kis-trader | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| BullMQ | — | ⬜ |
+| Celery | — | ⬜ |
 
 ### 11. DB
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| PostgreSQL / TimescaleDB | techfeed, kis-trader, devops-monitor | — | ⬜ |
-| MongoDB | techfeed | — | ⬜ |
-| Redis | techfeed, kis-trader | — | ⬜ |
-| Elasticsearch | techfeed | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| PostgreSQL / TimescaleDB | — | ⬜ |
+| MongoDB | — | ⬜ |
+| Redis | — | ⬜ |
+| Elasticsearch | — | ⬜ |
 
 ### 12. 시각화 / 차트
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| Three.js | lotto-oracle | — | ⬜ |
-| Recharts | my-ui-lib, kis-trader | — | ⬜ |
-| lightweight-charts (TradingView) | kis-trader | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| Three.js | — | ⬜ |
+| Recharts | — | ⬜ |
+| lightweight-charts (TradingView) | — | ⬜ |
 
 ### 13. 테스트
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| Vitest | my-ui-lib, lotto-oracle | — | ⬜ |
-| Testing Library | my-ui-lib | — | ⬜ |
-| Playwright | my-ui-lib, lotto-oracle | — | ⬜ |
-| Storybook | my-ui-lib | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| Vitest | — | ⬜ |
+| Testing Library | — | ⬜ |
+| Playwright | — | ⬜ |
+| Storybook | — | ⬜ |
 
 ### 14. 번들러 / 빌드
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| Vite | my-ui-lib, profile | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| Vite | — | ⬜ |
 
 ### 15. 인프라 / CI / 배포
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| Docker / Docker Compose | 전체 | — | ⬜ |
-| GitHub Actions | 전체 | — | ⬜ |
-| Cloudflare Tunnel | 전체 | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| Docker / Docker Compose | — | ⬜ |
+| GitHub Actions | — | ⬜ |
+| Cloudflare Tunnel | — | ⬜ |
 
 ### 16. 모니터링
 
-| 기술 | 사용 프로젝트 | 문서 | 상태 |
-|------|--------------|------|------|
-| Prometheus / Grafana | devops-monitor | — | ⬜ |
-| Loki | devops-monitor | — | ⬜ |
+| 기술 | 문서 | 상태 |
+|------|------|------|
+| Prometheus / Grafana | — | ⬜ |
+| Loki | — | ⬜ |
 
 ---
 
