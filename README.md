@@ -30,7 +30,7 @@
 | 카테고리 | 주요 항목 |
 |---------|----------|
 | 언어 | TypeScript (✅ 종합정리), Python |
-| 프론트엔드 프레임워크 | React, Next.js (버전별 follow-up) |
+| 프론트엔드 프레임워크 | React (✅ 18+19 주요 변경사항), Next.js (버전별 follow-up) |
 | 모바일 | React Native / Expo (✅ RN vs Flutter, ✅ WebView 래퍼), expo-router |
 | 상태관리 | Zustand, TanStack Query |
 | UI / 스타일링 | Tailwind, Radix, shadcn, styled-components, Motion, CVA |
