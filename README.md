@@ -32,7 +32,7 @@
 | 언어 | TypeScript (✅ 종합정리), Python |
 | 프론트엔드 프레임워크 | React (✅ 18+19 주요 변경사항), Next.js (✅ 기본, ✅ 15+16 주요 변경사항) |
 | 모바일 | React Native / Expo (✅ RN vs Flutter, ✅ WebView 래퍼), expo-router |
-| 상태관리 | Zustand, TanStack Query (✅ 서버 상태 비교: TanStack/SWR/RTK Query) |
+| 상태관리 | (✅ 서버 상태 비교: TanStack/SWR/RTK Query), (✅ 클라이언트 상태 비교: Zustand/Redux/MobX/Valtio/Jotai) |
 | UI / 스타일링 | Tailwind, Radix, shadcn, styled-components, Motion, CVA |
 | 폼 / 유효성 | React Hook Form, Pydantic, class-validator |
 | 백엔드 | NestJS, FastAPI |
