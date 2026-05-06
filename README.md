@@ -25,13 +25,24 @@
 
 ### 기술 학습
 
-| 카테고리 | 항목 |
-|---------|------|
-| 언어 | TypeScript (✅ 종합정리, 버전별 follow-up) |
-| 프론트엔드 | React 19/20, Next.js 15/16/17 |
-| 모바일 | React Native / Expo (✅ RN vs Flutter, ✅ WebView 래퍼) |
+> 카테고리별 상세 현황은 [Study/README.md](./Study/README.md)
+
+| 카테고리 | 주요 항목 |
+|---------|----------|
+| 언어 | TypeScript (✅ 종합정리), Python |
+| 프론트엔드 프레임워크 | React, Next.js (버전별 follow-up) |
+| 모바일 | React Native / Expo (✅ RN vs Flutter, ✅ WebView 래퍼), expo-router |
 | 상태관리 | Zustand, TanStack Query |
-| 스타일링 | Tailwind, Radix, shadcn, styled-components, Motion |
+| UI / 스타일링 | Tailwind, Radix, shadcn, styled-components, Motion, CVA |
+| 폼 / 유효성 | React Hook Form, Pydantic, class-validator |
+| 백엔드 | NestJS, FastAPI |
+| ORM / ODM | TypeORM, Mongoose, SQLAlchemy |
+| 인증 / 큐 | Passport.js / JWT, BullMQ, Celery |
+| DB | PostgreSQL/TimescaleDB, MongoDB, Redis, Elasticsearch |
+| 시각화 / 차트 | Three.js, Recharts, lightweight-charts |
+| 테스트 | Vitest, Testing Library, Playwright, Storybook |
+| 인프라 / CI | Docker, GitHub Actions, Cloudflare Tunnel |
+| 모니터링 | Prometheus, Grafana, Loki |
 
 ### 자격증
 
