@@ -34,8 +34,8 @@
 | 모바일 | React Native / Expo (✅ RN vs Flutter, ✅ WebView 래퍼), expo-router |
 | 상태관리 | (✅ 서버 상태 비교: TanStack/SWR/RTK Query), (✅ 클라이언트 상태 비교: Zustand/Redux/MobX/Valtio/Jotai) |
 | UI / 스타일링 | Tailwind, Radix, shadcn, styled-components, Motion, CVA |
-| 폼 / 유효성 | React Hook Form, Pydantic, class-validator |
-| 백엔드 | NestJS, FastAPI |
+| 폼 / 유효성 | (✅ 폼 라이브러리 + 검증 비교: RHF/Formik/Actions + Zod/Yup/class-validator), Pydantic |
+| 백엔드 / API | (✅ GraphQL 기본), NestJS, FastAPI |
 | ORM / ODM | TypeORM, Mongoose, SQLAlchemy |
 | 인증 / 큐 | Passport.js / JWT, BullMQ, Celery |
 | DB | PostgreSQL/TimescaleDB, MongoDB, Redis, Elasticsearch |
@@ -43,6 +43,7 @@
 | 테스트 | Vitest, Testing Library, Playwright, Storybook |
 | 인프라 / CI | Docker, GitHub Actions, Cloudflare Tunnel |
 | 모니터링 | Prometheus, Grafana, Loki |
+| 아키텍처 (풀스택 메타) | (✅ 프론트-백엔드 계약 동기화: OpenAPI/GraphQL/tRPC) |
 
 ### 자격증
 
