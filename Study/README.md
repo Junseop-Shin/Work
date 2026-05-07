@@ -45,12 +45,17 @@
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| Tailwind CSS | — | ⬜ |
-| Radix UI | — | ⬜ |
-| shadcn/ui | — | ⬜ |
-| styled-components | — | ⬜ |
+| Tailwind CSS | [CSS 작성 방식 비교](UI-스타일링/CSS-작성방식-비교.md) | ✅ |
+| CSS Modules | [CSS 작성 방식 비교](UI-스타일링/CSS-작성방식-비교.md) | ✅ |
+| styled-components / Emotion | [CSS 작성 방식 비교](UI-스타일링/CSS-작성방식-비교.md) | ✅ |
+| Vanilla Extract / Linaria / Panda | [CSS 작성 방식 비교](UI-스타일링/CSS-작성방식-비교.md) | ✅ |
+| class-variance-authority (CVA) | [CSS 작성 방식 비교](UI-스타일링/CSS-작성방식-비교.md) | ✅ |
+| tailwind-merge / clsx | [CSS 작성 방식 비교](UI-스타일링/CSS-작성방식-비교.md) | ✅ |
+| Radix UI | [Headless UI 라이브러리 비교](UI-스타일링/Headless-UI-라이브러리-비교.md) | ✅ |
+| shadcn/ui | [Headless UI 라이브러리 비교](UI-스타일링/Headless-UI-라이브러리-비교.md) | ✅ |
+| MUI / Chakra / Mantine | [Headless UI 라이브러리 비교](UI-스타일링/Headless-UI-라이브러리-비교.md) | ✅ |
+| React Aria / Headless UI / Ariakit | [Headless UI 라이브러리 비교](UI-스타일링/Headless-UI-라이브러리-비교.md) | ✅ |
 | Motion (Framer Motion) | — | ⬜ |
-| class-variance-authority (CVA) | — | ⬜ |
 
 ### 6. 폼 / 유효성 검사
 
