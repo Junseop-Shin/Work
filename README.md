@@ -35,7 +35,7 @@
 | 상태관리 | (✅ 서버 상태 비교: TanStack/SWR/RTK Query), (✅ 클라이언트 상태 비교: Zustand/Redux/MobX/Valtio/Jotai) |
 | UI / 스타일링 | (✅ CSS 작성 방식 비교), (✅ Headless UI 라이브러리 비교: Radix/shadcn/MUI/Chakra/Mantine), Motion |
 | 폼 / 유효성 | (✅ 폼 라이브러리 + 검증 비교: RHF/Formik/Actions + Zod/Yup/class-validator), Pydantic |
-| 백엔드 / API | (✅ GraphQL 기본), NestJS, FastAPI |
+| 백엔드 / API | (✅ GraphQL 기본), (✅ NestJS 아키텍처), (✅ 프레임워크 비교: Node/Python/Java/Go/Rust/.NET), FastAPI |
 | ORM / ODM | TypeORM, Mongoose, SQLAlchemy |
 | 인증 / 큐 | Passport.js / JWT, BullMQ, Celery |
 | DB | PostgreSQL/TimescaleDB, MongoDB, Redis, Elasticsearch |
@@ -133,5 +133,5 @@ IaC, 서버 설정, 아키텍처 다이어그램 등을 관리합니다.
 ---
 
 <p align="center">
-  <sub>🤖 AI-assisted workspace · Last updated: 2026-02-20</sub>
+  <sub>🤖 AI-assisted workspace · Last updated: 2026-06-02</sub>
 </p>
