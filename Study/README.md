@@ -74,8 +74,9 @@
 | 기술 | 문서 | 상태 |
 |------|------|------|
 | GraphQL | [GraphQL 기본](백엔드/GraphQL-기본.md) | ✅ |
-| NestJS (Node.js) | — | ⬜ |
-| FastAPI (Python) | — | ⬜ |
+| NestJS (Node.js) | [NestJS 아키텍처](백엔드/NestJS-아키텍처.md) | ✅ |
+| 프레임워크 비교 | [Node/Python/Java/Go/Rust/.NET 비교](백엔드/백엔드-프레임워크-비교.md) | ✅ |
+| FastAPI (Python) | [프레임워크 비교](백엔드/백엔드-프레임워크-비교.md) | 🟨 |
 
 ### 8. ORM / ODM
 
