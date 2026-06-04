@@ -44,6 +44,7 @@
 | 인프라 / CI | Docker, GitHub Actions, Cloudflare Tunnel |
 | 모니터링 | Prometheus, Grafana, Loki |
 | 아키텍처 (풀스택 메타) | (✅ 프론트-백엔드 계약 동기화: OpenAPI/GraphQL/tRPC) |
+| 책 (장별 정리) | (🟨 모던 API 아키텍처: 0~2장 — 설계/REST/gRPC/OpenAPI/테스트) |
 
 ### 자격증
 
