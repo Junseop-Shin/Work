@@ -92,7 +92,8 @@
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| Passport.js / JWT | — | ⬜ |
+| 세션/JWT/OAuth/OIDC | [인증 종합](인증/인증-JWT-OAuth-OIDC.md) | ✅ |
+| Passport.js | [인증 종합](인증/인증-JWT-OAuth-OIDC.md) | ✅ |
 
 ### 10. 큐 / 스케줄링
 
