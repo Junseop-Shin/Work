@@ -75,16 +75,18 @@
 |------|------|------|
 | GraphQL | [GraphQL 기본](백엔드/GraphQL-기본.md) | ✅ |
 | NestJS (Node.js) | [NestJS 아키텍처](백엔드/NestJS-아키텍처.md) | ✅ |
+| FastAPI (Python) | [FastAPI 기본](백엔드/FastAPI-기본.md) | ✅ |
 | 프레임워크 비교 | [Node/Python/Java/Go/Rust/.NET 비교](백엔드/백엔드-프레임워크-비교.md) | ✅ |
-| FastAPI (Python) | [프레임워크 비교](백엔드/백엔드-프레임워크-비교.md) | 🟨 |
 
 ### 8. ORM / ODM
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| TypeORM | — | ⬜ |
-| Mongoose | — | ⬜ |
-| SQLAlchemy | — | ⬜ |
+| 패턴 (AR vs DM) | [ORM 패턴 비교](ORM-ODM/ORM-패턴-비교.md) | ✅ |
+| SQLAlchemy | [ORM 패턴 비교](ORM-ODM/ORM-패턴-비교.md) | 🟨 |
+| TypeORM | [ORM 패턴 비교](ORM-ODM/ORM-패턴-비교.md) | 🟨 |
+| Prisma | [ORM 패턴 비교](ORM-ODM/ORM-패턴-비교.md) | 🟨 |
+| Mongoose | [ORM 패턴 비교](ORM-ODM/ORM-패턴-비교.md) | 🟨 |
 
 ### 9. 인증
 
