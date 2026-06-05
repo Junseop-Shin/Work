@@ -38,13 +38,14 @@
 | 백엔드 / API | (✅ GraphQL 기본), (✅ NestJS 아키텍처), (✅ FastAPI 기본), (✅ 프레임워크 비교: Node/Python/Java/Go/Rust/.NET) |
 | ORM / ODM | (✅ ORM 패턴 비교: Active Record vs Data Mapper), SQLAlchemy, TypeORM, Prisma, Mongoose |
 | 인증 / 큐 | (✅ 인증 종합: 세션/JWT/OAuth/OIDC/Passport/mTLS), BullMQ, Celery |
-| DB | PostgreSQL/TimescaleDB, MongoDB, Redis, Elasticsearch |
+| DB | (✅ PostgreSQL & TimescaleDB), (✅ Redis 캐싱), MongoDB, Elasticsearch |
 | 시각화 / 차트 | Three.js, Recharts, lightweight-charts |
 | 테스트 | Vitest, Testing Library, Playwright, Storybook |
 | 인프라 / CI | Docker, GitHub Actions, Cloudflare Tunnel |
 | 모니터링 | Prometheus, Grafana, Loki |
 | 아키텍처 (풀스택 메타) | (✅ 프론트-백엔드 계약 동기화: OpenAPI/GraphQL/tRPC) |
 | 책 (장별 정리) | (🟨 모던 API 아키텍처: 0~2장 — 설계/REST/gRPC/OpenAPI/테스트) |
+| 아티클 (엔지니어링 블로그) | (✅ Shopify 재고 예약 스케일링: Redis→MySQL, SKIP LOCKED) |
 
 ### 자격증
 

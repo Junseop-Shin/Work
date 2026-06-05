@@ -106,10 +106,11 @@
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| PostgreSQL / TimescaleDB | — | ⬜ |
+| PostgreSQL / TimescaleDB | [PostgreSQL & TimescaleDB](DB/PostgreSQL-TimescaleDB.md) | ✅ |
+| Redis | [Redis 캐싱](DB/Redis-캐싱.md) | ✅ |
 | MongoDB | — | ⬜ |
-| Redis | — | ⬜ |
 | Elasticsearch | — | ⬜ |
+| RDB 공통 (JOIN 전략 / EXPLAIN / 실행계획) | — | ⬜ |
 
 ### 12. 시각화 / 차트
 
@@ -160,6 +161,12 @@
 | 책 | 정리 | 상태 |
 |----|------|------|
 | 모던 API 아키텍처 | [장별 정리](책/모던-API-아키텍처/README.md) | 🟨 (0~2장) |
+
+### 19. 아티클 (엔지니어링 블로그 정리)
+
+| 출처 | 정리 | 상태 |
+|------|------|------|
+| Shopify Engineering | [재고 예약 스케일링 (Redis→MySQL)](아티클/Shopify-재고예약-스케일링.md) | ✅ |
 
 ---
 
