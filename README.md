@@ -29,7 +29,7 @@
 
 | 카테고리 | 주요 항목 |
 |---------|----------|
-| 언어 | TypeScript (✅ 종합정리), Python |
+| 언어 | TypeScript (✅ 종합정리), Go (✅ 기본, ✅ 동시성), 언어별 동시성 비교 (✅), Python |
 | 프론트엔드 프레임워크 | React (✅ 18+19 주요 변경사항), Next.js (✅ 기본, ✅ 15+16 주요 변경사항) |
 | 모바일 | React Native / Expo (✅ RN vs Flutter, ✅ WebView 래퍼), expo-router |
 | 상태관리 | (✅ 서버 상태 비교: TanStack/SWR/RTK Query), (✅ 클라이언트 상태 비교: Zustand/Redux/MobX/Valtio/Jotai) |
@@ -135,5 +135,5 @@ IaC, 서버 설정, 아키텍처 다이어그램 등을 관리합니다.
 ---
 
 <p align="center">
-  <sub>🤖 AI-assisted workspace · Last updated: 2026-06-04</sub>
+  <sub>🤖 AI-assisted workspace · Last updated: 2026-06-08</sub>
 </p>
