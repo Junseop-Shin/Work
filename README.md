@@ -38,7 +38,7 @@
 | 백엔드 / API | (✅ GraphQL 기본), (✅ NestJS 아키텍처), (✅ FastAPI 기본), (✅ 프레임워크 비교: Node/Python/Java/Go/Rust/.NET) |
 | ORM / ODM | (✅ ORM 패턴 비교: Active Record vs Data Mapper), SQLAlchemy, TypeORM, Prisma, Mongoose |
 | 인증 / 큐 | (✅ 인증 종합: 세션/JWT/OAuth/OIDC/Passport/mTLS), BullMQ, Celery |
-| DB | (✅ PostgreSQL & TimescaleDB), (✅ Redis 캐싱), MongoDB, Elasticsearch |
+| DB | (✅ PostgreSQL & TimescaleDB), (✅ Redis 캐싱), (✅ MongoDB), (✅ Elasticsearch) |
 | 시각화 / 차트 | Three.js, Recharts, lightweight-charts |
 | 테스트 | Vitest, Testing Library, Playwright, Storybook |
 | 인프라 / CI | Docker, GitHub Actions, Cloudflare Tunnel |

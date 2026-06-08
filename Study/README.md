@@ -108,8 +108,8 @@
 |------|------|------|
 | PostgreSQL / TimescaleDB | [PostgreSQL & TimescaleDB](DB/PostgreSQL-TimescaleDB.md) | ✅ |
 | Redis | [Redis 캐싱](DB/Redis-캐싱.md) | ✅ |
-| MongoDB | — | ⬜ |
-| Elasticsearch | — | ⬜ |
+| MongoDB | [MongoDB 문서 DB](DB/MongoDB.md) | ✅ |
+| Elasticsearch | [Elasticsearch 검색 엔진](DB/Elasticsearch.md) | ✅ |
 | RDB 공통 (JOIN 전략 / EXPLAIN / 실행계획) | — | ⬜ |
 
 ### 12. 시각화 / 차트
