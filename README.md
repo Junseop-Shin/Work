@@ -29,7 +29,7 @@
 
 | 카테고리 | 주요 항목 |
 |---------|----------|
-| 언어 | TypeScript (✅ 종합정리), Python |
+| 언어 | TypeScript (✅ 종합정리), Go (✅ 기본, ✅ 동시성), 언어별 동시성 비교 (✅), Python |
 | 프론트엔드 프레임워크 | React (✅ 18+19 주요 변경사항), Next.js (✅ 기본, ✅ 15+16 주요 변경사항) |
 | 모바일 | React Native / Expo (✅ RN vs Flutter, ✅ WebView 래퍼), expo-router |
 | 상태관리 | (✅ 서버 상태 비교: TanStack/SWR/RTK Query), (✅ 클라이언트 상태 비교: Zustand/Redux/MobX/Valtio/Jotai) |
@@ -41,9 +41,9 @@
 | DB | (✅ PostgreSQL & TimescaleDB), (✅ Redis 캐싱), (✅ MongoDB), (✅ Elasticsearch) |
 | 시각화 / 차트 | Three.js, Recharts, lightweight-charts |
 | 테스트 | (✅ 도구 종합비교: Vitest/Jest/Testing Library/Playwright/Storybook + JUnit/pytest/Go/RSpec, BDD vs Fluent, Test Double) |
-| 인프라 / CI | Docker, GitHub Actions, Cloudflare Tunnel |
+| 인프라 / CI | (✅ Docker · 컨테이너), (✅ GitHub Actions), (✅ Cloudflare: CDN/ZeroTrust/Tunnel) |
 | 모니터링 | Prometheus, Grafana, Loki |
-| 아키텍처 (풀스택 메타) | (✅ 프론트-백엔드 계약 동기화: OpenAPI/GraphQL/tRPC) |
+| 아키텍처 (풀스택 메타) | (✅ 프론트-백엔드 계약 동기화: OpenAPI/GraphQL/tRPC), (✅ 12/15-Factor App) |
 | 책 (장별 정리) | (🟨 모던 API 아키텍처: 0~2장 — 설계/REST/gRPC/OpenAPI/테스트) |
 | 아티클 (엔지니어링 블로그) | (✅ Shopify 재고 예약 스케일링: Redis→MySQL, SKIP LOCKED) |
 
@@ -135,5 +135,5 @@ IaC, 서버 설정, 아키텍처 다이어그램 등을 관리합니다.
 ---
 
 <p align="center">
-  <sub>🤖 AI-assisted workspace · Last updated: 2026-06-04</sub>
+  <sub>🤖 AI-assisted workspace · Last updated: 2026-06-08</sub>
 </p>
