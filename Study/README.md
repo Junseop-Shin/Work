@@ -127,10 +127,11 @@
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| Vitest | — | ⬜ |
-| Testing Library | — | ⬜ |
-| Playwright | — | ⬜ |
-| Storybook | — | ⬜ |
+| Vitest / Jest | [테스트 도구 종합비교](테스트/테스트-도구-종합비교.md) | ✅ |
+| Testing Library | [테스트 도구 종합비교](테스트/테스트-도구-종합비교.md) | ✅ |
+| Playwright / Cypress | [테스트 도구 종합비교](테스트/테스트-도구-종합비교.md) | ✅ |
+| Storybook / MSW | [테스트 도구 종합비교](테스트/테스트-도구-종합비교.md) | ✅ |
+| 크로스 언어 (JUnit/pytest/Go/RSpec) | [테스트 도구 종합비교](테스트/테스트-도구-종합비교.md) | ✅ |
 
 ### 14. 번들러 / 빌드
 

@@ -40,7 +40,7 @@
 | 인증 / 큐 | (✅ 인증 종합: 세션/JWT/OAuth/OIDC/Passport/mTLS), BullMQ, Celery |
 | DB | (✅ PostgreSQL & TimescaleDB), (✅ Redis 캐싱), (✅ MongoDB), (✅ Elasticsearch) |
 | 시각화 / 차트 | Three.js, Recharts, lightweight-charts |
-| 테스트 | Vitest, Testing Library, Playwright, Storybook |
+| 테스트 | (✅ 도구 종합비교: Vitest/Jest/Testing Library/Playwright/Storybook + JUnit/pytest/Go/RSpec, BDD vs Fluent, Test Double) |
 | 인프라 / CI | (✅ Docker · 컨테이너), (✅ GitHub Actions), (✅ Cloudflare: CDN/ZeroTrust/Tunnel) |
 | 모니터링 | Prometheus, Grafana, Loki |
 | 아키텍처 (풀스택 메타) | (✅ 프론트-백엔드 계약 동기화: OpenAPI/GraphQL/tRPC), (✅ 12/15-Factor App) |
