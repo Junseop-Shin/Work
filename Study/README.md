@@ -142,9 +142,9 @@
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| Docker / Docker Compose | — | ⬜ |
-| GitHub Actions | — | ⬜ |
-| Cloudflare Tunnel | — | ⬜ |
+| Docker / Docker Compose | [Docker · 컨테이너](인프라/Docker-컨테이너.md) | ✅ |
+| GitHub Actions | [GitHub Actions](인프라/GitHub-Actions.md) | ✅ |
+| Cloudflare (CDN/ZeroTrust/Tunnel) | [Cloudflare](인프라/Cloudflare.md) | ✅ |
 
 ### 16. 모니터링
 
@@ -158,6 +158,7 @@
 | 기술 | 문서 | 상태 |
 |------|------|------|
 | 프론트-백엔드 계약 동기화 (OpenAPI/GraphQL/tRPC) | [프론트-백엔드 계약 동기화](아키텍처/프론트-백엔드-계약-동기화.md) | ✅ |
+| 12/15-Factor App (클라우드네이티브 방법론) | [12/15-Factor App](아키텍처/12-15-Factor-App.md) | ✅ |
 
 ### 18. 책 (장별 정리)
 

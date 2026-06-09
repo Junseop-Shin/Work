@@ -41,9 +41,9 @@
 | DB | (✅ PostgreSQL & TimescaleDB), (✅ Redis 캐싱), (✅ MongoDB), (✅ Elasticsearch) |
 | 시각화 / 차트 | Three.js, Recharts, lightweight-charts |
 | 테스트 | Vitest, Testing Library, Playwright, Storybook |
-| 인프라 / CI | Docker, GitHub Actions, Cloudflare Tunnel |
+| 인프라 / CI | (✅ Docker · 컨테이너), (✅ GitHub Actions), (✅ Cloudflare: CDN/ZeroTrust/Tunnel) |
 | 모니터링 | Prometheus, Grafana, Loki |
-| 아키텍처 (풀스택 메타) | (✅ 프론트-백엔드 계약 동기화: OpenAPI/GraphQL/tRPC) |
+| 아키텍처 (풀스택 메타) | (✅ 프론트-백엔드 계약 동기화: OpenAPI/GraphQL/tRPC), (✅ 12/15-Factor App) |
 | 책 (장별 정리) | (🟨 모던 API 아키텍처: 0~2장 — 설계/REST/gRPC/OpenAPI/테스트) |
 | 아티클 (엔지니어링 블로그) | (✅ Shopify 재고 예약 스케일링: Redis→MySQL, SKIP LOCKED) |
 
