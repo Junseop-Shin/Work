@@ -31,7 +31,7 @@
 |---------|----------|
 | 언어 | TypeScript (✅ 종합정리), Go (✅ 기본, ✅ 동시성), 언어별 동시성 비교 (✅), Python |
 | 프론트엔드 프레임워크 | React (✅ 18+19 주요 변경사항), Next.js (✅ 기본, ✅ 15+16 주요 변경사항) |
-| 모바일 | React Native / Expo (✅ RN vs Flutter, ✅ WebView 래퍼), expo-router |
+| 모바일 | React Native / Expo (✅ RN vs Flutter + Native/웹앱/WASM 선택지도, ✅ WebView 래퍼), (✅ expo-router 파일 기반 네비게이션) |
 | 상태관리 | (✅ 서버 상태 비교: TanStack/SWR/RTK Query), (✅ 클라이언트 상태 비교: Zustand/Redux/MobX/Valtio/Jotai) |
 | UI / 스타일링 | (✅ CSS 작성 방식 비교), (✅ Headless UI 라이브러리 비교: Radix/shadcn/MUI/Chakra/Mantine), Motion |
 | 폼 / 유효성 | (✅ 폼 라이브러리 + 검증 비교: RHF/Formik/Actions + Zod/Yup/class-validator), Pydantic |

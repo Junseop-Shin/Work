@@ -28,8 +28,8 @@
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| React Native / Expo | [RN vs Flutter](모바일/RN-vs-Flutter-비교.md), [Expo WebView 래퍼](모바일/RN-Expo-WebView래퍼-아키텍처.md) | 🟨 |
-| expo-router | — | ⬜ |
+| React Native / Expo | [RN vs Flutter (+Native/웹앱/WASM 선택지도)](모바일/RN-vs-Flutter-비교.md), [Expo WebView 래퍼](모바일/RN-Expo-WebView래퍼-아키텍처.md) | 🟨 |
+| expo-router | [파일 기반 네비게이션](모바일/expo-router-네비게이션.md) | ✅ |
 
 ### 4. 상태관리
 
