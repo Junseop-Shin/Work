@@ -151,8 +151,10 @@
 
 | 기술 | 문서 | 상태 |
 |------|------|------|
-| Prometheus / Grafana | — | ⬜ |
-| Loki | — | ⬜ |
+| 관찰가능성 개념 (3축/메트릭타입/RED·USE/알림철학) | [관찰가능성 개념](모니터링/관찰가능성-개념.md) | ✅ |
+| Prometheus / Grafana | [Prometheus·Grafana·Loki 실전](모니터링/Prometheus-Grafana-Loki.md) | ✅ |
+| Loki | [Prometheus·Grafana·Loki 실전](모니터링/Prometheus-Grafana-Loki.md) | ✅ |
+| Tempo / OpenTelemetry (분산 트레이싱) | [관찰가능성 개념](모니터링/관찰가능성-개념.md) | ✅ |
 
 ### 17. 아키텍처 (풀스택 메타)
 
