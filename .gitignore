@@ -67,3 +67,4 @@ screenshot/
 Coding_Tests/
 *.png
 *.mov
+.gstack/
