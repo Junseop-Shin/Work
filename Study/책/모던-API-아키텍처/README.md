@@ -19,7 +19,8 @@
 | 0 | 도입 / 사전 개념 (API 정의·C4·트래픽·ADR) | [00-도입-사전개념](00-도입-사전개념.md) | ✅ |
 | 1 | 설계·구현·명세 / REST / gRPC / OpenAPI (+게이트웨이·MSA·HTTP3 심화) | [01-API설계-REST-gRPC-OpenAPI](01-API설계-REST-gRPC-OpenAPI.md) | ✅ |
 | 2 | API 테스트 (피라미드·Contract·Component·Testcontainers·E2E) | [02-API테스트](02-API테스트.md) | ✅ |
-| 3+ | (이후 진행) | — | ⬜ |
+| 3 | API 게이트웨이 — 수신 트래픽 관리 (게이트웨이·서비스메시·프로토콜변환·스케일링) | [03-API게이트웨이-수신트래픽관리](03-API게이트웨이-수신트래픽관리.md) | ✅ |
+| 4+ | (이후 진행) | — | ⬜ |
 
 ## 정리 규칙
 
