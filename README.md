@@ -19,13 +19,13 @@
 
 ## 📚 Study
 
-> [Study 폴더 바로가기](./Study/) · 카테고리별 학습 현황은 [Study/README.md](./Study/README.md) 참조
+> [Study 폴더 바로가기](./Study/) · 전체 카테고리 인덱스는 [Study/README.md](./Study/README.md), 기술 학습 현황은 [Study/기타/README.md](./Study/기타/README.md) 참조
 
 `/study` 커맨드로 대화형 학습 후 카테고리별 문서로 정리합니다.
 
 ### 기술 학습
 
-> 카테고리별 상세 현황은 [Study/README.md](./Study/README.md)
+> 카테고리별 상세 현황은 [Study/기타/README.md](./Study/기타/README.md)
 
 | 카테고리 | 주요 항목 |
 |---------|----------|

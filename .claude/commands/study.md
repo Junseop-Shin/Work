@@ -42,7 +42,7 @@
 
 #### 2. 카테고리 확정 + 파일 경로
 
-`Study/README.md`의 16개 카테고리 중 하나를 선택. 카테고리 폴더가 없으면 생성.
+`Study/기타/README.md`의 17개 카테고리 중 하나를 선택. 카테고리 폴더가 없으면 생성.
 
 ```
 Study/기타/<카테고리>/<주제>.md
@@ -119,7 +119,7 @@ A. <답변 — 1-3문장>
 
 문서 작성 후 **반드시 두 README 업데이트**:
 
-1. **`Study/README.md`** — 해당 카테고리 행에 링크 추가, 상태 (`✅` 또는 `🟨`)
+1. **`Study/기타/README.md`** — 해당 카테고리 행에 링크 추가, 상태 (`✅` 또는 `🟨`)
 2. **`README.md` (루트)** — `기술 학습` 표의 해당 카테고리 행에 `(✅ 주제명)` 표기
 
 #### 6. 커밋 / PR / 머지
@@ -127,7 +127,7 @@ A. <답변 — 1-3문장>
 ```bash
 git checkout main && git pull origin main
 git checkout -b docs/study-<주제-슬러그>
-git add Study/기타/<카테고리>/<파일명>.md Study/README.md README.md
+git add Study/기타/<카테고리>/<파일명>.md Study/기타/README.md README.md
 git commit -m "$(cat <<'EOF'
 docs(study): <주제 1-2문장 요약>
 
