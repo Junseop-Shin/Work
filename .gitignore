@@ -42,6 +42,9 @@ credentials/
 *_credentials.json
 *_secret*
 
+# ─── Private work materials (비공개 과제·인터뷰·내부 레포) ──
+_private/
+
 # ─── IDEs ────────────────────────────────────────────
 .vscode/
 .idea/
