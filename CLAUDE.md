@@ -1,6 +1,6 @@
 # CLAUDE.md — AI Dev Environment Guidelines
 
-> Configures Claude Code behavior for `~/Documents/Work`. Canonical source — other AI tool configs (GEMINI.md, AGENTS.md) summarize from here.
+> Configures Claude Code behavior for `~/Documents/Work`. Canonical source — other AI tool configs (AGENTS.md) summarize from here.
 > Keep lean — review and trim periodically.
 
 ---
