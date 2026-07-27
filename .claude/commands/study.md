@@ -1,6 +1,6 @@
 # /study — 기술 학습 정리
 
-기술 스택, 개념, 도구를 대화로 깊이 정리하고 `Study/<카테고리>/<주제>.md`에 저장한다.
+기술 스택, 개념, 도구를 대화로 깊이 정리하고 `Study/기타/<카테고리>/<주제>.md`에 저장한다.
 
 ## Steps
 
@@ -45,14 +45,14 @@
 `Study/README.md`의 16개 카테고리 중 하나를 선택. 카테고리 폴더가 없으면 생성.
 
 ```
-Study/<카테고리>/<주제>.md
+Study/기타/<카테고리>/<주제>.md
 ```
 
 **규칙:**
 - 파일명에 **날짜 포함 X** (변경 이력은 git이 관리)
 - 폴더명: README의 카테고리명 그대로 (예: `언어/`, `프론트엔드/`, `모바일/`)
 - 주제명 한글/영문 자유 (검색 잘 되는 형태로)
-- 예: `Study/프론트엔드/Next.js-기본.md`, `Study/언어/TypeScript-종합정리.md`
+- 예: `Study/기타/프론트엔드/Next.js-기본.md`, `Study/기타/언어/TypeScript-종합정리.md`
 
 #### 3. 문서 작성 — 템플릿
 
@@ -127,7 +127,7 @@ A. <답변 — 1-3문장>
 ```bash
 git checkout main && git pull origin main
 git checkout -b docs/study-<주제-슬러그>
-git add Study/<카테고리>/<파일명>.md Study/README.md README.md
+git add Study/기타/<카테고리>/<파일명>.md Study/README.md README.md
 git commit -m "$(cat <<'EOF'
 docs(study): <주제 1-2문장 요약>
 
@@ -155,5 +155,5 @@ git checkout main && git pull origin main
 - **README 두 개 (루트 + Study) 모두 업데이트**
 - **파일명 날짜 X** — 폴더 분류 + git history로 충분
 - **분량이 길면 분리 제안** — 기본/변경사항, 사용법/내부동작 등
-- **항상 `Work` 레포의 `Study/<카테고리>/`에 저장**
+- **항상 `Work` 레포의 `Study/기타/<카테고리>/`에 저장**
 - **시리즈 문서끼리 상호 링크**
