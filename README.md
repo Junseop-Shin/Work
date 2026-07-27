@@ -58,7 +58,7 @@
 
 ```
 Study/
-└── Certifications/
+└── 자격증/
     ├── SQLP/
     │   ├── certificate.md        ← 합격 정보 + 인증 사진 임베드
     │   └── (이미지는 GitHub에 직접 업로드 후 링크)
