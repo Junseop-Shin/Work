@@ -1,6 +1,7 @@
-# AGENTS.md — OpenAI Codex CLI Configuration
+# AGENTS.md — AI Agent Configuration
 
-> Canonical rules are in `CLAUDE.md`. This file summarizes key guidelines for OpenAI Codex CLI (`codex` command).
+> Canonical rules are in `CLAUDE.md`. This file summarizes key guidelines for non-Claude AI tools (OpenAI Codex CLI, Gemini CLI, etc.).
+> Gemini CLI: point `contextFileName` to `AGENTS.md` in settings, or symlink `GEMINI.md → AGENTS.md`.
 
 ---
 
@@ -23,6 +24,7 @@
 - No unnecessary abstractions for one-time use
 - Validate inputs at system boundaries only; trust internal code
 - No backwards-compatibility shims for removed code
+- No docstrings or comments for self-evident code
 
 ### Security
 - Never expose or output secret values from `.env`, `*.pem`, `*.key`

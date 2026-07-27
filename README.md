@@ -109,14 +109,7 @@ Study/
 
 각 프로젝트는 **독립 Git 레포**로 관리됩니다. 링크 허브 역할만 합니다.
 
-| 프로젝트 | 설명 | GitHub |
-|---------|------|--------|
-| profile | 개인 프로필 페이지 | [Junseop-Shin/profile](https://github.com/Junseop-Shin/profile) |
-| boldgobynd | boldgobynd 프로젝트 | [Junseop-Shin/boldgobynd](https://github.com/Junseop-Shin/boldgobynd) |
-| my-ui-lib | 개인 UI 컴포넌트 라이브러리 | [Junseop-Shin/my-ui-lib](https://github.com/Junseop-Shin/my-ui-lib) |
-| Junseop-Shin | GitHub 프로필 README | [Junseop-Shin/Junseop-Shin](https://github.com/Junseop-Shin/Junseop-Shin) |
-| kis-trader | KIS API 기반 자동 트레이딩 | [Junseop-Shin/kis-trader](https://github.com/Junseop-Shin/kis-trader) |
-| EY-hy-2026 | EY 2026 관련 프로젝트 | [Junseop-Shin/EY-hy-2026](https://github.com/Junseop-Shin/EY-hy-2026) |
+전체 프로젝트 목록과 상태는 [Projects/README.md](./Projects/README.md) 참조.
 
 ---
 
@@ -128,12 +121,6 @@ IaC, 서버 설정, 아키텍처 다이어그램 등을 관리합니다.
 
 ---
 
-## 📋 Setup
-
-셋팅 계획 및 진행 상황 → [setup_plan.md](./setup_plan.md)
-
----
-
 <p align="center">
-  <sub>🤖 AI-assisted workspace · Last updated: 2026-06-08</sub>
+  <sub>🤖 AI-assisted workspace · Last updated: 2026-07-27</sub>
 </p>
