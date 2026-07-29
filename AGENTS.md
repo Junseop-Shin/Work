@@ -1,6 +1,6 @@
-# AGENTS.md — Codex / Antigravity CLI Configuration
+# AGENTS.md — AI Agent Configuration
 
-> Canonical rules are in `CLAUDE.md`. This file summarizes key guidelines for agents that read `AGENTS.md` at repo root — OpenAI Codex CLI (`codex`) and Antigravity CLI (`agy`).
+> Canonical rules are in `CLAUDE.md`. This file summarizes key guidelines for non-Claude AI tools that read `AGENTS.md` at repo root — OpenAI Codex CLI (`codex`), Antigravity CLI (`agy`).
 
 ---
 
@@ -23,6 +23,7 @@
 - No unnecessary abstractions for one-time use
 - Validate inputs at system boundaries only; trust internal code
 - No backwards-compatibility shims for removed code
+- No docstrings or comments for self-evident code
 
 ### Security
 - Never expose or output secret values from `.env`, `*.pem`, `*.key`

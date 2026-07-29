@@ -16,3 +16,4 @@
 | **boldgobynd** | StudioBOLD 포트폴리오 사이트 | Next.js · styled-components · Vercel | ✅ 완료 | [링크](https://github.com/Junseop-Shin/boldgobynd) |
 | **seobi-chat** | 실시간 채팅 앱 | Node.js | ✅ 완료 | [링크](https://github.com/Junseop-Shin/seobi-chat) |
 | **Junseop-Shin** | GitHub 프로필 README | Markdown | ✅ 완료 | [링크](https://github.com/Junseop-Shin/Junseop-Shin) |
+| **ontology-pipeline** | 제조 공정 데이터 온톨로지 → 지식그래프 → GraphRAG 파이프라인 랩 | RML · Knowledge Graph · GraphRAG | 🛠 학습 진행중 | [링크](https://github.com/Junseop-Shin/ontology-pipeline) |

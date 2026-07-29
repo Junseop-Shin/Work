@@ -126,8 +126,9 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 | Context | Language |
 |---------|----------|
 | Conversation with user | Korean OK (match user's language) |
-| Code, variable names, comments | English |
-| Commit messages, PR titles/descriptions, file/directory names | English |
+| Code, variable names, code comments | English |
+| Commit messages, PR titles/descriptions | `type(scope)` in English, description in Korean (e.g. `docs(study): 정처기 실기 정리 추가`) |
+| Docs, directory names | Korean OK (code file names stay English) |
 
 ---
 
