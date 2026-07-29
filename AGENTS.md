@@ -1,7 +1,6 @@
 # AGENTS.md — AI Agent Configuration
 
-> Canonical rules are in `CLAUDE.md`. This file summarizes key guidelines for non-Claude AI tools (OpenAI Codex CLI, Gemini CLI, etc.).
-> Gemini CLI: point `contextFileName` to `AGENTS.md` in settings, or symlink `GEMINI.md → AGENTS.md`.
+> Canonical rules are in `CLAUDE.md`. This file summarizes key guidelines for non-Claude AI tools that read `AGENTS.md` at repo root — OpenAI Codex CLI (`codex`), Antigravity CLI (`agy`).
 
 ---
 

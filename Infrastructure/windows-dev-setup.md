@@ -86,11 +86,11 @@ winget install GitHub.cli
 # Claude Code CLI
 npm install -g @anthropic-ai/claude-code
 
-# Gemini CLI
-npm install -g @google/gemini-cli
-
 # OpenAI Codex CLI
 npm install -g @openai/codex
+
+# Antigravity CLI (Gemini CLI 후속)
+winget install Google.AntigravityCLI
 ```
 
 ### GitHub CLI 인증
@@ -172,9 +172,7 @@ Work/
         ├── explain.md           ← /explain
         ├── cleanup.md           ← /cleanup
         ├── e2e.md               ← /e2e
-        ├── security-audit.md    ← /security-audit
-        ├── ai-plan.md           ← /ai-plan
-        └── ai-review.md         ← /ai-review
+        └── security-audit.md    ← /security-audit
 ```
 
 ---
@@ -293,8 +291,8 @@ gh auth status
 # 3. Claude Code 버전
 claude --version
 
-# 4. Gemini CLI
-gemini --version
+# 4. Antigravity CLI
+agy --version
 
 # 5. git 설정
 git config --global user.name "이름"

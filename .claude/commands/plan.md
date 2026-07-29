@@ -31,6 +31,16 @@ Generate an architecture design document using the architect agent, then validat
 
 5. **Wait for user approval** before any implementation begins
 
+6. **워크플로우 승인 플래그 생성** — 유저가 플랜을 승인하면 즉시 실행:
+
+```bash
+touch ~/.claude/workflow-approved
+```
+
+그리고 알려줘: "✅ 플랜 승인됨 — 이제 코드 작성 가능합니다. (test-engineer → implement → /review 순서로 진행)"
+
+> 이 플래그는 `/review` 완료 시 삭제됩니다. `~/.claude/hooks/workflow-check.sh`가 이 플래그로 소스 파일 생성을 게이트합니다.
+
 ## Architecture Document Format
 
 ```markdown
