@@ -373,6 +373,46 @@ A. 디자인 시스템을 코드로 표현해야 한다면 **shadcn 변형 + 모
 **Q. 생태계가 너무 빨리 변하는데, 안정적 선택은?**
 A. 2026 기준 Radix + Tailwind + shadcn은 v0/Cursor/Vercel이 모두 미는 조합이라 향후 3-5년은 안정. MUI는 Pigment CSS 마이그레이션 진행 중이라 단기적 불안정성.
 
+## 추가 (2026-07): Base UI — shadcn의 새 기본값
+
+2026년 7월, **shadcn/ui가 새 프로젝트의 기본 Headless 라이브러리를 Radix에서 [Base UI](https://base-ui.com)로 전환**했다. 위 본문의 "2026 표준 = Radix + Tailwind + shadcn"이라는 전제가 바뀐 지점이다.
+
+Base UI는 **Radix · Floating UI · MUI 팀이 함께 만든 별개 라이브러리**다. Radix의 재배포가 아니다.
+
+### 무엇이 다른가
+
+| | Radix UI | Base UI |
+|---|---|---|
+| 배포 단위 | 컴포넌트마다 독립 패키지·독립 버전 | 한 패키지(`@base-ui/react`) + subpath export |
+| 컴포넌트 수 | ~30 | 40여 개 — Combobox, Autocomplete, NumberField, OTPField, Slider, Progress, Meter, Menubar, NavigationMenu, Drawer, Toolbar 등 포함 |
+| 합성 | `asChild` | `render` prop |
+| 상태 표현 | `data-state="checked"` (값) | `data-checked` (속성 존재) |
+| 팝업 구조 | `Portal > Content` | `Portal > Positioner > Popup` (위치 계산과 표면이 분리) |
+
+shadcn이 든 명분은 성숙도(v1.6.0, 주간 600만 다운로드)와 신규 채택률(Radix 대비 2:1)이지만, **실무에서 체감되는 차이는 컴포넌트 커버리지**다. Radix에 없어서 직접 만들거나 포기하던 것들이 기본 제공된다.
+
+### 마이그레이션에서 실제로 위험한 것
+
+기계적 치환이 불가능하다. shadcn이 codemod가 아니라 **에이전트 skill**로 점진 이전을 제공하는 것이 그 증거다.
+
+진짜 위험은 팝업 구조 변경이 아니라 **스타일 계약이 조용히 깨지는 것**이다. 타입체크로 하나도 안 잡히고 에러도 안 나며 색과 위치만 틀어진다.
+
+- `data-[state=checked]:` → `data-[checked]:` — 값 방식에서 속성 존재 방식으로
+- **`disabled:` Tailwind 변형이 죽는다** — Base UI는 Switch/Checkbox 등에서 `<button disabled>` 대신 `<span aria-disabled data-disabled>`를 렌더한다. `:disabled` 의사클래스는 폼 요소에만 걸리므로 영원히 매치되지 않는다. `data-[disabled]:`로 바꿔야 한다
+- 같은 이유로 Label의 `peer-disabled:`도 죽는다. 네이티브 폼 요소용과 Base UI용(`peer-data-[disabled]:`)을 **둘 다** 걸어야 한다
+- 상태 속성 이름이 컴포넌트마다 다르다 — Tabs.Tab은 `data-active`, Select.Item은 `data-selected`. 한 규칙으로 일반화할 수 없다
+- Base UI Separator는 문서 설명과 달리 **role을 붙이지 않는다**. Radix의 `decorative` prop도 없어 접근성 시맨틱을 직접 지정해야 한다
+
+**테스트 환경**: jsdom에 `PointerEvent`가 없어 Base UI 인터랙티브 컴포넌트의 클릭 처리가 크래시한다. setup 파일에 폴리필이 필요하다.
+
+### 판단
+
+- **새 프로젝트** — Base UI. shadcn 기본값이고 커버리지가 넓다.
+- **기존 Radix 프로젝트** — 급하지 않다. shadcn도 기존 앱은 마이그레이션 불필요하다고 명시했고 Radix 지원도 계속된다. 다만 Radix에 없는 컴포넌트가 필요해지는 시점이 전환 계기가 된다.
+- 전환 시 **유닛 테스트가 유일한 안전망**이 될 수 있다. 위 스타일 계약 파손은 빌드·타입체크·스모크 테스트를 모두 통과한다.
+
+> 실제 적용 사례: `Projects/my-ui-lib` v1.0.0에서 Radix 12개 패키지를 Base UI로 전환하고 신규 컴포넌트 21종을 추가했다.
+
 ## 주의사항 / 자주 하는 실수
 
 - **Radix를 "디자인 라이브러리"로 오해** — 스타일 없음. 그대로 쓰면 못생김. 반드시 Tailwind 또는 다른 CSS로 입혀야 함.
@@ -388,6 +428,7 @@ A. 2026 기준 Radix + Tailwind + shadcn은 v0/Cursor/Vercel이 모두 미는 �
 ## 참고
 
 - [Radix UI 공식](https://www.radix-ui.com/)
+- [Base UI 공식](https://base-ui.com/)
 - [shadcn/ui 공식](https://ui.shadcn.com/)
 - [v0.dev](https://v0.dev/)
 - [Headless UI (Tailwind Labs)](https://headlessui.com/)
