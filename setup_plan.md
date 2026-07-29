@@ -68,6 +68,11 @@ Claude Code를 주 AI 도구로 하는 멀티 AI 개발 환경 구성.
 - [x] `.gitignore` 업데이트 — AI 도구 로컬 캐시 제외
 - [x] `INSTALL_GUIDE.md` — 설치 필요 도구 목록
 
+> **이후 변경 (이 Phase는 2026-02-20 시점 기록)**
+> - `.github/copilot-instructions.md`, `.cursor/rules/main.mdc` — 미사용으로 제거 (#42, 2026-07-27)
+> - `GEMINI.md` — Gemini CLI가 2026-06-18 개인 계정 지원 종료. Antigravity CLI(`agy`)로 대체되며 제거, 역할은 `AGENTS.md`가 승계
+> - 현재 커맨드·에이전트·MCP 서버 목록은 `INSTALL_GUIDE.md` 참조
+
 ---
 
 ### Phase 4 — 향후 확장 (선택) `[예정]`

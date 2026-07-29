@@ -21,7 +21,7 @@
 | **Runtime** | Node.js 18+ | `brew install node` | MCP server runtime |
 | **GitHub CLI** | `gh` | `brew install gh` | PR creation and management |
 | **AI: Claude** | `claude` | `npm install -g @anthropic-ai/claude-code` | Primary AI CLI |
-| **AI: Gemini** | `gemini` | `npm install -g @google/gemini-cli` | Gemini CLI |
+| **AI: Antigravity** | `agy` | `brew install --cask antigravity-cli` | Antigravity CLI (Gemini CLI 후속) |
 | **AI: Codex** | `codex` | `npm install -g @openai/codex` | OpenAI Codex CLI |
 
 ### Installation
@@ -36,8 +36,8 @@ gh auth login
 
 # AI CLIs
 npm install -g @anthropic-ai/claude-code
-npm install -g @google/gemini-cli
 npm install -g @openai/codex
+brew install --cask antigravity-cli
 ```
 
 ---
@@ -52,6 +52,11 @@ MCP servers are configured in `.mcp.json` and run automatically via `npx`. No gl
 | **git** | `@modelcontextprotocol/server-git` | Git history, blame, log | No |
 | **github** | `@modelcontextprotocol/server-github` | PR/issue REST API | Yes (PAT) |
 | **memory** | `@modelcontextprotocol/server-memory` | Cross-session memory | No |
+| **pdf-reader** | `@dev.saqibaziz/mcp-pdf-reader` | Local PDF text extraction | No |
+| **sequential-thinking** | `@modelcontextprotocol/server-sequential-thinking` | Structured multi-step reasoning | No |
+| **fetch** | `@modelcontextprotocol/server-fetch` | URL → clean text | No |
+| **playwright** | `@playwright/mcp` | Browser automation | No |
+| **desktop-commander** | `@wonderwhy-er/desktop-commander` | Terminal control, file search, diff edits | No |
 
 ### Verify MCP servers load
 
@@ -135,25 +140,39 @@ git log --oneline
 ```
 Work/
 ├── CLAUDE.md                        # Claude Code — canonical AI rules
-├── GEMINI.md                        # Gemini CLI config
-├── AGENTS.md                        # OpenAI Codex CLI config
+├── AGENTS.md                        # Codex / Antigravity CLI config
+├── README.md
 ├── INSTALL_GUIDE.md                 # This file
 ├── .mcp.json                        # MCP server configuration
 ├── .gitignore
 ├── setup_plan.md
-├── .github/
-│   └── copilot-instructions.md      # GitHub Copilot config
-├── .cursor/
-│   └── rules/
-│       └── main.mdc                 # Cursor/Antigravity rules
 └── .claude/
+    ├── settings.json                # Shared settings (hooks, model)
+    ├── settings.local.json          # Local permissions — gitignored
     ├── agents/
-    │   ├── file-explorer.md         # Haiku — fast file search
     │   ├── architect.md             # Opus — system design
-    │   └── code-reviewer.md         # Sonnet — code review
+    │   ├── backend-developer.md
+    │   ├── code-reviewer.md         # Sonnet — code review
+    │   ├── db-architect.md
+    │   ├── devops-engineer.md
+    │   ├── file-explorer.md         # Haiku — fast file search
+    │   ├── frontend-developer.md
+    │   ├── llm-engineer.md
+    │   ├── playwright-engineer.md
+    │   ├── security-auditor.md
+    │   └── test-engineer.md
     └── commands/
-        ├── commit.md                # /commit
-        ├── review.md                # /review
         ├── plan.md                  # /plan
-        └── standup.md               # /standup
+        ├── review.md                # /review
+        ├── commit.md                # /commit
+        ├── cleanup.md               # /cleanup
+        ├── e2e.md                   # /e2e
+        ├── explain.md               # /explain
+        ├── security-audit.md        # /security-audit
+        ├── standup.md               # /standup
+        ├── journal.md               # /journal
+        ├── work-history.md          # /work-history
+        ├── study.md                 # /study
+        ├── exam-study.md            # /exam-study
+        └── notify-slack.md          # /notify-slack
 ```

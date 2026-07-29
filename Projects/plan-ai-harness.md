@@ -191,17 +191,15 @@ if [[ ! -f "$FLAG" ]]; then
     echo ""
     echo "필수 단계:"
     echo "  1. /plan    — 설계 (architect + 전문가 병렬 검토)"
-    echo "  2. /ai-plan — Gemini 2차 의견"
-    echo "  3. test-engineer 에이전트 — 테스트 먼저 작성"
-    echo "  4. implement — 실제 코드 작성"
-    echo "  5. /review  — 병렬 멀티에이전트 코드 리뷰"
-    echo "  6. /ai-review — Claude + Gemini + Codex 크로스 리뷰"
+    echo "  2. test-engineer 에이전트 — 테스트 먼저 작성"
+    echo "  3. implement — 실제 코드 작성"
+    echo "  4. /review  — 병렬 멀티에이전트 코드 리뷰"
     echo ""
     echo "플랜 완료 후 자동 승인되거나, 긴급 우회:"
     echo "  touch $FLAG"
     exit 2
   elif [[ "$TOOL_NAME" == "Edit" ]]; then
-    echo "⚠️  WORKFLOW REMINDER: /plan → test-engineer → implement → /review → /ai-review"
+    echo "⚠️  WORKFLOW REMINDER: /plan → test-engineer → implement → /review"
     echo "플랜 완료 시: touch $FLAG  (이후 이 메시지 사라짐)"
   fi
 fi
@@ -647,40 +645,6 @@ Generate an architecture design document using the architect agent, then validat
 
 ---
 
-### `ai-plan.md`
-```markdown
-# /ai-plan — Gemini Second Opinion
-
-Get Gemini's second opinion on the current plan before proceeding.
-
-## Steps
-
-1. Look at the plan presented in this conversation (or topic from $ARGUMENTS).
-
-2. Run Gemini:
-   ```bash
-   gemini "You are a senior software architect. Review this plan and provide feedback:
-   [paste plan here]
-
-   Evaluate: architecture soundness, risks, missing considerations, simpler alternatives."
-   ```
-
-3. Present comparison:
-   **[ Claude's Plan ]** — key points
-   **[ Gemini's Plan ]** — Gemini's response
-   **Differences** — where they disagree or Gemini adds something missed
-   **Recommendation** — final take
-
-4. Ask: "어떤 방향으로 진행할까요?"
-
-5. **Set workflow-approved flag** once user confirms direction:
-   ```bash
-   touch ~/.claude/workflow-approved
-   ```
-```
-
----
-
 ### `review.md`
 ```markdown
 # /review — Parallel Multi-Agent Code Review
@@ -722,42 +686,8 @@ Analyze changed files using parallel specialist agents.
    ```
 
 5. **Do not auto-fix** — report only.
-```
 
----
-
-### `ai-review.md`
-```markdown
-# /ai-review — Multi-AI Code Review (cmux 3-pane)
-
-Run a multi-AI code review using cmux + 3-pane layout.
-
-## Steps
-
-1. Get the changes:
-   ```bash
-   git diff HEAD
-   git status --short
-   ```
-
-2. Write a context file:
-   ```bash
-   CONTEXT_FILE="/tmp/ai-review-$(date +%H%M%S).md"
-   ```
-
-3. Launch the review:
-   ```bash
-   ai-review-launch "$CONTEXT_FILE"
-   ```
-
-## What happens
-- cmux가 새 워크스페이스(세션)를 생성합니다
-- 3-pane 레이아웃: 왼쪽(Coordinator) | 오른쪽 위(Gemini) | 오른쪽 아래(Codex)
-- 완료되면 결과를 전달합니다
-
-4. Tell the user: "새 cmux 워크스페이스에서 AI 리뷰를 시작했습니다."
-
-5. **Reset workflow flag**:
+6. **Reset workflow flag**:
    ```bash
    rm -f ~/.claude/workflow-approved
    ```
@@ -925,11 +855,10 @@ Run a multi-AI code review using cmux + 3-pane layout.
 
 1. **Understand** — Read relevant files before changes
 2. **Plan** — `/plan` for non-trivial tasks (triggers architect + specialists)
-3. **AI Check** — `/ai-plan` for Gemini 2nd opinion
-4. **Test First** — `test-engineer` agent writes tests before implementation
-5. **Implement** — make focused, minimal changes
-6. **Review** — `/review` (parallel agents) → `/ai-review` (cmux multi-AI)
-7. **Commit** — only after explicit user approval via `/commit`
+3. **Test First** — `test-engineer` agent writes tests before implementation
+4. **Implement** — make focused, minimal changes
+5. **Review** — `/review` (parallel agents)
+6. **Commit** — only after explicit user approval via `/commit`
 
 `workflow-check.sh` hook enforces this — blocks new file creation without plan approval.
 Approve a session: `touch ~/.claude/workflow-approved`
@@ -978,9 +907,7 @@ Reset after review: `rm -f ~/.claude/workflow-approved`
 | Command | Purpose |
 |---------|---------|
 | `/plan` | Architecture design + parallel expert review |
-| `/ai-plan` | Gemini 2nd opinion |
 | `/review` | Parallel multi-agent code review |
-| `/ai-review` | Claude + Gemini + Codex 3-pane review (cmux) |
 | `/commit` | Conventional Commit + push + PR |
 | `/security-audit` | OWASP audit |
 | `/standup` | Daily standup notes |
@@ -1089,7 +1016,7 @@ ls $WORK_DIR/.claude/agents/
 
 # 2. 커맨드 파일 확인
 ls $WORK_DIR/.claude/commands/
-# 예상: ai-plan.md, ai-review.md, cleanup.md, commit.md, plan.md,
+# 예상: cleanup.md, commit.md, plan.md,
 #        review.md, security-audit.md, standup.md
 
 # 3. 훅 파일 확인
@@ -1122,10 +1049,7 @@ cat ~/.claude/plugins/installed_plugins.json | python3 -m json.tool
 /office-hours (Gstack)          ← 제품 관점 아이디어 검토
   │
   ▼
-/plan                           ← architect 초안 + 전문가 병렬 검토
-  │
-  ▼
-/ai-plan                        ← Gemini 2nd opinion → 승인 시 workflow-approved 플래그 생성
+/plan                           ← architect 초안 + 전문가 병렬 검토 → 승인 시 workflow-approved 플래그 생성
   │
   ▼
 test-engineer 에이전트           ← 테스트 먼저 작성 (TDD RED)
@@ -1134,10 +1058,7 @@ test-engineer 에이전트           ← 테스트 먼저 작성 (TDD RED)
 구현 (Claude Code)              ← TDD GREEN → REFACTOR
   │
   ▼
-/review                         ← 병렬 멀티에이전트 코드 리뷰
-  │
-  ▼
-/ai-review (cmux, 선택)         ← Claude + Gemini + Codex 크로스 리뷰
+/review                         ← 병렬 멀티에이전트 코드 리뷰 → workflow-approved 플래그 초기화
   │
   ▼
 /commit                         ← Conventional Commit + push + PR
@@ -1160,5 +1081,5 @@ git worktree add ../project-dashboard feature/dashboard
 # 터미널 탭 분리
 Tab 1: Claude Code → feature/auth 디렉토리
 Tab 2: Claude Code → feature/dashboard 디렉토리
-Tab 3: Gemini CLI  → 전체 아키텍처 분석 (대용량 컨텍스트)
+Tab 3: Antigravity CLI (agy) → 전체 아키텍처 분석 (대용량 컨텍스트)
 ```

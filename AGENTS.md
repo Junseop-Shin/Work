@@ -1,6 +1,6 @@
-# AGENTS.md — OpenAI Codex CLI Configuration
+# AGENTS.md — Codex / Antigravity CLI Configuration
 
-> Canonical rules are in `CLAUDE.md`. This file summarizes key guidelines for OpenAI Codex CLI (`codex` command).
+> Canonical rules are in `CLAUDE.md`. This file summarizes key guidelines for agents that read `AGENTS.md` at repo root — OpenAI Codex CLI (`codex`) and Antigravity CLI (`agy`).
 
 ---
 

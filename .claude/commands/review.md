@@ -60,6 +60,14 @@ Analyze changed files using parallel specialist agents and produce a unified rev
 
 5. **Do not auto-fix** — report only. Apply fixes on explicit user request.
 
+6. **워크플로우 플래그 삭제** — 리뷰 결과를 전달한 뒤 다음 작업을 위해 초기화:
+
+```bash
+rm -f ~/.claude/workflow-approved
+```
+
+그리고 알려줘: "🔄 워크플로우 플래그 초기화됨 — 다음 작업은 /plan부터 시작하세요."
+
 ## Rules
 
 - Always run all three core agents (code-reviewer, security-auditor, test-engineer)
