@@ -107,6 +107,8 @@ Use `/browse` (Gstack) for all web browsing instead of MCP browser tools.
 - Never commit to `main` directly — always use feature branches
 - Branch naming: `feat/`, `fix/`, `docs/`, `chore/` prefix
 - After commit: push branch + `gh pr create`. Merge is **manual**.
+- Merge method: **squash** (`gh pr merge --squash --delete-branch`) — one commit per PR on `main`.
+  Split commits inside the PR for review; they collapse on merge.
 
 ### Commit Message Format
 
