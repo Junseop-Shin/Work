@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -36,8 +36,9 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | Ch.2-2 | S05B | 도메인 온톨로지 구축 사례 ① — MANUMATE (현장 스케일) + 두 사례 비교 | [S05B-MANUMATE-제조-상호운용성](S05B-MANUMATE-제조-상호운용성.md) | ✅ |
 | | | Ch.2-2 | S06 | 도메인 온톨로지 구축 사례 ② — DTC 디지털 트윈 (건설) | [S06-DTC-디지털트윈-건설](S06-DTC-디지털트윈-건설.md) | ✅ |
 | | | ↳ 부록 | S05-06-1 | 세 논문을 잇는 파이프라인 — 만들기·굴리기·배치하기와 충돌 지점 | [S05-06-1-세-논문을-잇는-파이프라인](S05-06-1-세-논문을-잇는-파이프라인.md) | ✅ |
-| | Day 4 | Ch.3 평가 방법론 | S07 | 구조적·품질 평가 (OQuaRE) | — | ⬜ |
-| | | Ch.3 | S08 | 기능적·의미적 평가 (CQ 기반) | — | ⬜ |
+| | Day 4 | Ch.3 평가 방법론 | S07 | 구조적·품질 평가 (OQuaRE) | [S07-구조적-품질-평가-OQuaRE](S07-구조적-품질-평가-OQuaRE.md) | ✅ |
+| | | Ch.3 | S08 | 기능적·의미적 평가 (CQ 기반) + 두 평가의 통합 | [S08-기능적-의미적-평가-CQ](S08-기능적-의미적-평가-CQ.md) | ✅ |
+| | | ↳ 부록 | S07-08-1 | 두 평가 틀의 빈칸 — 원논문 대조와 두 평가의 관계 | [S07-08-1-두-평가-틀의-빈칸](S07-08-1-두-평가-틀의-빈칸.md) | ✅ |
 | 3주 | Day 5 | 실습 ① | S09 | OWL 온톨로지 설계 실습 | — | ⬜ |
 | | | 실습 ② | S10 | RDF 데이터 파이프라인 실습 | — | ⬜ |
 | | Day 6 | Ch.4 온톨로지↔KG | S11 | 지식그래프 기초 개념 | — | ⬜ |
@@ -69,6 +70,8 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | 10주 | Day 19 | 실습 ⑤ | S37 | OntoGPT/SPIRES Python 실습 ① | — | ⬜ |
 
 *(목차 슬라이드가 S37에서 잘려 있어 이후 세션은 미확인)*
+
+*(S07·S08은 실제로 한 회차로 진행됐다. 목차상 세션 번호는 유지하고, 공통 도입은 S07에 두었다)*
 
 ## 정리 규칙
 
