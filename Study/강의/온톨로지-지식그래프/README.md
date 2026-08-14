@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -43,7 +43,8 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | ↳ 부록 | S09-1 | 제약처럼 보이는 공리들 — 슬라이드·노트북 코드 실행 대조 | [S09-1-제약처럼-보이는-공리들](S09-1-제약처럼-보이는-공리들.md) | ✅ |
 | | | 실습 ② | S10 | RDF 데이터 파이프라인 실습 (SPARQL · rdflib) | [S10-RDF-데이터-파이프라인-실습](S10-RDF-데이터-파이프라인-실습.md) | ✅ |
 | | | ↳ 부록 | S10-1 | 파이프라인이 말하지 않은 것들 — 집합 의미론 · 미바인딩 · 추론의 부재 | [S10-1-파이프라인이-말하지-않은-것들](S10-1-파이프라인이-말하지-않은-것들.md) | ✅ |
-| | Day 6 | Ch.4 온톨로지↔KG | S11 | 지식그래프 기초 개념 | — | ⬜ |
+| | Day 6 | Ch.4 온톨로지↔KG | S11 | 지식그래프 기초 개념 — 정의 · 연구 네 축 · 구축 lifecycle · 산업 5사 | [S11-지식그래프-기초-개념](S11-지식그래프-기초-개념.md) | ✅ |
+| | | ↳ 부록 | S11-1 | 온톨로지가 하지 않는 일 — 게이트·추론·되먹임의 구분, 제조 판정 적용 | [S11-1-온톨로지가-하지-않는-일](S11-1-온톨로지가-하지-않는-일.md) | ✅ |
 | | | Ch.4 | S12 | KG 구축에서 온톨로지의 역할 | — | ⬜ |
 | 4주 | Day 7 | Ch.5 ML/DL | S13 | KG 임베딩 기초 (TransE · DistMult) | — | ⬜ |
 | | | Ch.5 | S14 | GNN 기반 KG 표현 (R-GCN · CompGCN) | — | ⬜ |
@@ -74,6 +75,11 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 *(목차 슬라이드가 S37에서 잘려 있어 이후 세션은 미확인)*
 
 *(S07·S08은 실제로 한 회차로 진행됐다. 목차상 세션 번호는 유지하고, 공통 도입은 S07에 두었다)*
+
+*(S11은 슬라이드 24장짜리 한 덱이고 인용 논문이 둘이다. 1~6절은 Ji et al. 서베이
+(`01 Introduction`·`02 KG Basics`·`04 KG Research Axes`), 7~19절은 Noy et al. 산업 사례
+(`03 KG Construction`·`05 Industry Cases`·`06 Conclusion`). 본편이 이미 KG 구축 lifecycle을
+다루므로, S12 자료를 받으면 겹치는 부분이 있는지 먼저 확인할 것)*
 
 ## 정리 규칙
 
