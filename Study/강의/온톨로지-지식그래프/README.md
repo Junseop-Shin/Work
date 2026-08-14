@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -45,7 +45,8 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | ↳ 부록 | S10-1 | 파이프라인이 말하지 않은 것들 — 집합 의미론 · 미바인딩 · 추론의 부재 | [S10-1-파이프라인이-말하지-않은-것들](S10-1-파이프라인이-말하지-않은-것들.md) | ✅ |
 | | Day 6 | Ch.4 온톨로지↔KG | S11 | 지식그래프 기초 개념 — 정의 · 연구 네 축 · 구축 lifecycle · 산업 5사 | [S11-지식그래프-기초-개념](S11-지식그래프-기초-개념.md) | ✅ |
 | | | ↳ 부록 | S11-1 | 온톨로지가 하지 않는 일 — 게이트·추론·되먹임의 구분, 제조 판정 적용 | [S11-1-온톨로지가-하지-않는-일](S11-1-온톨로지가-하지-않는-일.md) | ✅ |
-| | | Ch.4 | S12 | KG 구축에서 온톨로지의 역할 | — | ⬜ |
+| | | Ch.4 | S12 | KG 구축에서 온톨로지의 역할 — 5대 KG 품질 비교 · 구축 7 task | [S12-KG-구축에서-온톨로지의-역할](S12-KG-구축에서-온톨로지의-역할.md) | ✅ |
+| | | ↳ 부록 | S12-1 | 선언과 준수 사이 — 제약의 두 층 · 두 lifecycle 대조 | [S12-1-선언과-준수-사이](S12-1-선언과-준수-사이.md) | ✅ |
 | 4주 | Day 7 | Ch.5 ML/DL | S13 | KG 임베딩 기초 (TransE · DistMult) | — | ⬜ |
 | | | Ch.5 | S14 | GNN 기반 KG 표현 (R-GCN · CompGCN) | — | ⬜ |
 | | Day 8 | Ch.5 | S15 | 온톨로지 임베딩 (OWL2Vec* · EL) | — | ⬜ |
@@ -78,8 +79,8 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 
 *(S11은 슬라이드 24장짜리 한 덱이고 인용 논문이 둘이다. 1~6절은 Ji et al. 서베이
 (`01 Introduction`·`02 KG Basics`·`04 KG Research Axes`), 7~19절은 Noy et al. 산업 사례
-(`03 KG Construction`·`05 Industry Cases`·`06 Conclusion`). 본편이 이미 KG 구축 lifecycle을
-다루므로, S12 자료를 받으면 겹치는 부분이 있는지 먼저 확인할 것)*
+(`03 KG Construction`·`05 Industry Cases`·`06 Conclusion`). S12도 구축 lifecycle을 다루지만
+출처가 Hofer et al.(2024)로 달라, 두 lifecycle의 차이는 S12 부록 2절에 대조해 적었다)*
 
 ## 정리 규칙
 
@@ -106,6 +107,7 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 
 ## 관련 문서
 
+- [**00 — 전체 파이프라인**](00-전체-파이프라인.md) — 전 회차를 하나의 파이프라인으로 꿴 요약. 단계별 도구 포함
 - [`Projects/ontology-pipeline/docs/1.core-concepts.html`](../../../Projects/ontology-pipeline/docs/1.core-concepts.html) — RDF vs LPG, OWA/CWA, 표준 온톨로지(BFO·IOF·SOSA)
 - [`Projects/ontology-pipeline/docs/3.ontology-design.html`](../../../Projects/ontology-pipeline/docs/3.ontology-design.html) — 실제 도메인 온톨로지 설계
 - [`Projects/ontology-pipeline/docs/4-1.cleaning-mapping-validation.html`](../../../Projects/ontology-pipeline/docs/4-1.cleaning-mapping-validation.html) — RML 매핑 · SHACL 검증
