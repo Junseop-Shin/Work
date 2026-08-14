@@ -43,7 +43,7 @@
 | 테스트 | (✅ 도구 종합비교: Vitest/Jest/Testing Library/Playwright/Storybook + JUnit/pytest/Go/RSpec, BDD vs Fluent, Test Double) |
 | 인프라 / CI | (✅ Docker · 컨테이너), (✅ GitHub Actions), (✅ Cloudflare: CDN/ZeroTrust/Tunnel) |
 | 모니터링 | (✅ 관찰가능성 개념: 3축/메트릭타입/RED·USE/알림철학), (✅ Prometheus·Grafana·Loki 실전: PromQL/LogQL/카디널리티/Alertmanager), (✅ Tempo/OpenTelemetry) |
-| 아키텍처 (풀스택 메타) | (✅ 프론트-백엔드 계약 동기화: OpenAPI/GraphQL/tRPC), (✅ 12/15-Factor App), (✅ 온톨로지·지식그래프 파이프라인) |
+| 아키텍처 (풀스택 메타) | (✅ 프론트-백엔드 계약 동기화: OpenAPI/GraphQL/tRPC), (✅ 12/15-Factor App) |
 | 책 (장별 정리) | (🟨 모던 API 아키텍처: 0~2장 — 설계/REST/gRPC/OpenAPI/테스트) |
 | 아티클 (엔지니어링 블로그) | (✅ Shopify 재고 예약 스케일링: Redis→MySQL, SKIP LOCKED) |
 
