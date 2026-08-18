@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -49,7 +49,8 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | ↳ 부록 | S12-1 | 선언과 준수 사이 — 제약의 두 층 · 두 lifecycle 대조 | [S12-1-선언과-준수-사이](S12-1-선언과-준수-사이.md) | ✅ |
 | 4주 | Day 7 | Ch.5 ML/DL | S13 | KG 임베딩 기초 — 링크 예측 · TransE(덧셈) · DistMult(곱셈) | [S13-KG-임베딩-기초](S13-KG-임베딩-기초.md) | ✅ |
 | | | ↳ 부록 | S13-1 | 기호와 좌표 사이 — 강의가 전제한 것 · 두 논문의 수치 충돌 · 벤치마크 누출 | [S13-1-기호와-좌표-사이](S13-1-기호와-좌표-사이.md) | ✅ |
-| | | Ch.5 | S14 | GNN 기반 KG 표현 (R-GCN · CompGCN) | — | ⬜ |
+| | | Ch.5 | S14 | GNN 기반 KG 표현 — relational message passing · R-GCN(관계=행렬) · CompGCN(관계=벡터) | [S14-GNN-기반-KG-표현](S14-GNN-기반-KG-표현.md) | ✅ |
+| | | ↳ 부록 | S14-1 | 이웃에서 오는 표현 — 용어 정리 · 아키텍처 누출 · encoder와 decoder의 어긋남 | [S14-1-이웃에서-오는-표현](S14-1-이웃에서-오는-표현.md) | ✅ |
 | | Day 8 | Ch.5 | S15 | 온톨로지 임베딩 (OWL2Vec* · EL) | — | ⬜ |
 | | | Ch.5 | S16 | 딥러닝 기반 온톨로지 정렬 (OntoEA · BERTMap) | — | ⬜ |
 | 5주 | Day 9 | 실습 ③ | S17 | KG 임베딩 실습 — PyKEEN | — | ⬜ |
@@ -86,6 +87,10 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 *(S13은 슬라이드 30장짜리 한 덱이고 인용 논문이 둘이다. `2 TransE`는 Bordes et al.(2013),
 `3 DistMult`는 Yang et al.(2015)이며 `1 Background`와 `4 Conclusion`이 둘을 감싼다.
 두 논문의 TransE 수치가 서로 다른 문제는 S13 부록 5절에 적었다)*
+
+*(S14는 슬라이드 45장짜리 한 덱이고 인용 논문이 둘이다. `02 R-GCN`은 Schlichtkrull et al.(2018),
+`03 CompGCN`은 Vashishth et al.(2020)이며 `01 Introduction`과 `04 Discussion`이 둘을 감싼다.
+45장 중 1~4는 표지·목차, 45는 인사 슬라이드라 본편은 5~44를 38개 절로 옮겼다)*
 
 ## 정리 규칙
 
