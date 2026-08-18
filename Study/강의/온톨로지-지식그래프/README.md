@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -47,7 +47,8 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | ↳ 부록 | S11-1 | 온톨로지가 하지 않는 일 — 게이트·추론·되먹임의 구분, 제조 판정 적용 | [S11-1-온톨로지가-하지-않는-일](S11-1-온톨로지가-하지-않는-일.md) | ✅ |
 | | | Ch.4 | S12 | KG 구축에서 온톨로지의 역할 — 5대 KG 품질 비교 · 구축 7 task | [S12-KG-구축에서-온톨로지의-역할](S12-KG-구축에서-온톨로지의-역할.md) | ✅ |
 | | | ↳ 부록 | S12-1 | 선언과 준수 사이 — 제약의 두 층 · 두 lifecycle 대조 | [S12-1-선언과-준수-사이](S12-1-선언과-준수-사이.md) | ✅ |
-| 4주 | Day 7 | Ch.5 ML/DL | S13 | KG 임베딩 기초 (TransE · DistMult) | — | ⬜ |
+| 4주 | Day 7 | Ch.5 ML/DL | S13 | KG 임베딩 기초 — 링크 예측 · TransE(덧셈) · DistMult(곱셈) | [S13-KG-임베딩-기초](S13-KG-임베딩-기초.md) | ✅ |
+| | | ↳ 부록 | S13-1 | 기호와 좌표 사이 — 강의가 전제한 것 · 두 논문의 수치 충돌 · 벤치마크 누출 | [S13-1-기호와-좌표-사이](S13-1-기호와-좌표-사이.md) | ✅ |
 | | | Ch.5 | S14 | GNN 기반 KG 표현 (R-GCN · CompGCN) | — | ⬜ |
 | | Day 8 | Ch.5 | S15 | 온톨로지 임베딩 (OWL2Vec* · EL) | — | ⬜ |
 | | | Ch.5 | S16 | 딥러닝 기반 온톨로지 정렬 (OntoEA · BERTMap) | — | ⬜ |
@@ -81,6 +82,10 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 (`01 Introduction`·`02 KG Basics`·`04 KG Research Axes`), 7~19절은 Noy et al. 산업 사례
 (`03 KG Construction`·`05 Industry Cases`·`06 Conclusion`). S12도 구축 lifecycle을 다루지만
 출처가 Hofer et al.(2024)로 달라, 두 lifecycle의 차이는 S12 부록 2절에 대조해 적었다)*
+
+*(S13은 슬라이드 30장짜리 한 덱이고 인용 논문이 둘이다. `2 TransE`는 Bordes et al.(2013),
+`3 DistMult`는 Yang et al.(2015)이며 `1 Background`와 `4 Conclusion`이 둘을 감싼다.
+두 논문의 TransE 수치가 서로 다른 문제는 S13 부록 5절에 적었다)*
 
 ## 정리 규칙
 
