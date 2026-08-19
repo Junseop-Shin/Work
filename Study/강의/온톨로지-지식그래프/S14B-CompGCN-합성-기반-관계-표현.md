@@ -135,8 +135,8 @@ Operator 선택이 message의 inductive bias를 바꾼다. 같은 triple에서�
 graph LR
   E0["h_v(0)"] --> E1["h_v(1)"] --> E2["h_v(2)"]
   R0["h_r(0)"] --> R1["h_r(1)"] --> R2["h_r(2)"]
-  R0 -.->|φ(h_u, h_r)| E1
-  R1 -.->|φ(h_u, h_r)| E2
+  R0 -.->|"φ(h_u, h_r)"| E1
+  R1 -.->|"φ(h_u, h_r)"| E2
 ```
 
 - Node는 neighbor–relation composition을 집계해 h_v^(k+1)로 업데이트된다
