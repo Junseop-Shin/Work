@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -57,7 +57,10 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | Ch.5 | S15B | 온톨로지 임베딩 ② — EL Embeddings: 공리를 공간의 배치로 | [S15B-EL-Embeddings-기하-기반-임베딩](S15B-EL-Embeddings-기하-기반-임베딩.md) | ✅ |
 | | | ↳ 부록 | S15-1 | 읽는 데 필요한 것들 — Word2Vec·random walk·WL kernel · 논리 기호 · hinge loss | [S15-1-읽는-데-필요한-것들](S15-1-읽는-데-필요한-것들.md) | ✅ |
 | | | ↳ 부록 | S15-2 | 공리를 어디에 두는가 — 두 모델 대조 · 이름이 다 하는 온톨로지 · 비교 불가한 두 실험 | [S15-2-공리를-어디에-두는가](S15-2-공리를-어디에-두는가.md) | ✅ |
-| | | Ch.5 | S16 | 딥러닝 기반 온톨로지 정렬 (OntoEA · BERTMap) | — | ⬜ |
+| | | Ch.5 | S16A | 딥러닝 기반 온톨로지 정렬 ① — OntoEA: 엔티티 정렬에 class 계층·disjointness 주입 | [S16A-OntoEA-온톨로지를-넣은-엔티티-정렬](S16A-OntoEA-온톨로지를-넣은-엔티티-정렬.md) | ✅ |
+| | | Ch.5 | S16B | 딥러닝 기반 온톨로지 정렬 ② — BERTMap: 온톨로지 label을 supervision으로 | [S16B-BERTMap-문맥-임베딩-기반-정렬](S16B-BERTMap-문맥-임베딩-기반-정렬.md) | ✅ |
+| | | ↳ 부록 | S16-1 | 읽는 데 필요한 것들 — BERT·fine-tuning · hard negative · inverted index·idf · P/R/F1 | [S16-1-읽는-데-필요한-것들](S16-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S16-2 | 정렬이 서는 자리 — 서로를 전제하는 두 논문 · 미선언 disjointness의 정반대 처방 | [S16-2-정렬이-서는-자리](S16-2-정렬이-서는-자리.md) | ✅ |
 | 5주 | Day 9 | 실습 ③ | S17 | KG 임베딩 실습 — PyKEEN | — | ⬜ |
 | | | 실습 ④ | S18 | 온톨로지 임베딩·정렬 실습 — DeepOnto | — | ⬜ |
 | | Day 10 | Ch.6 언어모델+KG | S19 | 엔티티 임베딩 직접 주입 (ERNIE · KnowBERT) | — | ⬜ |
@@ -109,6 +112,14 @@ S14-2로 나눴다. 본편에는 슬라이드 내용만 두고 이해를 돕는 
 **Ch.5부터 원논문 대조를 하지 않는다.** 대신 각 문서 상단에 참고 논문과 강의 링크를 남겨
 필요할 때 찾아갈 수 있게 했다. 실험 표에서 앞뒤가 맞지 않는 값 두 개(S15A 19·20절)는 원표기를
 남기고 인용 블록으로 표시해 두었다)*
+
+*(S16은 슬라이드 40장짜리 한 덱이고 인용 논문이 둘이다. S16A가 `01 Introduction`과
+`02 OntoEA`(Xiang et al. 2021), S16B가 `03 BERTMap`(He et al. 2022)과 `04 Discussion`이다.
+S16B는 절 번호를 슬라이드의 소절 번호에 맞췄는데 **덱 자체가 `(9)`와 `(12)`를 건너뛴다.**
+빠뜨린 것이 아니다.
+
+이 덱은 앞선 회차들과 달리 슬라이드 하단에 발표자가 덧붙인 메모 상자가 자주 붙는다. 그것도
+슬라이드에 있는 것이므로 본편에 옮기고 "슬라이드 하단 메모"라고 적어 구분했다)*
 
 ## 정리 규칙
 
