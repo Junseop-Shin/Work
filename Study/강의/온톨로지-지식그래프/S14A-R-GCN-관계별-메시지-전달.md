@@ -7,41 +7,35 @@
 >   with Graph Convolutional Networks*, ESWC 2018 ([arXiv:1703.06103](https://arxiv.org/abs/1703.06103))
 >
 > 📖 [강의 목차](README.md) · 이전 [S13 KG 임베딩 기초](S13-KG-임베딩-기초.md) · 다음 [S14B CompGCN](S14B-CompGCN-합성-기반-관계-표현.md)
-> 📎 부록 [S14-1 이웃에서 오는 표현](S14-1-이웃에서-오는-표현.md)
+> 📎 부록 [S14-1 읽는 데 필요한 것들](S14-1-읽는-데-필요한-것들.md) · [S14-2 이웃에서 오는 표현](S14-2-이웃에서-오는-표현.md)
 
 **한 회차를 두 문서로 나눴다.** 강의는 45장 한 덱으로 진행됐고 분량 때문에 쪼갠 것이다. 이 문서가
 GNN의 밑바탕과 R-GCN을, [S14B](S14B-CompGCN-합성-기반-관계-표현.md)가 CompGCN과 두 모델 비교를
 다룬다. 절 번호는 문서마다 1부터 다시 시작한다.
 
-[S13](S13-KG-임베딩-기초.md)이 triple 하나에 점수를 매기는 모델이었다면 이 회차는 이웃 구조를
-모아 표현을 만드는 쪽으로 넘어간다. R-GCN은 그 첫 모델로, relation type과 direction에 따라 다른
-변환을 쓰는 message passing을 세운다.
-
-처음 나오는 용어가 많아 [부록 S14-1](S14-1-이웃에서-오는-표현.md) 1절에 밑바탕부터 정리해뒀다.
-행렬 W가 하는 일, GCN이 CNN에서 가져온 것과 잃은 것이 거기 있다.
+**이 문서는 슬라이드 내용만 담는다.** 슬라이드가 설명 없이 쓰는 용어(W, σ, softmax, cross-entropy,
+역전파, basis, canonical relation)와 식 읽는 법은 [S14-1](S14-1-읽는-데-필요한-것들.md)에, 강의
+밖에서 나온 해석은 [S14-2](S14-2-이웃에서-오는-표현.md)에 있다.
 
 ---
 
 ## 1. KG는 방향과 타입이 있는 그래프
-
-강의는 이 회차가 다룰 대상을 먼저 정의한다.
 
 - Knowledge Graph는 entity를 node, relation을 **방향과 타입이 있는 edge**로 표현한다
 - 동일한 entity 쌍 사이에도 여러 종류의 relation이 동시에 존재할 수 있다
 - **Entity classification**은 누락된 node type 또는 attribute를 예측하는 과제다
 - **Link prediction**은 관측되지 않은 (subject, relation, object) triple을 복원하는 과제다
 
-예시로 든 그래프에서 Mikhail Baryshnikov는 `:ballet_dancer` 타입이고 `educated_at`으로 Vaganova
+예시 그래프에서 Mikhail Baryshnikov는 `:ballet_dancer` 타입이고 `educated_at`으로 Vaganova
 Academy에, `awarded`로 Vilcek prize에 이어져 있다. `citizen_of`로 U.S.A.에 가는 엣지는 점선으로
-그려져 있는데, 이것이 복원 대상인 누락 링크다.
-
-S13이 다룬 것은 뒤쪽 과제 하나뿐이었다. 이 회차는 둘을 함께 다룬다.
+그려져 있고 이것이 복원 대상인 누락 링크다.
 
 ## 2. 일반 GCN이 놓치는 것
 
 - Standard GCN은 **모든 이웃 node에 동일한 transformation W**를 적용한다
 - KG에서는 소속, 저자, 인용 관계가 서로 다른 의미와 방향을 가진다
 - Relation type을 무시하면 의미가 다른 이웃 정보가 동일한 방식으로 집계된다
+- Relational GNN의 핵심 질문은 "relation을 message에 어떻게 반영할 것인가"다
 
 ```mermaid
 graph LR
@@ -59,9 +53,6 @@ graph LR
   end
 ```
 
-강의가 뽑는 문장은 이것이다. Relational GNN의 핵심 질문은 "relation을 message에 어떻게 반영할
-것인가"다. 이 질문에 R-GCN과 CompGCN이 서로 다른 답을 내놓는 것이 이 회차의 구조다.
-
 ## 3. 그래프 딥러닝의 두 단계
 
 - Graph **encoder**는 node와 edge를 반복적으로 집계해 node/relation embedding을 생성한다
@@ -76,9 +67,6 @@ graph LR
   EM --> D["Decoder"] --> TS["Triple score"] --> CR["Candidate ranking<br/>Task B · Link Prediction"]
 ```
 
-이 그림이 회차 전체의 뼈대다. encoder는 하나이고 그 뒤에 붙는 head가 과제를 정한다. S13의
-모델들은 이 그림에서 encoder가 없는 형태였다. embedding이 표에서 바로 나왔다.
-
 ## 4. R-GCN이 겨냥한 것
 
 > Modeling Relational Data with Graph Convolutional Networks
@@ -89,60 +77,33 @@ graph LR
 - Basis와 block-diagonal decomposition으로 relation별 parameter를 regularize한다
 - R-GCN encoder와 **DistMult decoder를 결합**해 local structure의 효과를 검증한다
 
-슬라이드의 그림이 문제 설정을 보여준다. 왼쪽은 관측된 KG로 연구자 A의 `type = ?`이고 논문 C로
-가는 `저자` 엣지가 점선이다. 오른쪽은 R-GCN이 이웃 relation pattern으로 복원한 결과로
-`type = Researcher`가 채워지고 `저자` 엣지에 0.87이라는 점수가 붙는다.
-
-네 항목이 논문 전체의 목차 역할을 한다.
-
-| 항목 | 무엇인가 |
-|---|---|
-| 주변 relation pattern으로 추론할 수 있다 | **가정.** 이 논문이 깔고 가는 전제 |
-| relation type과 direction에 따라 다른 transformation | **방법.** 그 가정을 어떻게 구현하는가 |
-| basis와 block-diagonal decomposition으로 regularize | **대응.** 그 방법이 만든 부작용을 어떻게 막는가 |
-| DistMult decoder를 결합해 local structure의 효과를 검증 | **실험 설계.** 그것이 실제로 되는지 어떻게 재는가 |
-
-첫 항목이 핵심 주장이다. 연구자 A의 타입을 몰라도 A가 `소속`으로 연구실에 이어지고 `저자`로
-논문에 이어져 있다면 **그 연결 패턴 자체가 "이것은 연구자다"를 말해준다.** 노드 자체를 보지 않고
-주변만 봐도 안다는 것이다.
-
-마지막 항목의 "검증"이라는 말도 눈여겨볼 만하다. 성능을 올리는 것이 목적이 아니라 이웃 구조가
-정말 도움이 되는지를 재려는 것이고, 21절의 baseline 설계가 여기서 나온다. decoder로 DistMult를
-쓴다는 것은 S13에서 배운 것을 그대로 가져다 쓴다는 뜻이다.
+슬라이드의 그림에서 왼쪽은 관측된 KG로 연구자 A의 `type = ?`이고 논문 C로 가는 `저자` 엣지가
+점선이다. 오른쪽은 R-GCN이 이웃 relation pattern으로 복원한 결과로 `type = Researcher`가 채워지고
+`저자` 엣지에 0.87이라는 점수가 붙는다.
 
 ## 5. Relational message passing
-
-핵심 식이다.
 
 ```
 h_i^(l+1) = σ ( Σ_{r∈R} Σ_{j∈N_i^r} (1 / c_i,r) · W_r^(l) · h_j^(l)  +  W_0^(l) · h_i^(l) )
 ```
 
-한 조각씩 읽으면 이렇다.
-
-```
-h_i^(l+1)          다음 층에서 노드 i 의 표현. 이것을 구하는 것이 목표
-σ( ... )           비선형 활성함수. 층이 하나로 합쳐지지 않게 한다
-Σ_{r∈R}            모든 관계 타입에 대해
-Σ_{j∈N_i^r}          그 관계로 이어진 이웃 j 마다
-1 / c_i,r              이웃 수로 나눠 크기를 맞춘다 (학습되지 않는 고정 상수)
-W_r^(l)                관계 r 전용 변환 행렬 (학습된다)
-h_j^(l)                이웃 j 의 이전 층 표현
-W_0^(l) · h_i^(l)  여기에 내 이전 층 표현도 더한다 (self-loop)
-```
-
-이웃 선택 → 관계별 변환 → 크기 보정 → 합산의 순서다.
-
-슬라이드가 각 항을 이렇게 풀어준다.
+| 기호 | 뜻 |
+|---|---|
+| N_i^r | relation r로 연결된 이웃 집합 |
+| W_r^(l) | relation별 변환 행렬 |
+| c_i,r | normalization constant |
+| W_0^(l) | self-loop 변환 |
 
 - 중심 node i는 relation r로 연결된 이웃 집합에서 message를 받는다
 - 이웃 vector h_j는 relation별 matrix W_r을 통과해 관계의 의미가 반영된다
 - 이웃이 많은 relation이 결과를 지배하지 않도록 c_i,r로 normalize한다
 - 이웃 message와 self-loop를 합친 값이 다음 layer의 node representation이 된다
 
+이웃 선택 → 관계별 변환 → 크기 보정 → 합산의 순서다.
+
 > **c는 학습되지 않는 고정 상수다.** 이웃이 매우 많은 hub node의 영향을 조절할 수 없다.
-> 슬라이드가 이 자리에 따로 주석을 달아뒀는데, 20절에서 R-GCN이 특정 데이터셋에서 지는 원인으로
-> 다시 등장한다.
+> 슬라이드가 이 자리에 주석을 달아뒀고, 20절에서 R-GCN이 특정 데이터셋에서 지는 원인으로 다시
+> 등장한다.
 
 동작 순서를 네 단계로 정리한 슬라이드가 따로 있다.
 
@@ -158,10 +119,12 @@ graph LR
 **self-loop가 왜 필요한가.** 이웃 message만 더하면 자기 자신의 이전 표현이 사라진다. `W_0 h_i`로
 이전 layer의 자기 정보를 함께 전달하면 layer를 깊게 쌓아도 중심 node의 정체성이 희석되지 않는다.
 
+> 식을 기호별로 푼 것은 [S14-1 6절](S14-1-읽는-데-필요한-것들.md#6-식-읽기)에 있다.
+
 ## 6. 같은 이웃 벡터가 관계마다 다른 메시지가 된다
 
-숫자 예시가 W_r의 역할을 명확하게 만든다. 연구자 A가 연구실 B와 논문 C에 서로 다른 relation으로
-이어져 있고, 두 이웃의 벡터가 우연히 같다고 하자.
+- 가상 학술 KG에서 연구자 A가 연구실 B, 논문 C와 서로 다른 relation으로 연결된다
+- 동일한 이웃 vector h = [1, 2]라도 relation matrix에 따라 message가 달라진다
 
 ```
 h(연구실 B) = [1, 2]        h(논문 C) = [1, 2]
@@ -171,9 +134,6 @@ h(연구실 B) = [1, 2]        h(논문 C) = [1, 2]
                      [1,0]]
 ```
 
-같은 입력인데 나오는 메시지가 다르다. relation matrix가 "이 관계로 들어오는 정보를 어떻게
-읽을 것인가"를 정한다. 저자 relation의 행렬은 두 성분을 뒤바꾸는 변환이라 결과가 [2, 1]이 된다.
-
 ## 7. 방향과 self-loop
 
 - Canonical relation과 inverse relation을 **별도 relation type**으로 정의한다
@@ -181,44 +141,11 @@ h(연구실 B) = [1, 2]        h(논문 C) = [1, 2]
 - Self-loop는 새 representation에 이전 layer의 자기 정보를 포함시킨다
 - 방향과 self-loop를 분리해야 subject와 object의 역할 차이를 보존할 수 있다
 
-**canonical relation은 KG에 실제로 저장된 방향이다.** `(연구자 A, authored, 논문 C)`가 그것이다.
-그런데 KG 엣지는 한 방향이고 message passing에서 정보는 양쪽으로 흘러야 한다.
+여기서 relation 수가 한 번 더 늘어난다. 원래 관계가 R개면 역관계까지 2R개가 되고 self-loop가
+하나 붙는다.
 
-```
-논문 C 의 표현을 만들 때    →  누가 썼는지(연구자 A) 를 알아야 한다
-연구자 A 의 표현을 만들 때  →  무엇을 썼는지(논문 C) 를 알아야 한다
-```
-
-엣지를 그대로 두면 C가 A에게 정보를 보낼 통로가 없다. 그래서 역방향 엣지를 인위적으로 만든다.
-그것이 `authored_inv`다.
-
-**여기서 R-GCN이 하는 선택이 핵심이다.** `authored`와 `authored_inv`를 같은 관계로 보지 않고
-별도 relation type으로 둔다. 행렬도 따로다. 두 방향이 담는 정보가 다르기 때문이다.
-
-```
-연구자 A 입장에서 논문 C 는     "내가 쓴 것"
-논문 C 입장에서 연구자 A 는     "나를 쓴 사람"
-```
-
-"내가 쓴 논문들"을 모아 나를 설명하는 방식과 "나를 쓴 저자들"을 모아 나를 설명하는 방식이 같을
-이유가 없다. 같은 행렬을 쓰면 두 방향이 구분되지 않아 `authored`가 대칭 관계인 것처럼 학습된다.
-슬라이드의 "subject와 object의 역할 차이를 보존"이 이 뜻이다.
-
-self-loop가 따로 있는 이유는 경로가 하나 더 있기 때문이다. 자기 자신이다. 1층에서 만들어진 A의
-표현을 2층에서 또 이웃으로만 덮으면 2층의 A는 "이웃의 이웃"으로만 만들어진다. 1층에서 A가 갖고
-있던 것이 사라진다. `W_0 h_i`가 그것을 이어준다.
-
-| | 무엇에서 오는 정보 |
-|---|---|
-| 정방향 (canonical) | 내가 subject인 엣지 |
-| 역방향 (inverse) | 내가 object인 엣지 |
-| 자기 자신 (self-loop) | 이전 층의 나 |
-
-CompGCN의 `W_O / W_I / W_S`([S14B 5절](S14B-CompGCN-합성-기반-관계-표현.md))가 이 셋을 명시적으로 정리한 것이다. R-GCN에서는 앞의 둘이
-relation type에 흡수되어 있고 self만 따로 있었는데 CompGCN에서 셋이 나란해진다.
-
-그리고 여기서 relation 수가 한 번 더 늘어난다. 원래 관계가 R개면 역관계까지 2R개가 되고 self-loop가
-하나 붙는다. 다음 절의 파라미터 문제가 그만큼 커진다.
+> canonical과 inverse가 무엇이고 왜 별도 relation type으로 두는지는
+> [S14-1 8절](S14-1-읽는-데-필요한-것들.md#8-세-가지-방향)에 있다.
 
 ## 8. 파라미터 폭증
 
@@ -228,31 +155,13 @@ relation type에 흡수되어 있고 self만 따로 있었는데 CompGCN에서 �
 - 저자들은 parameter sharing과 sparsity constraint를 각각 별도로 제안한다
 
 슬라이드의 그림이 대비를 보여준다. relation이 3개면 W_r 3개에 self-loop 1개지만, relation이
-100개면 W_r이 100개이고 그것이 layer마다 반복된다.
+100개면 W_r이 100개이고 그것이 layer마다 반복된다. FB15k는 relation이 1,345개이고 역관계까지
+세면 2,690개다.
 
-**"독립 matrix"는 그 관계만의 전용 행렬을 말한다.** 다른 관계와 아무것도 공유하지 않는 행렬이다.
-행렬 하나에 숫자가 d×d개라 d = 100이면 10,000개인데, 그 관계로 이어진 엣지가 5개뿐이면 사례
-5개로 숫자 10,000개를 정해야 한다. 거의 난수로 남거나 그 5개에만 맞춰진다.
-
-S13의 rare entity 문제와 같은 구조인데 대상이 다르다. S13에서는 등장이 드문 엔티티의 벡터가
-학습되지 않았고 여기서는 사례가 적은 관계의 행렬이 학습되지 않는다.
-
-마지막 항목의 두 이름이 각각 다음 두 절이다.
-
-| | 방식 | 어느 절 |
-|---|---|---|
-| parameter sharing | 여러 관계가 **같은 부품을 나눠 쓴다** | 9절 basis |
-| sparsity constraint | 각자 행렬을 갖되 **대부분의 칸을 0으로 못박는다** | 10절 block |
-
-sparsity는 희소성, 즉 0이 많다는 뜻이고 constraint는 강제한다는 뜻이다. 자유롭게 학습하지 못하게
-막아 학습되는 숫자를 줄이는 방식이다.
-
-S13 7절에서 본 RESCAL의 문제와 같은 구조이기도 하다. FB15k는 relation이 1,345개이고 역관계까지
-세면 2,690개다. 강의가 24페이지 주석에 적어둔 대로 파라미터가 그대로 1,345배로 늘어난다.
+> "독립 matrix"의 뜻과 두 해법(parameter sharing / sparsity constraint)의 차이는
+> [S14-1 7절](S14-1-읽는-데-필요한-것들.md#7-basis와-block을-숫자로)에 있다.
 
 ## 9. Basis decomposition
-
-첫 번째 해법이다. 관계마다 행렬을 따로 두지 않고 공용 기저의 조합으로 만든다.
 
 ```
 W_r^(l) = Σ_b  a_rb^(l) · V_b^(l)
@@ -273,13 +182,7 @@ W 재직 = 0.5·V₁ + 0.4·V₂ + 0.1·V₃
 W 고용 = 0.6·V₁ + 0.1·V₂ + 0.3·V₃
 ```
 
-계수가 서로 비슷한 것이 눈에 띈다. 의미가 가까운 관계들이라 비슷한 조합으로 표현된다. 그리고
-사례가 적은 관계도 다른 관계들이 만들어놓은 basis를 그대로 쓰므로 백지에서 시작하지 않는다.
-파라미터 감소보다 이 공유 효과가 rare relation 문제에 직접 답한다.
-
 ## 10. Block decomposition
-
-두 번째 해법이다. 관계마다 행렬은 그대로 두되 대부분을 0으로 고정한다.
 
 - Relation matrix를 여러 low-dimensional block의 **direct sum**으로 제한한다
 - 각 latent feature group 내부의 상호작용은 유지하고 group 사이 연결은 제거한다
@@ -298,15 +201,8 @@ Dense full matrix              Block-diagonal
 ■ ■ ■ ■ ■ ■                   □ □ □ □ ■ ■
 ```
 
-9절과 나란히 놓으면 두 해법이 갈리는 지점이 보인다.
-
-| | 줄이는 방식 | 관계 사이 공유 | 잃는 것 |
-|---|---|---|---|
-| Basis | 공용 기저를 두고 계수만 관계별로 | 있다 | 관계별 자유도 |
-| Block | 행렬 대부분을 0으로 고정 | 없다 | block 간 feature 상호작용 |
-
-rare relation 문제에 답하는 것은 basis 쪽이다. block은 파라미터만 줄이고 관계끼리 정보를
-주고받지 않으므로, 사례가 적은 관계는 여전히 자기 데이터만으로 배워야 한다.
+> 두 해법을 숫자로 비교한 것은 [S14-1 7절](S14-1-읽는-데-필요한-것들.md#7-basis와-block을-숫자로)에
+> 있다.
 
 ## 11. Entity classification — 구조
 
@@ -323,9 +219,6 @@ graph LR
 - Classifier는 embedding을 연구자 / 논문 / 기관과 같은 class score로 변환한다
 - Softmax는 class score를 합이 1인 probability로 바꿔 비교 가능하게 만든다
 
-첫 항목의 "또는"이 중요하다. node에 쓸 feature가 있으면 그것을 쓰고, 없으면 node마다 학습되는
-초기 vector를 둔다. 후자를 고르면 새 node는 자리가 없어 재학습해야 한다.
-
 ## 12. Entity classification — 학습
 
 - Training label이 있는 node에 대해 예측 probability와 실제 class를 비교한다
@@ -337,9 +230,8 @@ graph LR
 Loss = − Σ log p(정답 class)
 ```
 
-마지막 항목이 18절에서 볼 라벨 비율 0.04%짜리 데이터셋에서 학습이 되는 이유다. 라벨 없는
-node는 채점 대상이 아니지만 이웃으로서 정보를 나른다. 라벨은 176개인데 그래프 전체가 학습에
-쓰인다.
+> softmax · cross-entropy · 역전파가 각각 무슨 연산인지는
+> [S14-1 5절](S14-1-읽는-데-필요한-것들.md#5-학습이란-무엇인가)에 있다.
 
 ## 13. Entity classification — 추론
 
@@ -348,8 +240,7 @@ node는 채점 대상이 아니지만 이웃으로서 정보를 나른다. 라�
 - Softmax 결과가 Researcher 0.705 / Paper 0.153 / Organization 0.142로 계산된다
 - 가장 높은 probability를 가진 Researcher를 최종 entity type으로 선택한다
 
-예시에서 연구자 B는 논문 C와 `authored`로, 연구실 D와 `affiliated_with`로 이어져 있다. 두 이웃
-관계만으로 타입이 정해진다.
+예시에서 연구자 B는 논문 C와 `authored`로, 연구실 D와 `affiliated_with`로 이어져 있다.
 
 ## 14. Link prediction — encoder와 decoder
 
@@ -377,9 +268,8 @@ graph LR
 >
 > 대각행렬이므로 **대칭 관계만 표현 가능하다.**
 
-마지막 줄이 [S13 20절](S13-KG-임베딩-기초.md)에서 확인한 DistMult의 구조적 한계 그대로다.
-encoder는 방향을 나눠 다루는데(7절) decoder는 방향을 구분하지 못한다. 이 어긋남은
-[부록 5절](S14-1-이웃에서-오는-표현.md#5-방향을-살린-encoder와-대칭만-아는-decoder)에 적었다.
+> 마지막 줄이 7절의 방향 처리와 어긋난다.
+> [S14-2 4절](S14-2-이웃에서-오는-표현.md#4-방향을-살린-encoder와-대칭만-아는-decoder)에 적었다.
 
 ## 15. Link prediction — 학습
 
@@ -389,9 +279,8 @@ encoder는 방향을 나눠 다루는데(7절) decoder는 방향을 구분하지
 - 예측 대상 edge를 encoder가 그대로 보지 않도록 **target edge masking 또는 edge dropout**이
   필요할 수 있다
 
-앞의 셋은 S13의 negative sampling과 같다. 마지막 항목이 encoder를 붙이면서 새로 생긴 문제다.
-맞혀야 할 엣지가 encoder가 보는 그래프 안에 들어 있으면 답을 그대로 읽게 된다.
-[부록 4절](S14-1-이웃에서-오는-표현.md#4-encoder가-만든-새로운-누출)에 적었다.
+> 마지막 항목이 encoder를 붙이면서 새로 생긴 문제다.
+> [S14-2 3절](S14-2-이웃에서-오는-표현.md#3-encoder가-만든-새로운-누출)에 적었다.
 
 ## 16. Link prediction — 추론
 
@@ -406,10 +295,8 @@ encoder는 방향을 나눠 다루는데(7절) decoder는 방향을 구분하지
 3. 학회 D     0.186
 ```
 
-절차는 S13과 같다. 후보 전체를 채점해 줄 세운다. 마지막 항목이 온톨로지가 임베딩 쪽에 개입하는
-자리를 짚는데, [S13 부록 7절](S13-1-기호와-좌표-사이.md#7-온톨로지가-임베딩에-줄-수-있는-것)에서
-가설로 적어둔 것과 이어진다. [부록 8절](S14-1-이웃에서-오는-표현.md#8-온톨로지가-후보를-줄인다)에
-정리했다.
+> 마지막 항목은 온톨로지가 임베딩 쪽에 개입하는 자리다.
+> [S14-2 7절](S14-2-이웃에서-오는-표현.md#7-온톨로지가-후보를-줄인다)에 적었다.
 
 ## 17. 평가 지표
 
@@ -431,12 +318,9 @@ Hits@3   = 2 / 3 = 0.667
 Hits@10  = 3 / 3 = 1.000
 ```
 
-S13 4절에서 이미 나온 지표인데 여기서 계산까지 보여준다. MRR은 rank 1과 rank 2의 차이(1 → 0.5)를
-rank 9와 rank 10의 차이(0.111 → 0.1)보다 훨씬 크게 본다. 상위 순위를 중시하는 지표다.
-
 ## 18. Entity classification 데이터셋
 
-R-GCN Table 1이다. RDF 형식의 4개 데이터셋을 쓴다.
+R-GCN Table 1이다.
 
 | | AIFB | MUTAG | BGS | AM |
 |---|---|---|---|---|
@@ -450,13 +334,6 @@ R-GCN Table 1이다. RDF 형식의 4개 데이터셋을 쓴다.
 - 전체 entity 중 label이 있는 node는 극소수이므로 이웃 구조로부터 정보를 끌어와야 한다
 - Label 생성에 쓰인 relation은 leakage 방지를 위해 제거한다 (AIFB는 `employs`·`affiliation`,
   MUTAG는 `isMutagenic`, BGS는 `hasLithogenesis`)
-
-라벨 비율이 극단적으로 낮다. BGS는 333,845개 중 146개만 label이 있어 전체의 0.04% 수준이다.
-이 조건이 GNN을 쓰는 이유를 직접 만든다. 라벨 있는 node만으로는 학습이 되지 않으니 이웃
-구조에서 정보를 가져와야 한다.
-
-Label 생성 relation을 제거하는 처리도 눈여겨볼 만하다. 남겨두면 모델이 그 엣지 하나만 보고
-맞히게 되어 구조 학습을 평가하지 못한다.
 
 ## 19. Link prediction 데이터셋과 FB15k-237
 
@@ -476,13 +353,6 @@ R-GCN Table 3이다.
   크게 앞선다
 - 그 쌍을 제거한 **FB15k-237을 주 평가 데이터셋으로 선택**한다
 
-`(A, hasPart, B)`와 `(B, partOf, A)`가 동시에 존재하면 한쪽을 보고 다른 쪽이 자명해진다. 구조
-학습 없이도 맞힐 수 있다는 뜻이다. inverse pair 제거는 Toutanova and Chen의 제안이다.
-
-[S13 부록 5절](S13-1-기호와-좌표-사이.md#5-충돌하는-지점)에서 두 논문의 수치가 누출된 벤치마크
-위의 값이라고 적어뒀는데, 이 회차에서 그 문제가 해결된 형태로 등장한다. R-GCN은 처음부터
-FB15k-237을 주 데이터셋으로 잡았고 CompGCN도 FB15k-237과 WN18RR만 쓴다.
-
 ## 20. Entity classification 결과
 
 R-GCN Table 2다.
@@ -499,13 +369,9 @@ R-GCN Table 2다.
 - 저자들은 **high-degree hub와 고정 normalization**이 graph structure에 따라 한계가 될 수 있다고
   해석한다
 
-세 번째 항목이 5절의 주석과 이어진다. `c_i,r`이 학습되지 않는 상수라 hub node의 영향을 조절할
-수 없고, hub가 많은 그래프에서 그것이 그대로 성능 손실이 된다. 슬라이드가 앞뒤로 같은 원인을
-두 번 짚는다.
+세 번째 항목이 5절의 주석과 이어진다.
 
 ## 21. baseline은 encoder 없는 같은 decoder다
-
-이 슬라이드가 이번 회차 실험 설계의 핵심이다.
 
 | | entity 벡터를 얻는 방법 | decoder |
 |---|---|---|
@@ -516,10 +382,10 @@ R-GCN Table 2다.
 - 차이는 하나뿐이다. entity 벡터를 어디서 얻는가
 - Decoder를 고정했으므로 **성능 차이를 encoder의 기여로 해석할 수 있다**
 
-변인이 하나만 다른 비교다. [S13 부록 5절](S13-1-기호와-좌표-사이.md#5-충돌하는-지점)에서 지적한
-"옵티마이저가 다른데 모델을 비교한다"와 정반대 방향의 설계이고, 부록에서 이 대비를 따로 적었다.
-
 `R-GCN+`는 두 모델을 따로 학습한 뒤 추론 점수만 가중 평균한 앙상블이다 (α = 0.4).
+
+> 이 설계가 CompGCN 쪽과 대비된다.
+> [S14-2 5절](S14-2-이웃에서-오는-표현.md#5-실험-설계가-대비된다)에 적었다.
 
 ## 22. Link prediction 결과
 
@@ -539,15 +405,11 @@ R-GCN Table 5, FB15k-237 기준이다.
 - DistMult의 FB15k-237 filtered MRR은 0.191이다
 - R-GCN의 filtered MRR은 0.248로 **decoder-only baseline보다 29.8% 높다**
 - Node degree가 높아 context가 풍부한 구간에서는 R-GCN이 DistMult보다 유리하다
+- DistMult는 entity마다 독립 embedding을 학습하지만 R-GCN encoder는 이웃 구조로부터 embedding을
+  구성하므로 등장이 드문 entity에서 이득이 크다
 
-강의가 뽑는 해석은 이것이다. DistMult는 entity마다 독립 embedding을 학습하지만 R-GCN encoder는
-이웃 구조로부터 embedding을 구성하므로 등장이 드문 entity에서 이득이 크다.
-
-Figure 4는 average degree별 MRR을 그린다. degree가 낮은 왼쪽 끝에서는 두 모델이 붙어 있고
-DistMult가 살짝 위인 구간도 있다. 1,000~1,500 구간에서 R-GCN이 크게 앞서고, 2,000을 넘으면
-둘 다 0에 가까워진다. **이득이 특정 degree 구간에 몰려 있다.**
-
-`R-GCN+`의 filtered MRR은 0.249로 R-GCN의 0.248과 사실상 같다. 앙상블의 이득이 0.001이다.
+Figure 4는 average degree별 MRR을 그린다. degree가 낮은 왼쪽 끝에서는 두 모델이 붙어 있고,
+1,000~1,500 구간에서 R-GCN이 앞서며, 2,000을 넘으면 둘 다 0에 가까워진다.
 
 ## 23. R-GCN Takeaway
 
@@ -564,15 +426,12 @@ DistMult가 살짝 위인 구간도 있다. 1,000~1,500 구간에서 R-GCN이 �
 강의가 이 절을 닫는 문장이 다음 논문의 제목 역할을 한다. "Can relations become learnable
 representations?"
 
-세 번째 항목이 핵심이다. R-GCN에서 relation은 표현을 갖지 않는다. 어느 행렬을 쓸지 고르는
-번호일 뿐이고, 학습되는 것은 그 행렬이지 relation 자체가 아니다.
-
 ---
 
 ## 관련 문서
 
 - [S14B — CompGCN: 합성 기반 관계 표현](S14B-CompGCN-합성-기반-관계-표현.md) — 같은 회차의 뒷부분
-- [부록 S14-1 — 이웃에서 오는 표현](S14-1-이웃에서-오는-표현.md) — 밑바탕과 용어, 공유 축, 아키텍처 누출
+- [S14-1 — 읽는 데 필요한 것들](S14-1-읽는-데-필요한-것들.md) — 용어, 식 읽기, 학습 절차
+- [S14-2 — 이웃에서 오는 표현](S14-2-이웃에서-오는-표현.md) — 강의 밖 해석과 인사이트
 - [S13 — KG 임베딩 기초](S13-KG-임베딩-기초.md) — 직전 회차. decoder 자리에 들어가는 DistMult
-- [S13-1 — 기호와 좌표 사이](S13-1-기호와-좌표-사이.md) — 벤치마크 누출과 논문 간 수치 비교 문제
 - [00 — 전체 파이프라인](00-전체-파이프라인.md) — 임베딩 계열이 붙는 자리

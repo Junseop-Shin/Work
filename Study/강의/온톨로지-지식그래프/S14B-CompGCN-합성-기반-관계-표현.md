@@ -7,13 +7,16 @@
 >   Convolutional Networks*, ICLR 2020 ([arXiv:1911.03082](https://arxiv.org/abs/1911.03082))
 >
 > 📖 [강의 목차](README.md) · 이전 [S14A R-GCN](S14A-R-GCN-관계별-메시지-전달.md)
-> 📎 부록 [S14-1 이웃에서 오는 표현](S14-1-이웃에서-오는-표현.md)
+> 📎 부록 [S14-1 읽는 데 필요한 것들](S14-1-읽는-데-필요한-것들.md) · [S14-2 이웃에서 오는 표현](S14-2-이웃에서-오는-표현.md)
 
 [S14A](S14A-R-GCN-관계별-메시지-전달.md)의 R-GCN은 relation을 행렬로 두었다. 관계마다 행렬이
 따로라 관계 수가 늘면 파라미터가 그만큼 늘고, relation 자체는 표현을 갖지 못한다. CompGCN이 그
 두 지점을 겨냥한다.
 
 절 번호는 이 문서에서 1부터 다시 시작한다. 앞 문서의 절을 가리킬 때는 `S14A N절`로 적는다.
+
+**이 문서도 슬라이드 내용만 담는다.** 식과 표기를 읽는 법은
+[S14-1](S14-1-읽는-데-필요한-것들.md)에, 강의 밖 해석은 [S14-2](S14-2-이웃에서-오는-표현.md)에 있다.
 
 ---
 
@@ -26,9 +29,6 @@
 - KG embedding의 entity–relation **composition operator**를 GCN message에 활용한다
 - Relation 수가 증가해도 확장 가능한 parameter-efficient 구조를 목표로 한다
 - Link prediction, node classification, graph classification에서 모델을 평가한다
-
-세 축으로 정리된다. entity와 relation을 같은 layer에서 함께 업데이트하는 것, KG embedding의
-φ(e_s, e_r)를 GCN message에 직접 쓰는 것, relation basis vector로 relation 수 증가에 대응하는 것.
 
 ## 2. CompGCN Motivation
 
@@ -88,9 +88,8 @@ Kingdom(`Citizen-of`), The Dark Knight(`Directed-by`)와 각각의 역관계가 
 - Circular correlation은 차원 간 상호작용을 고정 크기 vector로 압축한다
 - **Composition operator는 message가 relation을 해석하는 inductive bias가 된다**
 
-S13 5절의 세 번째 축이 여기로 옮겨왔다. 그때는 점수함수의 대수적 성질이 표현 가능한 관계를
-정했고, 여기서는 같은 연산이 message를 만드는 방식을 정한다. 대응 KGE 열이 S13에서 다룬
-모델들과 그대로 겹친다.
+> 대응 KGE 열이 [S13](S13-KG-임베딩-기초.md)에서 다룬 모델들과 그대로 겹친다. 점수함수의
+> 귀납 편향 논의가 여기로 옮겨온 것이다.
 
 ## 5. Update equation — R-GCN과의 대비
 
@@ -111,9 +110,9 @@ CompGCN    h_v^(k+1) = f ( Σ_(u,r)∈N(v)  W_λ(r) · φ(h_u, h_r) )
 - W_O, W_I, W_S는 original, inverse, self-loop **방향만** 구분한다
 - **Relation 의미는 h_r이, 방향 차이는 W_λ(r)가 담당한다**
 
-강의가 아래에 붙인 문장이 핵심이다. 방향 filter는 relation 수와 무관하게 3개로 고정된다.
-R-GCN에서는 relation이 1,345개면 행렬도 그만큼 필요했는데, CompGCN에서는 relation이 몇 개든
-행렬이 3개다. 늘어나는 것은 벡터 h_r뿐이다.
+강의가 아래에 붙인 문장은 이것이다. 방향 filter는 relation 수와 무관하게 3개로 고정된다.
+
+> 두 식을 기호별로 푼 것은 [S14-1 6절](S14-1-읽는-데-필요한-것들.md#6-식-읽기)에 있다.
 
 ## 6. Worked example
 
@@ -145,8 +144,6 @@ graph LR
 - 갱신된 relation embedding은 **다음 layer의 composition에 다시 사용된다**
 - 초기 relation feature가 존재하면 Z를 입력 representation으로 활용할 수 있다
 
-두 stream이 나란히 흐르면서 서로를 먹인다. R-GCN에서는 아래쪽 stream이 없었다.
-
 ## 8. Parameter efficiency
 
 - CompGCN은 node, direction, relation, relation embedding을 모두 명시적으로 처리한다
@@ -166,8 +163,7 @@ CompGCN Table 2가 환원 관계를 보여준다.
 φ(h_u, h_r) = h_u로 두고 W_λ(r) = W로 두면 GCN이 되고, φ = h_u이고 W를 relation별로 두면
 R-GCN이 된다. 기존 모델들이 φ 자리에 h_u만 넣은 특수 사례라는 정리다.
 
-두 complexity를 나란히 보면 |R|이 곱해지는 자리가 다르다. R-GCN은 `BK|R|`로 layer 수 K와
-곱해지고, CompGCN은 `B|R|`로 basis 수와만 곱해진다.
+> `O(...)` 표기를 읽는 법은 [S14-1 6절](S14-1-읽는-데-필요한-것들.md#6-식-읽기)에 있다.
 
 ## 9. 실험 설계
 
@@ -178,9 +174,6 @@ R-GCN이 된다. 기존 모델들이 φ 자리에 h_u만 넣은 특수 사례라
 | Graph classification | MUTAG · PTC | Accuracy | graph-level 표현으로 확장되는가 |
 
 추가 실험으로 composition operator, basis 수, relation 수의 영향을 분석한다.
-
-R-GCN이 두 태스크였던 데 비해 하나가 더 붙었다. graph classification은 그래프 전체를 하나로
-분류하는 과제라 node 표현을 모아 그래프 표현을 만드는 단계가 추가된다.
 
 ## 10. Link prediction 결과
 
@@ -203,8 +196,8 @@ CompGCN Table 3에서 CompGCN 행과 주요 비교 대상만 옮겼다.
 - 표 수치상 MR은 RotatE가 더 낮고 H@10은 SACN이 더 높으며 H@3는 SACN과 동률이다
 - 핵심 결과는 당시 baseline 대비 강한 MRR이지만 모든 지표의 단독 최고 성능은 아니다
 
-세 번째 항목은 강의가 논문의 서술을 표와 대조해 짚은 것이다. 논문이 쓴 문장을 그대로 옮기지
-않고 근거를 확인한 대목이라 부록 10절에 따로 적었다.
+> 세 번째 항목은 강의가 논문의 서술을 표와 대조해 짚은 것이다.
+> [S14-2 9절](S14-2-이웃에서-오는-표현.md#9-자료-대조)에 정리했다.
 
 ## 11. Composition operator × decoder
 
@@ -225,9 +218,8 @@ CompGCN Table 4다. encoder를 CompGCN으로 고정하고 operator와 decoder를
 - ConvE decoder에서는 Corr가 0.355로 가장 높다
 - **Composition은 독립적인 만능 선택이 아니라 encoder–decoder 조합의 일부다**
 
-최적 operator가 decoder에 따라 달라진다. [S14A 21절](S14A-R-GCN-관계별-메시지-전달.md)에서 R-GCN이
-decoder를 고정해 encoder 기여를
-분리해낸 것과 대비되는 지점이라 부록 6절에 적었다.
+> 최적 operator가 decoder마다 달라진다는 것은 [S14A 21절](S14A-R-GCN-관계별-메시지-전달.md)의
+> 실험 설계와 대비된다. [S14-2 5절](S14-2-이웃에서-오는-표현.md#5-실험-설계가-대비된다)에 적었다.
 
 ## 12. Relation basis vector
 
@@ -242,8 +234,8 @@ h 저자 = 0.4·z₁ + 0.5·z₂ + 0.1·z₃
 h 인용 = 0.2·z₁ + 0.3·z₂ + 0.5·z₃
 ```
 
-[S14A 9절](S14A-R-GCN-관계별-메시지-전달.md)의 R-GCN basis와 형태가 같은데 공유하는 대상이 다르다. 같은 이름의 다른 장치라 부록 1절
-용어 정리에서 갈라놨다.
+> [S14A 9절](S14A-R-GCN-관계별-메시지-전달.md)의 R-GCN basis와 형태가 같지만 공유하는 대상이
+> 다르다. [S14-1 7절](S14-1-읽는-데-필요한-것들.md#7-basis와-block을-숫자로)에서 갈라놨다.
 
 ## 13. Scalability
 
@@ -256,8 +248,6 @@ Figure 3에서 basis 수를 5까지 줄여도 상대 MRR이 97.2%로 유지된�
 98.6%, 25개일 때 98.0%). Figure 4는 같은 relation 수에서 CompGCN(B=5)과 R-GCN을 비교하는데
 전 구간에서 CompGCN이 위에 있다 (전체 0.345 대 0.342, 100개 0.331 대 0.325, 50개 0.316 대
 0.308, 25개 0.321 대 0.316, 10개 0.269 대 0.265).
-
-차이가 크지는 않다. 전체 조건에서 0.003이고 가장 벌어지는 50개 조건에서 0.008이다.
 
 ## 14. Node · graph classification
 
@@ -321,7 +311,8 @@ learnable representation으로.
 ## 관련 문서
 
 - [S14A — R-GCN: 관계별 메시지 전달](S14A-R-GCN-관계별-메시지-전달.md) — 같은 회차의 앞부분
-- [부록 S14-1 — 이웃에서 오는 표현](S14-1-이웃에서-오는-표현.md) — 두 모델의 실험 설계 대비, 공유 축
+- [S14-1 — 읽는 데 필요한 것들](S14-1-읽는-데-필요한-것들.md) — 용어, 식 읽기, 학습 절차
+- [S14-2 — 이웃에서 오는 표현](S14-2-이웃에서-오는-표현.md) — 강의 밖 해석과 인사이트
 - [S13 — KG 임베딩 기초](S13-KG-임베딩-기초.md) — composition operator에 대응하는 TransE·DistMult·HolE
 - [S13-1 — 기호와 좌표 사이](S13-1-기호와-좌표-사이.md) — 논문 간 수치 비교 문제
 - [00 — 전체 파이프라인](00-전체-파이프라인.md) — 임베딩 계열이 붙는 자리
