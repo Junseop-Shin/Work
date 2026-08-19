@@ -282,6 +282,9 @@ CompGCN Table 5다.
 - PTC graph classification에서는 71.6으로 비교 모델 중 가장 높다
 - MUTAG graph classification 89.0은 PATCHY-SAN 92.6보다 낮고 GIN 89.4와 유사하다
 
+> `±` 뒤 숫자가 결론을 바꾼다.
+> [S14-1 10절](S14-1-읽는-데-필요한-것들.md#10-실험-파트-읽는-법)에 적었다.
+
 node classification은 확실하게 앞서고 graph classification은 갈린다. 표준편차도 눈에 띈다.
 graph classification 쪽은 ±11~12로 커서 차이를 단정하기 어렵다.
 
