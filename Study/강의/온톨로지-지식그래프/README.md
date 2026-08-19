@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -53,7 +53,10 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | Ch.5 | S14B | GNN 기반 KG 표현 ② — CompGCN (관계 = 벡터) · 두 모델 비교 | [S14B-CompGCN-합성-기반-관계-표현](S14B-CompGCN-합성-기반-관계-표현.md) | ✅ |
 | | | ↳ 부록 | S14-1 | 읽는 데 필요한 것들 — CNN·GCN · 행렬 W · 학습 절차 · 식 읽기 · 실험 표 읽는 법 | [S14-1-읽는-데-필요한-것들](S14-1-읽는-데-필요한-것들.md) | ✅ |
 | | | ↳ 부록 | S14-2 | 이웃에서 오는 표현 — 공유 축 · LoRA 계보 · 아키텍처 누출 · 지도학습과의 대응 · KG와 모델의 역할 분담 | [S14-2-이웃에서-오는-표현](S14-2-이웃에서-오는-표현.md) | ✅ |
-| | Day 8 | Ch.5 | S15 | 온톨로지 임베딩 (OWL2Vec* · EL) | — | ⬜ |
+| | Day 8 | Ch.5 | S15A | 온톨로지 임베딩 ① — OWL2Vec*: 구조·텍스트·논리를 문장 corpus로 | [S15A-OWL2Vec-star-문장-기반-임베딩](S15A-OWL2Vec-star-문장-기반-임베딩.md) | ✅ |
+| | | Ch.5 | S15B | 온톨로지 임베딩 ② — EL Embeddings: 공리를 공간의 배치로 | [S15B-EL-Embeddings-기하-기반-임베딩](S15B-EL-Embeddings-기하-기반-임베딩.md) | ✅ |
+| | | ↳ 부록 | S15-1 | 읽는 데 필요한 것들 — Word2Vec·random walk·WL kernel · 논리 기호 · hinge loss | [S15-1-읽는-데-필요한-것들](S15-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S15-2 | 공리를 어디에 두는가 — 두 모델 대조 · 이름이 다 하는 온톨로지 · 비교 불가한 두 실험 | [S15-2-공리를-어디에-두는가](S15-2-공리를-어디에-두는가.md) | ✅ |
 | | | Ch.5 | S16 | 딥러닝 기반 온톨로지 정렬 (OntoEA · BERTMap) | — | ⬜ |
 | 5주 | Day 9 | 실습 ③ | S17 | KG 임베딩 실습 — PyKEEN | — | ⬜ |
 | | | 실습 ④ | S18 | 온톨로지 임베딩·정렬 실습 — DeepOnto | — | ⬜ |
@@ -98,6 +101,14 @@ S14B가 `03 CompGCN`(Vashishth et al. 2020)과 `04 Discussion`이다. 절 번호
 
 **부록도 둘이다.** 슬라이드가 설명 없이 쓰는 용어와 식을 푸는 S14-1, 강의 밖 해석을 담는
 S14-2로 나눴다. 본편에는 슬라이드 내용만 두고 이해를 돕는 서술은 전부 부록으로 옮겼다)*
+
+*(S15는 슬라이드 4개 절로 된 한 덱이고 인용 논문이 둘이다. S15A가 `1 Ontology`(온톨로지 기초와
+임베딩의 세 RQ)와 `2 OWL2Vec*`(Chen et al. 2021), S15B가 `3 EL Embeddings`(Kulmanov et al. 2019)와
+`4 Conclusion`이다. 회차 전체 결론은 뒤쪽 문서인 S15B에 두었다.
+
+**Ch.5부터 원논문 대조를 하지 않는다.** 대신 각 문서 상단에 참고 논문과 강의 링크를 남겨
+필요할 때 찾아갈 수 있게 했다. 실험 표에서 앞뒤가 맞지 않는 값 두 개(S15A 19·20절)는 원표기를
+남기고 인용 블록으로 표시해 두었다)*
 
 ## 정리 규칙
 
