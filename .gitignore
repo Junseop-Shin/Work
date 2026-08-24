@@ -70,3 +70,6 @@ Coding_Tests/
 *.png
 *.mov
 .gstack/
+
+# ─── Orca 작업 산출물 (내부 식별자 포함 가능) ──
+.orca/
