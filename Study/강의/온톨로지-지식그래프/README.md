@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -61,7 +61,9 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | Ch.5 | S16B | 딥러닝 기반 온톨로지 정렬 ② — BERTMap: 온톨로지 label을 supervision으로 | [S16B-BERTMap-문맥-임베딩-기반-정렬](S16B-BERTMap-문맥-임베딩-기반-정렬.md) | ✅ |
 | | | ↳ 부록 | S16-1 | 읽는 데 필요한 것들 — BERT·fine-tuning · hard negative · inverted index·idf · P/R/F1 | [S16-1-읽는-데-필요한-것들](S16-1-읽는-데-필요한-것들.md) | ✅ |
 | | | ↳ 부록 | S16-2 | 정렬이 서는 자리 — 서로를 전제하는 두 논문 · 미선언 disjointness의 정반대 처방 | [S16-2-정렬이-서는-자리](S16-2-정렬이-서는-자리.md) | ✅ |
-| 5주 | Day 9 | 실습 ③ | S17 | KG 임베딩 실습 — PyKEEN | — | ⬜ |
+| 5주 | Day 9 | 실습 ③ | S17 | KG 임베딩 실습 — PyKEEN (TransE·DistMult·RotatE 링크 예측) | [S17-KG-임베딩-실습-PyKEEN](S17-KG-임베딩-실습-PyKEEN.md) | ✅ |
+| | | ↳ 부록 | S17-1 | 읽는 데 필요한 것들 — 복소수 회전 · PyKEEN 함수 · 그림 읽는 법 · 지표가 재는 것 · PyKEEN을 왜 쓰는가 | [S17-1-읽는-데-필요한-것들](S17-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S17-2 | 돌려보고 확인한 것들 — 기본값 · 두 모델의 붕괴 · 여덟 모델이 기준선에 진다 · 재현 범위 | [S17-2-돌려보고-확인한-것들](S17-2-돌려보고-확인한-것들.md) | ✅ |
 | | | 실습 ④ | S18 | 온톨로지 임베딩·정렬 실습 — DeepOnto | — | ⬜ |
 | | Day 10 | Ch.6 언어모델+KG | S19 | 엔티티 임베딩 직접 주입 (ERNIE · KnowBERT) | — | ⬜ |
 | | | Ch.6 | S20 | KG 구조 통합 & 공동 학습 (K-BERT · KEPLER) | — | ⬜ |
@@ -120,6 +122,20 @@ S16B는 절 번호를 슬라이드의 소절 번호에 맞췄는데 **덱 자체
 
 이 덱은 앞선 회차들과 달리 슬라이드 하단에 발표자가 덧붙인 메모 상자가 자주 붙는다. 그것도
 슬라이드에 있는 것이므로 본편에 옮기고 "슬라이드 하단 메모"라고 적어 구분했다)*
+
+*(**S17부터 실습 회차라 문서 구성을 바꿨다.** 이론 회차는 슬라이드 소절을 절로 삼고 논문
+아이디어를 서술했지만, 실습은 노트북의 Step 순서를 절로 삼고 어떤 API를 왜 부르는지에
+무게를 둔다. 부록도 원논문 대조가 아니라 **코드를 직접 실행한 결과**가 본론이다
+(S09·S10에서 쓴 방식).
+
+자료는 슬라이드 도입부 7장(p.5~11)과 노트북 화면 16장으로 왔다. 노트북 출력 중 Step 3의
+학습 로그, Step 4의 평가 표, Step 5의 예측 표는 받지 못해 본편에 `[미수록]`으로 표시하고,
+같은 코드를 직접 돌린 값을 S17-2에 두었다. PCA explained variance 여섯 개가 소수점까지
+재현돼서 학습 자체는 같은 결과에 도달했다고 볼 근거가 있다.
+
+**실행에서 나온 것 중 가장 큰 것** — PyKEEN 내장 기준선(등장 횟수만 세는 모델)을 비교군에
+넣었더니 학습 모델 여덟 개가 전부 그것보다 낮았다. 세 모델만 줄 세우면 "DistMult가 낫다"로
+끝나는데, 비교군을 넓히면 결론이 바뀐다)*
 
 ## 정리 규칙
 
