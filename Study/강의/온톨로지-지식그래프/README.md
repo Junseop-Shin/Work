@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 · He et al.(2022) BERTMap(실습) |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 · He et al.(2022) BERTMap(실습) · Zhang et al.(2019) ERNIE · Peters et al.(2019) KnowBERT |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -68,7 +68,10 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | 실습 ④ | S18B | 온톨로지 임베딩·정렬 실습 ② — BERTMap 파이프라인 (MultiFarm en-pt) | [S18B-BERTMap-파이프라인](S18B-BERTMap-파이프라인.md) | ✅ |
 | | | ↳ 부록 | S18-1 | 읽는 데 필요한 것들 — DeepOnto가 JVM을 무는 이유 · BERTMap 다섯 단계 · MultiFarm | [S18-1-읽는-데-필요한-것들](S18-1-읽는-데-필요한-것들.md) | ✅ |
 | | | ↳ 부록 | S18-2 | 돌려보고 확인한 것들 — 일관성 오설명 · 문자열의 천장 · BERT 효과 0 | [S18-2-돌려보고-확인한-것들](S18-2-돌려보고-확인한-것들.md) | ✅ |
-| | Day 10 | Ch.6 언어모델+KG | S19 | 엔티티 임베딩 직접 주입 (ERNIE · KnowBERT) | — | ⬜ |
+| | Day 10 | Ch.6 언어모델+KG | S19A | 엔티티 임베딩 직접 주입 ① — ERNIE: TransE 엔티티 벡터를 사전학습에 넣기 | [S19A-ERNIE-엔티티-임베딩-직접-주입](S19A-ERNIE-엔티티-임베딩-직접-주입.md) | ✅ |
+| | | Ch.6 | S19B | 엔티티 임베딩 직접 주입 ② — KnowBERT: 엔티티 링커를 BERT 안에 · 두 논문 비교 | [S19B-KnowBERT-엔티티-링커-내장](S19B-KnowBERT-엔티티-링커-내장.md) | ✅ |
+| | | ↳ 부록 | S19-1 | 읽는 데 필요한 것들 — BERT·WordPiece·residual · TAGME와 후보 선택기 · softmax와 dEA 식 · 지표와 데이터셋 · 표 읽는 법 | [S19-1-읽는-데-필요한-것들](S19-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S19-2 | 지식을 어디에 고정하는가 — 링커의 안팎 · 정적 지식의 범위 · dEA의 난이도 · 두 논문이 만나는 한 줄 | [S19-2-지식을-어디에-고정하는가](S19-2-지식을-어디에-고정하는가.md) | ✅ |
 | | | Ch.6 | S20 | KG 구조 통합 & 공동 학습 (K-BERT · KEPLER) | — | ⬜ |
 | 6주 | Day 11 | Ch.6 | S21 | 파라미터 효율적 주입 & 통합 그래프 (K-Adapter · CoLAKE) | — | ⬜ |
 | | | Ch.6 | S22 | 상식 지식 생성 & 약한 지도학습 (COMET · Pretrained Encyclopedia) | — | ⬜ |
@@ -153,6 +156,21 @@ DeepOnto의 `Ontology` API를 익히는 Part 1, S18B가 MultiFarm conference en-
 확인된 효과는 0이다. 정답 59쌍 중 라벨 철자가 같은 쌍이 2개(3.4%)뿐이고 held-out 44쌍 중 41쌍은
 토큰이 하나도 안 겹친다 — 문자열로는 원리적으로 못 푸는 과제인데, BERTMap이 만든 학습 데이터
 733개 중 실제 다국어 대응을 가르치는 것은 30개뿐이었다(S18-2))*
+
+*(**S19는 Ch.6의 첫 회차이고 다시 이론 회차다.** 슬라이드 한 덱에 논문이 둘이라 S16과 같은
+방식으로 나눴다 — S19A가 `01 Introduction`과 `02 ERNIE`(Zhang et al. 2019), S19B가
+`03 KnowBERT`(Peters et al. 2019)와 `04 Comparison & Conclusion`이다.
+
+자료에서 앞뒤가 맞지 않는 곳이 둘이다. **S19A** — Information Fusion 식에서 슬라이드가 bias 항
+`b̃`를 "토큰과 엔티티 정보가 합쳐진 중간 표현"으로 설명하는데 그 자리는 `h_j`다. **S19B** —
+"Entity Linking과 단어 의미 평가" 슬라이드는 제목과 서술이 AIDA entity linking을 가리키는데
+실린 표는 WSD F1이고 AIDA 수치 표는 없다. 둘 다 원표기를 남기고 인용 블록으로 표시했다.
+
+**이 회차에서 원논문을 찾아본 항목이 여섯 개다** (S19-2 9절). 자료를 논문과 통째로 대조한 것이
+아니라, 부록의 해석이 서려면 값이 필요한 것만 확인했다. 그중 둘이 결론을 바꿨다 — KnowBERT의
+KAR는 "중간 계층"이 아니라 10~11층에 들어가고, ERNIE의 ablation은 사전학습이 아니라 파인튜닝
+단계 실험이다)*
+
 
 ## 정리 규칙
 
