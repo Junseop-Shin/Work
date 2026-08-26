@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 · He et al.(2022) BERTMap(실습) · Zhang et al.(2019) ERNIE · Peters et al.(2019) KnowBERT |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 · He et al.(2022) BERTMap(실습) · Zhang et al.(2019) ERNIE · Peters et al.(2019) KnowBERT · Liu et al.(2020) K-BERT · Wang et al.(2021) KEPLER |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -72,7 +72,10 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | Ch.6 | S19B | 엔티티 임베딩 직접 주입 ② — KnowBERT: 엔티티 링커를 BERT 안에 · 두 논문 비교 | [S19B-KnowBERT-엔티티-링커-내장](S19B-KnowBERT-엔티티-링커-내장.md) | ✅ |
 | | | ↳ 부록 | S19-1 | 읽는 데 필요한 것들 — BERT·WordPiece·residual · TAGME와 후보 선택기 · softmax와 dEA 식 · 지표와 데이터셋 · 표 읽는 법 | [S19-1-읽는-데-필요한-것들](S19-1-읽는-데-필요한-것들.md) | ✅ |
 | | | ↳ 부록 | S19-2 | 지식을 어디에 고정하는가 — 링커의 안팎 · 정적 지식의 범위 · dEA의 난이도 · 두 논문이 만나는 한 줄 | [S19-2-지식을-어디에-고정하는가](S19-2-지식을-어디에-고정하는가.md) | ✅ |
-| | | Ch.6 | S20 | KG 구조 통합 & 공동 학습 (K-BERT · KEPLER) | — | ⬜ |
+| | | Ch.6 | S20A | KG 구조 통합 & 공동 학습 ① — K-BERT: 문장에 트리플을 끼워 넣기 | [S20A-K-BERT-문장에-트리플-끼워넣기](S20A-K-BERT-문장에-트리플-끼워넣기.md) | ✅ |
+| | | Ch.6 | S20B | KG 구조 통합 & 공동 학습 ② — KEPLER: 두 목적함수를 한 인코더에 · 회차 결론 | [S20B-KEPLER-두-목적함수를-한-인코더에](S20B-KEPLER-두-목적함수를-한-인코더에.md) | ✅ |
+| | | ↳ 부록 | S20-1 | 읽는 데 필요한 것들 — RoBERTa·BPE · position과 −∞ 마스킹 · 마진 γ · transductive/inductive · KE 지표 · few-shot 표기 · LAMA | [S20-1-읽는-데-필요한-것들](S20-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S20-2 | 지식을 언제 넣는가 — 네 모델의 주입 시점 · K-BERT가 치른 대가 · ME/OE가 갈라낸 것 · 373배 작은 KG가 이긴다 | [S20-2-지식을-언제-넣는가](S20-2-지식을-언제-넣는가.md) | ✅ |
 | 6주 | Day 11 | Ch.6 | S21 | 파라미터 효율적 주입 & 통합 그래프 (K-Adapter · CoLAKE) | — | ⬜ |
 | | | Ch.6 | S22 | 상식 지식 생성 & 약한 지도학습 (COMET · Pretrained Encyclopedia) | — | ⬜ |
 | | Day 12 | Ch.7 LLM 기반 온톨로지 구축 | S23 | LLMs4OL | — | ⬜ |
@@ -172,6 +175,17 @@ KAR는 "중간 계층"이 아니라 10~11층에 들어가고, ERNIE의 ablation�
 단계 실험이다)*
 
 
+*(**S20도 한 덱에 논문이 둘이라 A/B로 나눴다.** S20A가 `00 Preview`부터 `1st Conclusion`까지의
+K-BERT(Liu et al. 2020), S20B가 KEPLER(Wang et al. 2021)와 회차 결론이다.
+
+**이 덱은 앞 회차와 이어지는 구성이다.** `00 Preview`가 S19를 요약하고 "별도로 학습된 엔티티
+임베딩 테이블 없이 KG의 지식을 언어모델에 넣을 수 있을까"라는 질문으로 두 논문을 묶는다. 그래서
+S20A 2절에 그 다리를 그대로 옮겼다.
+
+**`발표자 의견`·`발표자 정리`라고 표시된 상자가 붙는다.** S16B의 하단 메모와 같은 취급으로,
+슬라이드에 있는 것이므로 본편에 옮기고 그렇게 적어 구분했다.)*
+
+
 ## 정리 규칙
 
 - 파일명: `SNN-주제.md` — 세션 번호 prefix로 순서 고정
@@ -198,6 +212,7 @@ KAR는 "중간 계층"이 아니라 10~11층에 들어가고, ERNIE의 ablation�
 ## 관련 문서
 
 - [**00 — 전체 파이프라인**](00-전체-파이프라인.md) — 전 회차를 하나의 파이프라인으로 꿴 요약. 단계별 도구 포함
+- [**01 — Ch.4~6 종합: 기호에서 텍스트까지**](01-Ch4-6-기호에서-텍스트까지.md) — 강의 진행 순서와 계보 축. 세 챕터를 가로지르는 관통선 넷 (Ch.6은 S20까지 반영)
 - [`Projects/ontology-pipeline/docs/1.core-concepts.html`](../../../Projects/ontology-pipeline/docs/1.core-concepts.html) — RDF vs LPG, OWA/CWA, 표준 온톨로지(BFO·IOF·SOSA)
 - [`Projects/ontology-pipeline/docs/3.ontology-design.html`](../../../Projects/ontology-pipeline/docs/3.ontology-design.html) — 실제 도메인 온톨로지 설계
 - [`Projects/ontology-pipeline/docs/4-1.cleaning-mapping-validation.html`](../../../Projects/ontology-pipeline/docs/4-1.cleaning-mapping-validation.html) — RML 매핑 · SHACL 검증
