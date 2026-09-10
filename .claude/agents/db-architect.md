@@ -1,7 +1,7 @@
 ---
 name: db-architect
 description: Database architecture specialist for schema design, data modeling, query optimization, and migration strategy. Invoke when designing new schemas, planning migrations, optimizing slow queries, or making decisions about database technology selection (PostgreSQL, MongoDB, Redis, TimescaleDB, Elasticsearch).
-model: claude-opus-4-6
+model: claude-opus-5
 tools:
   - Glob
   - Grep

@@ -1,7 +1,7 @@
 ---
 name: playwright-engineer
 description: Browser automation specialist with deep expertise in Playwright. Covers accessibility tree extraction, network interception, headless configuration, multi-platform setup (Mac/WSL/Windows), and web scraping patterns. Invoke when designing or reviewing browser automation, A11y snapshot strategies, or network capture pipelines.
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools:
   - Read
   - Glob

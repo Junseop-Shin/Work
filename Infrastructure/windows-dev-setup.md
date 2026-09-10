@@ -206,12 +206,9 @@ mkdir $env:USERPROFILE\.claude\projects\-Users-js-Documents-Work\memory
 | 서버 | 패키지 | 용도 |
 |------|--------|------|
 | context7 | `@upstash/context7-mcp` | 라이브러리 최신 문서 |
-| git | `@modelcontextprotocol/server-git` | git 히스토리/blame |
-| github | `@modelcontextprotocol/server-github` | PR/이슈 REST API |
 | memory | `@modelcontextprotocol/server-memory` | 세션 간 메모리 |
 | pdf-reader | `@dev.saqibaziz/mcp-pdf-reader` | PDF 파일 읽기 |
 | sequential-thinking | `@modelcontextprotocol/server-sequential-thinking` | 단계별 추론 |
-| fetch | `@modelcontextprotocol/server-fetch` | URL 페이지 가져오기 |
 | playwright | `@playwright/mcp` | 브라우저 자동화 |
 | desktop-commander | `@wonderwhy-er/desktop-commander` | 터미널 제어 |
 

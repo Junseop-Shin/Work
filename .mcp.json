@@ -5,19 +5,6 @@
       "args": ["-y", "@upstash/context7-mcp@latest"],
       "description": "Latest library documentation lookup — use 'use context7' in prompts"
     },
-    "git": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-git", "--repository", "."],
-      "description": "Git history, blame, log, and diff access for current repository"
-    },
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
-      },
-      "description": "GitHub REST API — PR creation, issue management, repo queries. Requires GITHUB_PERSONAL_ACCESS_TOKEN env var."
-    },
     "memory": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-memory"],
@@ -32,11 +19,6 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
       "description": "Structured multi-step reasoning chains — forces deliberate problem decomposition before acting"
-    },
-    "fetch": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch"],
-      "description": "Fetch any URL and convert to clean text — docs, APIs, web pages"
     },
     "playwright": {
       "command": "npx",

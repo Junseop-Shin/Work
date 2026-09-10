@@ -1,7 +1,7 @@
 ---
 name: security-auditor
 description: Security specialist for vulnerability analysis, OWASP compliance, and risk assessment. Invoke when you need a security audit, before deploying sensitive features (auth, payments, file uploads), or after receiving a security report.
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools:
   - Read
   - Glob

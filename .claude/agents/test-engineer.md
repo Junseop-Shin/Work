@@ -1,7 +1,7 @@
 ---
 name: test-engineer
 description: Test generation specialist for unit, integration, and e2e tests. Invoke when you need to add test coverage, write tests for a new feature, or generate e2e test suites for UI flows.
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools:
   - Read
   - Edit

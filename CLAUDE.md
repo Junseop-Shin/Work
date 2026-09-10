@@ -205,4 +205,6 @@ ssh windows "net stop cloudflared && net start cloudflared"
 
 ## MCP Servers
 
-Configured in `.mcp.json`: `context7` (lib docs), `git` (history/blame), `github` (PR/issue), `memory` (cross-session), `pdf-reader`, `sequential-thinking`, `fetch`, `playwright`, `desktop-commander`. Use `context7` when working with external libraries.
+Configured in `.mcp.json`: `context7` (lib docs), `memory` (cross-session), `pdf-reader`, `sequential-thinking`, `playwright`, `desktop-commander`. Use `context7` when working with external libraries.
+
+git 이력은 Bash의 `git`으로, GitHub 작업은 `gh` CLI로, 웹 조회는 WebFetch로 처리한다.

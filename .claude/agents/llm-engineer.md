@@ -1,7 +1,7 @@
 ---
 name: llm-engineer
 description: LLM pipeline and AI integration specialist. Expertise in Ollama, prompt engineering, token efficiency, model selection, and local LLM deployment. Invoke when designing AI pipelines, optimizing prompts, integrating Ollama/local LLMs, or evaluating token costs and model trade-offs.
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools:
   - Read
   - Glob
