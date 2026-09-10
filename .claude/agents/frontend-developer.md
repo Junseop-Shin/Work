@@ -1,7 +1,7 @@
 ---
 name: frontend-developer
 description: Frontend and UI specialist for React, TypeScript, React Native, and mobile development. Invoke when building UI components, handling state management, implementing responsive layouts, or working on mobile/web frontend features.
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools:
   - Read
   - Edit

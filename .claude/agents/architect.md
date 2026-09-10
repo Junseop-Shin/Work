@@ -1,7 +1,7 @@
 ---
 name: architect
 description: Senior software architect for system design, architecture decisions, and technology selection. Uses Opus for deep reasoning on complex design problems. Invoke when you need architecture plans, technology trade-off analysis, or system design documents.
-model: claude-opus-4-6
+model: claude-opus-5
 tools:
   - Glob
   - Grep

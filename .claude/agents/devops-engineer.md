@@ -1,7 +1,7 @@
 ---
 name: devops-engineer
 description: DevOps and infrastructure specialist for CI/CD pipelines, Docker, Kubernetes, cloud deployment, and developer environment setup. Invoke when setting up deployment pipelines, debugging CI failures, writing Dockerfiles, or configuring cloud infrastructure.
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools:
   - Read
   - Edit

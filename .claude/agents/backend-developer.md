@@ -1,7 +1,7 @@
 ---
 name: backend-developer
 description: Backend and API specialist for server-side development, database design, REST/GraphQL APIs, and system integration. Invoke when building API endpoints, database schemas, authentication flows, or backend business logic.
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools:
   - Read
   - Edit

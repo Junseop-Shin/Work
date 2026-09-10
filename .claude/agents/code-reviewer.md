@@ -1,7 +1,7 @@
 ---
 name: code-reviewer
 description: Code review and security audit specialist. Analyzes code for bugs, security vulnerabilities, code quality issues, and performance problems. Uses Sonnet for balanced depth and speed. Invoke when you need a thorough review of changed files or a security audit.
-model: claude-sonnet-4-6
+model: claude-sonnet-5
 tools:
   - Glob
   - Grep
