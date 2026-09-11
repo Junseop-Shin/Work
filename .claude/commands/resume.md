@@ -1,0 +1,108 @@
+# /resume — 이력서 수정 및 PDF 생성
+
+이력서를 고칠 때는 **항상 `_private/build_resume.py` 만 고친다.** docx·pdf는 산출물이므로 직접 편집하지 않는다.
+수정 후에는 실명·공개용 docx를 다시 뽑고, 공개용을 기반으로 날짜가 박힌 PDF를 만든다.
+
+---
+
+## 파일 구조
+
+| 파일 | 성격 |
+|---|---|
+| `_private/build_resume.py` | 유일한 원본. 여기만 수정한다 |
+| `_private/이력서_신준섭.docx` | 실명 버전 (제출용, `_private` 밖으로 내보내지 않는다) |
+| `_private/이력서_신준섭_공개용.docx` | 익명 버전 (공개 사이트·PDF의 기반) |
+| `_private/이력서_신준섭_{YYYY-MM-DD}.pdf` | 공개용 docx에서 뽑은 배포본 |
+
+`--public` 분기가 고객사명을 업종 표현으로 바꾸고 전화번호·생년을 뺀다. 새 고객사명을 쓸 일이
+생기면 상단 `CLIENT` 처리 방식을 따라 분기에 넣는다. 실명을 본문에 직접 적지 않는다.
+
+---
+
+## 절차
+
+### 1. 원본 수정
+
+`_private/build_resume.py` 에서 해당 `project(...)` · `bullets([...])` 블록을 고친다.
+
+- 수치는 출처가 있는 것만 쓴다. 추정치를 단정형으로 적지 않는다
+- 고객사명은 어떤 경우에도 평문으로 넣지 않는다 (`CLIENT` 변수 경유)
+- 사내 레포명·리소스명·계정명·구독 식별자·테넌트 ID를 넣지 않는다
+- 한 프로젝트의 불릿이 10개를 넘으면 묶거나 쪼갤 것을 먼저 제안한다
+
+### 2. docx 재생성 — 두 버전 모두
+
+```bash
+cd ~/Documents/Work/_private
+./venv/bin/python build_resume.py            # 실명
+./venv/bin/python build_resume.py --public   # 익명
+```
+
+`venv` 를 쓴다. 시스템 python 에는 `python-docx` 가 없다.
+
+### 3. 익명화 검증
+
+공개용에 고객사명이 남지 않았는지 확인한다. 실명 버전에서만 검출되어야 정상이다.
+
+```bash
+cd ~/Documents/Work/_private && ./venv/bin/python - <<'PY'
+from docx import Document
+for f, label in [("이력서_신준섭_공개용.docx", "공개용"), ("이력서_신준섭.docx", "실명")]:
+    t = "\n".join(p.text for p in Document(f).paragraphs)
+    hits = [k for k in ["코오롱", "kolon", "Kolon", "GS25", "지에스"] if k in t]
+    print(f"[{label}] 고객사명: {hits or '없음'}")
+PY
+```
+
+### 4. PDF 생성
+
+공개용 docx를 Pages로 열어 내보낸다. LibreOffice·pandoc은 설치돼 있지 않다.
+기존 PDF도 Pages로 뽑은 것이라 이 경로를 유지해야 레이아웃이 일관된다.
+
+```bash
+DATE=$(date +%F)
+osascript <<APPLESCRIPT
+set srcFile to POSIX file "/Users/js/Documents/Work/_private/이력서_신준섭_공개용.docx"
+set outFile to POSIX file "/Users/js/Documents/Work/_private/이력서_신준섭_${DATE}.pdf"
+tell application "Pages"
+    set wasRunning to running
+    activate
+    set theDoc to open srcFile
+    delay 3
+    export theDoc to outFile as PDF
+    close theDoc saving no
+    if not wasRunning then quit
+end tell
+APPLESCRIPT
+ls -la ~/Documents/Work/_private/이력서_신준섭_${DATE}.pdf
+```
+
+Pages 자동화 권한 요청이 뜨면 사용자에게 승인을 요청한다. 창이 잠깐 뜨는 것은 정상이다.
+`delay` 를 줄이면 변환 전에 export가 실행돼 빈 PDF가 나올 수 있다.
+
+### 5. 포트폴리오 사이트 반영 (선택)
+
+공개 사이트의 이력서 다운로드는 `Projects/profile/next/public/resume.pdf` 다.
+`about.ts` 의 `resumePath` 가 이 경로를 가리킨다.
+
+```bash
+cp ~/Documents/Work/_private/이력서_신준섭_$(date +%F).pdf \
+   ~/Documents/Work/Projects/profile/next/public/resume.pdf
+```
+
+profile 레포는 별도 git 저장소다. 브랜치를 따로 파고 PR로 올린다 — main에 직접 커밋하지 않는다.
+
+---
+
+## 같이 갱신할 것
+
+이력서 내용을 고치면 아래도 어긋나지 않는지 본다. 세 곳의 사실관계가 갈리면 신뢰가 깎인다.
+
+| 대상 | 무엇 |
+|---|---|
+| `Projects/profile/next/data/projects.ts` | 같은 프로젝트의 항목 |
+| `Projects/profile/next/data/about.ts` | 자격증, 강점 서술, 소개 문단 |
+| `Work_History/` | 해당 시기의 글 |
+
+`_private/` 와 `Projects/*/` 는 gitignore 대상이라 Work 레포 커밋에는 잡히지 않는다.
+Work_History만 Work 레포 소속이고, **이 레포는 공개**이므로 내부 식별자를 넣지 않는다.
