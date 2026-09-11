@@ -72,7 +72,8 @@ SCRIPT
 
 ### 4. PDF 생성
 
-공개용 docx를 Pages로 열어 내보낸다. LibreOffice·pandoc은 설치돼 있지 않다.
+공개용 docx를 Pages로 열어 내보낸다. 변환용 LibreOffice·pandoc은 설치돼 있지 않다
+(검증용 `pdftotext` 는 있다 — 4-1 참고).
 기존 PDF도 Pages로 뽑은 것이라 이 경로를 유지해야 레이아웃이 일관된다.
 
 **`with timeout` 을 반드시 감싼다.** 없으면 기본 AppleEvent 제한(약 60초)에 걸려
@@ -103,6 +104,23 @@ ls -la ~/Documents/Work/_private/이력서_신준섭_${DATE}.pdf
 - 실패하면 Pages에 문서가 열린 채로 남는다. `tell application "Pages" to close document 1 saving no`
   로 정리한 뒤 재시도한다
 - `delay` 를 줄이면 변환이 끝나기 전에 export가 실행돼 빈 PDF가 나올 수 있다
+
+### 4-1. PDF 검증
+
+배포되는 것은 PDF다. docx만 검증하고 넘어가지 않는다. `pdftotext`(poppler)는 설치돼 있다.
+
+```bash
+cd ~/Documents/Work/_private
+NEW="이력서_신준섭_$(date +%F).pdf"
+echo "페이지 수: $(mdls -name kMDItemNumberOfPages -raw "$NEW")"
+T=$(pdftotext "$NEW" -)
+echo "$T" | head -3          # 헤더가 의도대로 나왔는지
+# 공개용에 남으면 안 되는 것 — 전화번호·생년 등 실명 버전 전용 항목
+echo "$T" | grep -c "010-"   # 0 이어야 한다
+```
+
+고객사명은 `CLIENT` 실명을 직접 적지 말고 3단계 스크립트를 재사용해 비교한다.
+페이지 수가 이전 판보다 늘었으면 사용자에게 알리고 줄일지 확인한다.
 
 ### 5. 포트폴리오 사이트 반영 (선택)
 
