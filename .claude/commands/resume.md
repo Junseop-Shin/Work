@@ -42,22 +42,41 @@ cd ~/Documents/Work/_private
 
 ### 3. 익명화 검증
 
-공개용에 고객사명이 남지 않았는지 확인한다. 실명 버전에서만 검출되어야 정상이다.
+검사어를 이 문서에 적지 않는다. 이 레포는 공개이므로 고객사명을 평문으로 두면 검증
+스크립트가 그 자체로 유출이 된다. 대신 `build_resume.py` 의 `CLIENT` 분기에서 실명을
+런타임에 읽어 공개용 산출물에 남아 있는지 본다.
+
+스크립트를 파일로 저장해 실행한다. 셸 heredoc 안에 파이썬 heredoc을 중첩하면 깨진다.
 
 ```bash
-cd ~/Documents/Work/_private && ./venv/bin/python - <<'PY'
+cd ~/Documents/Work/_private
+cat > /tmp/check_resume.py <<'SCRIPT'
+import re
 from docx import Document
+
+src = open("build_resume.py", encoding="utf-8").read()
+m = re.search(r'CLIENT\s*=\s*"(.+?)"\s*if\s*PUBLIC\s*else\s*"(.+?)"', src)
+anon, real = m.group(1), m.group(2)
+
 for f, label in [("이력서_신준섭_공개용.docx", "공개용"), ("이력서_신준섭.docx", "실명")]:
     t = "\n".join(p.text for p in Document(f).paragraphs)
-    hits = [k for k in ["코오롱", "kolon", "Kolon", "GS25", "지에스"] if k in t]
-    print(f"[{label}] 고객사명: {hits or '없음'}")
-PY
+    print(f"[{label}] 실명 노출 {'있음' if real in t else '없음'}"
+          f" / 익명 표현 {'있음' if anon in t else '없음'}")
+SCRIPT
+./venv/bin/python /tmp/check_resume.py
 ```
+
+기대값은 공개용이 "실명 노출 없음 / 익명 표현 있음", 실명 버전이 그 반대다.
+공개용에서 실명이 잡히면 `CLIENT` 를 거치지 않고 본문에 직접 적은 곳이 있다는 것이므로
+그 자리를 찾아 고친다.
 
 ### 4. PDF 생성
 
 공개용 docx를 Pages로 열어 내보낸다. LibreOffice·pandoc은 설치돼 있지 않다.
 기존 PDF도 Pages로 뽑은 것이라 이 경로를 유지해야 레이아웃이 일관된다.
+
+**`with timeout` 을 반드시 감싼다.** 없으면 기본 AppleEvent 제한(약 60초)에 걸려
+`-1712` 오류로 실패하고 PDF가 만들어지지 않는다. 변환에 그보다 오래 걸린다.
 
 ```bash
 DATE=$(date +%F)
@@ -65,20 +84,25 @@ osascript <<APPLESCRIPT
 set srcFile to POSIX file "/Users/js/Documents/Work/_private/이력서_신준섭_공개용.docx"
 set outFile to POSIX file "/Users/js/Documents/Work/_private/이력서_신준섭_${DATE}.pdf"
 tell application "Pages"
-    set wasRunning to running
     activate
-    set theDoc to open srcFile
-    delay 3
-    export theDoc to outFile as PDF
-    close theDoc saving no
-    if not wasRunning then quit
+    with timeout of 600 seconds
+        set theDoc to open srcFile
+        delay 3
+        export theDoc to outFile as PDF
+        close theDoc saving no
+    end timeout
 end tell
 APPLESCRIPT
 ls -la ~/Documents/Work/_private/이력서_신준섭_${DATE}.pdf
 ```
 
-Pages 자동화 권한 요청이 뜨면 사용자에게 승인을 요청한다. 창이 잠깐 뜨는 것은 정상이다.
-`delay` 를 줄이면 변환 전에 export가 실행돼 빈 PDF가 나올 수 있다.
+주의할 것
+
+- 명령이 오래 걸리므로 백그라운드로 돌리고 완료 알림을 기다린다
+- Pages 자동화 권한 요청이 뜨면 사용자에게 승인을 요청한다. 창이 잠깐 뜨는 것은 정상이다
+- 실패하면 Pages에 문서가 열린 채로 남는다. `tell application "Pages" to close document 1 saving no`
+  로 정리한 뒤 재시도한다
+- `delay` 를 줄이면 변환이 끝나기 전에 export가 실행돼 빈 PDF가 나올 수 있다
 
 ### 5. 포트폴리오 사이트 반영 (선택)
 
