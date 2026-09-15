@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 · He et al.(2022) BERTMap(실습) · Zhang et al.(2019) ERNIE · Peters et al.(2019) KnowBERT · Liu et al.(2020) K-BERT · Wang et al.(2021) KEPLER |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 · He et al.(2022) BERTMap(실습) · Zhang et al.(2019) ERNIE · Peters et al.(2019) KnowBERT · Liu et al.(2020) K-BERT · Wang et al.(2021) KEPLER · Wang et al.(2021) K-Adapter · Sun et al.(2020) CoLAKE |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -76,7 +76,10 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | Ch.6 | S20B | KG 구조 통합 & 공동 학습 ② — KEPLER: 두 목적함수를 한 인코더에 · 회차 결론 | [S20B-KEPLER-두-목적함수를-한-인코더에](S20B-KEPLER-두-목적함수를-한-인코더에.md) | ✅ |
 | | | ↳ 부록 | S20-1 | 읽는 데 필요한 것들 — RoBERTa·BPE · position과 −∞ 마스킹 · 마진 γ · transductive/inductive · KE 지표 · few-shot 표기 · LAMA | [S20-1-읽는-데-필요한-것들](S20-1-읽는-데-필요한-것들.md) | ✅ |
 | | | ↳ 부록 | S20-2 | 지식을 언제 넣는가 — 네 모델의 주입 시점 · K-BERT가 치른 대가 · ME/OE가 갈라낸 것 · 373배 작은 KG가 이긴다 | [S20-2-지식을-언제-넣는가](S20-2-지식을-언제-넣는가.md) | ✅ |
-| 6주 | Day 11 | Ch.6 | S21 | 파라미터 효율적 주입 & 통합 그래프 (K-Adapter · CoLAKE) | — | ⬜ |
+| 6주 | Day 11 | Ch.6 | S21A | 파라미터 효율적 주입 ① — K-Adapter: 지식을 어댑터에 따로 담기 | [S21A-K-Adapter-어댑터에-따로-담기](S21A-K-Adapter-어댑터에-따로-담기.md) | ✅ |
+| | | Ch.6 | S21B | 통합 그래프 ② — CoLAKE: 문장과 KG를 하나의 그래프로 · 회차 결론 | [S21B-CoLAKE-하나의-그래프로-합치기](S21B-CoLAKE-하나의-그래프로-합치기.md) | ✅ |
+| | | ↳ 부록 | S21-1 | 읽는 데 필요한 것들 — 파라미터란 무엇인가(엔티티 수 × 차원) · 어댑터와 PEFT · 의존 구문 · 원격 지도 · GNN 복습 · EM/F1 | [S21-1-읽는-데-필요한-것들](S21-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S21-2 | 여덟 모델을 한 축에 — 학습 비용 축 신설 · CoLAKE↔K-BERT 부품 대조 · 사전학습된 GNN 주장 검토 · 두 표를 비교하면 안 되는 곳 | [S21-2-여덟-모델을-한-축에](S21-2-여덟-모델을-한-축에.md) | ✅ |
 | | | Ch.6 | S22 | 상식 지식 생성 & 약한 지도학습 (COMET · Pretrained Encyclopedia) | — | ⬜ |
 | | Day 12 | Ch.7 LLM 기반 온톨로지 구축 | S23 | LLMs4OL | — | ⬜ |
 | | | Ch.7 | S24 | CQ 기반 Human-in-the-loop 파이프라인 | — | ⬜ |
@@ -184,6 +187,24 @@ S20A 2절에 그 다리를 그대로 옮겼다.
 
 **`발표자 의견`·`발표자 정리`라고 표시된 상자가 붙는다.** S16B의 하단 메모와 같은 취급으로,
 슬라이드에 있는 것이므로 본편에 옮기고 그렇게 적어 구분했다.)*
+
+
+*(**S21도 한 덱에 논문이 둘이라 A/B로 나눴다.** S21A가 `01 Introduction`과 `02 K-Adapter`
+(Wang et al. 2021), S21B가 CoLAKE(Sun et al. 2020)와 회차 결론이다.
+
+**이 회차의 도입부도 S19·S20을 정리하고 들어간다.** 기존 지식 주입 방식을 (A) 전체 파라미터
+재학습과 (B) 별도 엔티티 임베딩 주입으로 나눈 뒤, K-Adapter가 (A)를, CoLAKE가 (B)를 겨냥한다고
+갈라놓는다. S20-2에서 세운 주입 시점 축에 어댑터라는 칸이 하나 더 생기고, 학습 비용 축이 새로
+갈린다. K-Adapter는 42M만 학습한다.
+
+**S21-1 1절에 파라미터가 무엇인지를 따로 썼다.** 사용자가 "파라미터가 KG 엔티티 수를 말하는
+거냐"고 물어서 나왔다. 엔티티 임베딩에서만 둘이 붙고(엔티티 수 × 차원), 그 계산으로 CoLAKE의
+엔티티 임베딩이 2.4B로 인코더 125M의 19배임을 보이면 Mixed CPU-GPU 설계가 왜 필요했는지가 잡힌다.
+
+**S21A 13·15절 표에 Ch.6 네 모델이 함께 실린다.** OpenEntity에서 ERNIE 75.56 · KnowBERT 76.10 ·
+KEPLER 75.70 · K-Adapter 77.61이다. 다만 K-Adapter가 인용한 KEPLER의 TACRED 값(71.70)이 KEPLER
+논문 자신의 값(72.0, S20B 14절)과 다르다. 인용 연도도 2019로 preprint를 가리켜 원표기를
+남겼다)*
 
 
 ## 정리 규칙
