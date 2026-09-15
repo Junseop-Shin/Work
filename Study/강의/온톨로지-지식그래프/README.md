@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 · He et al.(2022) BERTMap(실습) · Zhang et al.(2019) ERNIE · Peters et al.(2019) KnowBERT · Liu et al.(2020) K-BERT · Wang et al.(2021) KEPLER · Wang et al.(2021) K-Adapter · Sun et al.(2020) CoLAKE |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 · He et al.(2022) BERTMap(실습) · Zhang et al.(2019) ERNIE · Peters et al.(2019) KnowBERT · Liu et al.(2020) K-BERT · Wang et al.(2021) KEPLER · Wang et al.(2021) K-Adapter · Sun et al.(2020) CoLAKE · Bosselut et al.(2019) COMET · Xiong et al.(2020) WKLM |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -80,7 +80,10 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | Ch.6 | S21B | 통합 그래프 ② — CoLAKE: 문장과 KG를 하나의 그래프로 · 회차 결론 | [S21B-CoLAKE-하나의-그래프로-합치기](S21B-CoLAKE-하나의-그래프로-합치기.md) | ✅ |
 | | | ↳ 부록 | S21-1 | 읽는 데 필요한 것들 — 파라미터란 무엇인가(엔티티 수 × 차원) · 어댑터와 PEFT · 의존 구문 · 원격 지도 · GNN 복습 · EM/F1 | [S21-1-읽는-데-필요한-것들](S21-1-읽는-데-필요한-것들.md) | ✅ |
 | | | ↳ 부록 | S21-2 | 여덟 모델을 한 축에 — 학습 비용 축 신설 · CoLAKE↔K-BERT 부품 대조 · 사전학습된 GNN 주장 검토 · 두 표를 비교하면 안 되는 곳 | [S21-2-여덟-모델을-한-축에](S21-2-여덟-모델을-한-축에.md) | ✅ |
-| | | Ch.6 | S22 | 상식 지식 생성 & 약한 지도학습 (COMET · Pretrained Encyclopedia) | — | ⬜ |
+| | | Ch.6 | S22A | 상식 지식 생성 ① — COMET: 언어모델로 KG를 만든다 | [S22A-COMET-언어모델로-KG를-만든다](S22A-COMET-언어모델로-KG를-만든다.md) | ✅ |
+| | | Ch.6 | S22B | 약한 지도학습 ② — WKLM: 텍스트에서 직접 배우기 · 회차 결론 · Ch.6 정리 | [S22B-WKLM-텍스트에서-직접-배우기](S22B-WKLM-텍스트에서-직접-배우기.md) | ✅ |
+| | | ↳ 부록 | S22-1 | 읽는 데 필요한 것들 — reporting bias · GPT와 BERT가 갈린 이유 · 디코딩 전략 · 신규성 지표 · 약한 지도 · Wikidata P31 · FIGER 지표 | [S22-1-읽는-데-필요한-것들](S22-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S22-2 | 방향이 뒤집힌 회차 — 주입 축 밖으로 나간 COMET · `+1M MLM` 통제 · 신규성 지표의 포화 · 감사 가능성으로 Ch.6 다시 세우기 | [S22-2-방향이-뒤집힌-회차](S22-2-방향이-뒤집힌-회차.md) | ✅ |
 | | Day 12 | Ch.7 LLM 기반 온톨로지 구축 | S23 | LLMs4OL | — | ⬜ |
 | | | Ch.7 | S24 | CQ 기반 Human-in-the-loop 파이프라인 | — | ⬜ |
 | 7주 | Day 13 | Ch.7 | S25 | 멀티에이전트 온톨로지 생성 | — | ⬜ |
@@ -205,6 +208,23 @@ S20A 2절에 그 다리를 그대로 옮겼다.
 KEPLER 75.70 · K-Adapter 77.61이다. 다만 K-Adapter가 인용한 KEPLER의 TACRED 값(71.70)이 KEPLER
 논문 자신의 값(72.0, S20B 14절)과 다르다. 인용 연도도 2019로 preprint를 가리켜 원표기를
 남겼다)*
+
+
+*(**S22는 자료를 강의 영상에서 직접 뽑았다.** 슬라이드 이미지를 받는 대신 영상에서 장면 전환
+프레임을 추출해 48장을 읽었다. 사용자가 "영상 분석해서 슬라이드 만들어봐라"라고 해서 나온 방식이다.
+자막(한국어 자동생성)은 발표자의 설명을 확인하는 데만 썼다.
+
+**덱 42쪽은 영상에 나오지 않는다.** 발표자가 41쪽 다음에 43쪽으로 넘어갔다. 자리로 보아 WKLM의
+open-domain QA 결과(원논문 Table 4)이고, S22B 12절에 미수록으로 표시한 뒤 원논문에서 확인한 값을
+S22-2 8절에 적었다.
+
+**A/B 분할 기준은 앞 회차와 같다.** S22A가 `01 Introduction`과 `02 COMET`(Bosselut et al. 2019),
+S22B가 `03 WKLM`(Xiong et al. 2020)과 `04 Summary`다. Summary에 Ch.6 여덟 모델 정리 표가 있어
+챕터를 닫는 자리도 S22B에 들어갔다.
+
+**이 회차에서 방향이 뒤집힌다.** S19~S21이 "KG를 언어모델 어디에 넣을까"였다면 COMET은 언어모델로
+KG를 만들고, WKLM은 KG 없이 텍스트에서 직접 배운다. Ch.6에서 KG를 생산하는 모델은 COMET뿐이고,
+Ch.8(언어모델 → KG)로 가는 첫 다리로 보인다)*
 
 
 ## 정리 규칙
