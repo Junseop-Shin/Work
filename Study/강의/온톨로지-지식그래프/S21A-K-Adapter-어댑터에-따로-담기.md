@@ -385,4 +385,4 @@ Down-projection (H_d = 768) → Transformer layer × N=2 → Up-projection (H_u 
 - [S19A — ERNIE](S19A-ERNIE-엔티티-임베딩-직접-주입.md) · [S19B — KnowBERT](S19B-KnowBERT-엔티티-링커-내장.md) — 2절 (B)가 가리키는 두 모델
 - [S20A — K-BERT](S20A-K-BERT-문장에-트리플-끼워넣기.md) · [S20B — KEPLER](S20B-KEPLER-두-목적함수를-한-인코더에.md) — 13·15절 표에 함께 실린 모델
 - [S20-2 — 지식을 언제 넣는가](S20-2-지식을-언제-넣는가.md) — 주입 시점 축. 어댑터가 새 칸이다
-- [01 — Ch.4~6 종합](01-Ch4-6-기호에서-텍스트까지.md) — 세 챕터를 가로지르는 관통선
+- [01 — Ch.4~6 종합](01-Ch4-6-무엇이-남고-무엇이-밀렸나.md) — 세 챕터를 가로지르는 관통선

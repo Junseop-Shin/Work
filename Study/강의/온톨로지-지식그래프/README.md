@@ -253,7 +253,7 @@ Ch.8(언어모델 → KG)로 가는 첫 다리로 보인다)*
 ## 관련 문서
 
 - [**00 — 전체 파이프라인**](00-전체-파이프라인.md) — 전 회차를 하나의 파이프라인으로 꿴 요약. 단계별 도구 포함
-- [**01 — Ch.4~6 종합: 기호에서 텍스트까지**](01-Ch4-6-기호에서-텍스트까지.md) — 강의 진행 순서와 계보 축. 세 챕터를 가로지르는 관통선 넷 (Ch.6은 S20까지 반영)
+- [**01 — Ch.4~6 종합: 무엇이 남고 무엇이 밀렸나**](01-Ch4-6-무엇이-남고-무엇이-밀렸나.md) — 한 회차만 봐서는 안 보이는 것만 모은 주장 문서. 관통선 다섯과 아직 안 풀린 것 (S11~S22 전체 반영)
 - [`Projects/ontology-pipeline/docs/1.core-concepts.html`](../../../Projects/ontology-pipeline/docs/1.core-concepts.html) — RDF vs LPG, OWA/CWA, 표준 온톨로지(BFO·IOF·SOSA)
 - [`Projects/ontology-pipeline/docs/3.ontology-design.html`](../../../Projects/ontology-pipeline/docs/3.ontology-design.html) — 실제 도메인 온톨로지 설계
 - [`Projects/ontology-pipeline/docs/4-1.cleaning-mapping-validation.html`](../../../Projects/ontology-pipeline/docs/4-1.cleaning-mapping-validation.html) — RML 매핑 · SHACL 검증
