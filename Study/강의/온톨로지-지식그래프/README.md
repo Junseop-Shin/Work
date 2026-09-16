@@ -9,7 +9,7 @@
 | 주제 | 온톨로지 설계 · 평가 · 지식그래프 구축 · LLM 결합 |
 | 구성 | 11챕터 / 37세션 / 10주 (Day 1~19) |
 | 강의 | [YouTube 재생목록](https://www.youtube.com/watch?v=f0WV7b3lGqM&list=PLFHGWfB_kmrs) · DSBA Lab Study |
-| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 · He et al.(2022) BERTMap(실습) · Zhang et al.(2019) ERNIE · Peters et al.(2019) KnowBERT · Liu et al.(2020) K-BERT · Wang et al.(2021) KEPLER · Wang et al.(2021) K-Adapter · Sun et al.(2020) CoLAKE · Bosselut et al.(2019) COMET · Xiong et al.(2020) WKLM |
+| 주요 문헌 | Gruber(1995) 설계 5원칙 · FAIR(2020) 출판 4단계 · Ontology Learning Layer Cake · Wong 기술 3분류 · Sure et al.(2004) OTKM 5단계 · Duque-Ramos et al.(2011) OQuaRE · Ren et al.(2014) CQOA · Ji et al.(2022) KG 서베이 · Noy et al.(2019) 산업 KG · Färber et al.(2018) 5대 KG 품질 · Hofer et al.(2024) KG 구축 · Bordes et al.(2013) TransE · Yang et al.(2015) DistMult · Schlichtkrull et al.(2018) R-GCN · Vashishth et al.(2020) CompGCN · Chen et al.(2021) OWL2Vec* · Kulmanov et al.(2019) EL Embeddings · Xiang et al.(2021) OntoEA · He et al.(2022) BERTMap · Sun et al.(2019) RotatE · Ali et al.(2021) PyKEEN · Ruffinelli et al.(2020) 학습 설정 재검증 · Sun et al.(2020) 평가 프로토콜 재검증 · Ali et al.(2022) 통합 벤치마킹 · He et al.(2022) BERTMap(실습) · Zhang et al.(2019) ERNIE · Peters et al.(2019) KnowBERT · Liu et al.(2020) K-BERT · Wang et al.(2021) KEPLER · Wang et al.(2021) K-Adapter · Sun et al.(2020) CoLAKE · Bosselut et al.(2019) COMET · Xiong et al.(2020) WKLM · Babaei Giglou et al.(2023) LLMs4OL · Kommineni et al.(2024) LLM 지원 온톨로지·KG 구축 · Talukder et al.(2026) 멀티에이전트 온톨로지 생성 · Bi et al.(2023) CodeKGC · Feng et al.(2024) Wikidata schema grounding · Shimizu & Hitzler(2024) KGOE 가속화 · Oyewale & Soru(2026) OntoEKG |
 | 실습 | OWL 설계, RDF 파이프라인, PyKEEN, DeepOnto, OntoGPT/SPIRES |
 | 연관 실무 | [제조 암묵지 온톨로지 과제](../../../Work_History/2026-06-온톨로지-파이프라인-학습.md) · [`Projects/ontology-pipeline`](../../../Projects/ontology-pipeline/) |
 
@@ -84,11 +84,23 @@ Ch.7~8(LLM 기반 구축), Ch.11(이미지·멀티모달)이 그 막힌 지점�
 | | | Ch.6 | S22B | 약한 지도학습 ② — WKLM: 텍스트에서 직접 배우기 · 회차 결론 · Ch.6 정리 | [S22B-WKLM-텍스트에서-직접-배우기](S22B-WKLM-텍스트에서-직접-배우기.md) | ✅ |
 | | | ↳ 부록 | S22-1 | 읽는 데 필요한 것들 — reporting bias · GPT와 BERT가 갈린 이유 · 디코딩 전략 · 신규성 지표 · 약한 지도 · Wikidata P31 · FIGER 지표 | [S22-1-읽는-데-필요한-것들](S22-1-읽는-데-필요한-것들.md) | ✅ |
 | | | ↳ 부록 | S22-2 | 방향이 뒤집힌 회차 — 주입 축 밖으로 나간 COMET · `+1M MLM` 통제 · 신규성 지표의 포화 · 감사 가능성으로 Ch.6 다시 세우기 | [S22-2-방향이-뒤집힌-회차](S22-2-방향이-뒤집힌-회차.md) | ✅ |
-| | Day 12 | Ch.7 LLM 기반 온톨로지 구축 | S23 | LLMs4OL | — | ⬜ |
-| | | Ch.7 | S24 | CQ 기반 Human-in-the-loop 파이프라인 | — | ⬜ |
-| 7주 | Day 13 | Ch.7 | S25 | 멀티에이전트 온톨로지 생성 | — | ⬜ |
-| | | Ch.7 | S26 | Schema-grounded KG 구축 | — | ⬜ |
-| | Day 14 | Ch.7 | S27 | KGOE 가속화 & 엔터프라이즈 온톨로지 | — | ⬜ |
+| | Day 12 | Ch.7 LLM 기반 온톨로지 구축 | S23 | LLM에게 온톨로지를 묻는다 — LLMs4OL 벤치마크 세 과제 | [S23-LLMs4OL-LLM에게-온톨로지를-묻는다](S23-LLMs4OL-LLM에게-온톨로지를-묻는다.md) | ✅ |
+| | | ↳ 부록 | S23-1 | 읽는 데 필요한 것들 — OL 여섯 단계 · semantic type 층 · cloze/prefix · MAP@1 · best-prompt reporting | [S23-1-읽는-데-필요한-것들](S23-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S23-2 | 벤치마크가 재지 않는 것 — 라벨 공간 크기가 성능을 지배 · 관통선 ④의 반례 | [S23-2-벤치마크가-재지-않는-것](S23-2-벤치마크가-재지-않는-것.md) | ✅ |
+| | | Ch.7 | S24 | CQ 기반 Human-in-the-loop — 오픈소스 LLM 6단계 파이프라인 | [S24-CQ-기반-Human-in-the-loop-파이프라인](S24-CQ-기반-Human-in-the-loop-파이프라인.md) | ✅ |
+| | | ↳ 부록 | S24-1 | 읽는 데 필요한 것들 — CQ가 설계 기준인 이유 · RAG와 청킹 · PROV-O · MoE · Judge LLM | [S24-1-읽는-데-필요한-것들](S24-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S24-2 | 사람을 어디에 남길 것인가 — 작업 분해가 전제조건 · 재사용 0건 · 프롬프트 민감성 | [S24-2-사람을-어디에-남길-것인가](S24-2-사람을-어디에-남길-것인가.md) | ✅ |
+| 7주 | Day 13 | Ch.7 | S25 | 멀티에이전트 — 계획을 문서로 외부화하기 | [S25-멀티에이전트-계획을-문서로-외부화하기](S25-멀티에이전트-계획을-문서로-외부화하기.md) | ✅ |
+| | | ↳ 부록 | S25-1 | 읽는 데 필요한 것들 — 온톨로지 설계 패턴 · HermiT · Krippendorff α · SPARQL/RAG 두 지표 | [S25-1-읽는-데-필요한-것들](S25-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S25-2 | 통제를 절반만 한 실험 — 구조가 좋아져도 질의는 안 될 수 있다 · 중복은 전역 문제 | [S25-2-통제를-절반만-한-실험](S25-2-통제를-절반만-한-실험.md) | ✅ |
+| | | Ch.7 | S26A | Schema-grounded ① — CodeKGC: 코드 구조에 묶기 | [S26A-CodeKGC-코드-구조에-묶기](S26A-CodeKGC-코드-구조에-묶기.md) | ✅ |
+| | | Ch.7 | S26B | Schema-grounded ② — Wikidata 스키마에 묶기 · 회차 결론 | [S26B-Wikidata-스키마에-묶기](S26B-Wikidata-스키마에-묶기.md) | ✅ |
+| | | ↳ 부록 | S26-1 | 읽는 데 필요한 것들 — overlapping triple · flat serialization · UIE · P-번호 · domain/range | [S26-1-읽는-데-필요한-것들](S26-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S26-2 | 무엇에 묶느냐가 정한다 — 관통선 ② 검증 완료 · 재사용은 외부 목록과 매칭으로 | [S26-2-무엇에-묶느냐가-정한다](S26-2-무엇에-묶느냐가-정한다.md) | ✅ |
+| | Day 14 | Ch.7 | S27A | KGOE 가속화 ① — 모듈로 쪼개 범위를 좁히기 | [S27A-모듈로-쪼개-범위를-좁히기](S27A-모듈로-쪼개-범위를-좁히기.md) | ✅ |
+| | | Ch.7 | S27B | KGOE 가속화 ② — OntoEKG 기업 온톨로지 구축 · 회차 결론 | [S27B-OntoEKG-기업-온톨로지-구축](S27B-OntoEKG-기업-온톨로지-구축.md) | ✅ |
+| | | ↳ 부록 | S27-1 | 읽는 데 필요한 것들 — RDF/RDFS/OWL 층 · 모듈과 import · GeoLink · Pydantic · entailment | [S27-1-읽는-데-필요한-것들](S27-1-읽는-데-필요한-것들.md) | ✅ |
+| | | ↳ 부록 | S27-2 | Ch.7이 남긴 것 — 다섯 회차 종합 · 반복된 셋 · 01 문서에 올릴 후보 | [S27-2-Ch7이-남긴-것](S27-2-Ch7이-남긴-것.md) | ✅ |
 | | | Ch.8 LLM으로 KG 구축 | S28 | 관계 추출 기반 KG 생성 (REBEL) | — | ⬜ |
 | 8주 | Day 15 | Ch.8 | S29 | LLM 기반 KG 구축·추론 서베이 | — | ⬜ |
 | | | Ch.8 | S30 | LLM 기반 개체 정렬 (LLMEA) | — | ⬜ |
@@ -225,6 +237,21 @@ S22B가 `03 WKLM`(Xiong et al. 2020)과 `04 Summary`다. Summary에 Ch.6 여덟 
 **이 회차에서 방향이 뒤집힌다.** S19~S21이 "KG를 언어모델 어디에 넣을까"였다면 COMET은 언어모델로
 KG를 만들고, WKLM은 KG 없이 텍스트에서 직접 배운다. Ch.6에서 KG를 생산하는 모델은 COMET뿐이고,
 Ch.8(언어모델 → KG)로 가는 첫 다리로 보인다)*
+
+
+*(**Ch.7 다섯 회차(S23~S27)는 자료를 강의 영상에서 직접 뽑았다.** 슬라이드 이미지를 받는 대신
+영상에서 프레임을 추출해 읽었다. S24·S26·S27은 슬라이드에 움직이는 GIF가 박혀 있어 화면 비교만으로는
+같은 장이 수십 번 잡힌다. 바뀐 픽셀 비율로 거른 뒤 페이지 번호를 대조해 확정했다.
+
+**챕터 번호가 자료마다 어긋난다.** S23의 덱 목차는 이 챕터를 `8 Background LLM 기반 온톨로지 구축`으로
+두고 전체를 12챕터로 세는데, 이 README는 Ch.7이고 11챕터다. S27 덱 표지는 이 회차를 `⑦`로 적는데
+챕터 안 순서로는 다섯째다. 각 회차 문서에 원표기를 남겼고, 이 표의 번호는 README 기준을 유지한다.
+
+**S26과 S27은 한 회차에 논문이 둘이라 A/B로 나눴다.** S26A가 CodeKGC, S26B가 Wikidata schema
+grounding과 회차 결론이다. S27A가 모듈화, S27B가 OntoEKG와 회차 결론이다.
+
+**Ch.7 종합은 S27-2에 넣었다.** 챕터 마지막 회차의 해석 부록이 다섯 회차를 함께 정리하는 자리를
+겸한다. 01 문서에 올릴 관통선 후보도 거기 적어뒀다)*
 
 
 ## 정리 규칙
