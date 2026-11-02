@@ -41,6 +41,81 @@ Start-ADSyncSyncCycle -PolicyType Delta
 - RBAC는 리소스 작업 권한, 조건부 액세스는 로그인 조건이다
 - 즉시 동기화는 Entra Connect 서버에서 실행한다. 도메인 컨트롤러 쪽 작업이 아니다
 
+## 셀프 서비스 암호 재설정(SSPR)
+
+| 사용자 | SSPR | 이유 |
+|---|---|---|
+| 회원, 클라우드 전용 | 된다 | Entra에만 있는 계정이다 |
+| 회원, 온프레미스에서 동기화 | 비밀번호 쓰기 저장이 켜져 있으면 된다 | 바꾼 비밀번호가 온프레미스 AD에 저장된다. 꺼져 있으면 AD가 원본이라 안 된다 |
+| 게스트 | 안 된다 | 게스트 비밀번호는 원래 소속 조직(홈 테넌트)이 관리한다 |
+
+## 게스트와 외부 협업
+
+B2B로 초대한 게스트의 UPN은 원래 메일의 `@`를 `_`로 바꾸고 `#EXT#@우리 테넌트 도메인`을 붙인 형식이다. 예: `bsmith_contoso.com#EXT#@fabrikam.com`. UPN에 `#EXT#`가 있으면 게스트다.
+
+| 기능 | 영어 | 정하는 것 |
+|---|---|---|
+| 외부 협업 설정 | External collaboration settings | 테넌트 전체. 누가 게스트를 초대하나, 게스트가 디렉터리에서 무엇을 보나, 허용·차단 도메인 |
+| 테넌트 간 액세스 설정 | Cross-tenant access settings | 상대 조직별. 그 조직의 MFA를 신뢰하나, 그 조직 사용자를 막나 |
+| 액세스 검토 | Access reviews | 게스트나 그룹 멤버가 아직 권한이 필요한지 주기적으로 재확인 |
+| 조건부 액세스 | Conditional Access | 로그인 때 위치, 기기, MFA 조건 |
+
+게스트 초대자, 사용자 관리자, 전역 관리자만 게스트를 초대하게 하라는 문제는 외부 협업 설정이다. 이 문구가 게스트 초대 제한 옵션 하나와 그대로 같다. 한 사용자가 게스트를 초대하게 하면서 최소 권한이면 그 사용자에게 게스트 초대자 역할을 준다.
+
+## 역할 체계
+
+역할 체계가 둘이다.
+
+| 체계 | 다루는 것 | 역할 예 |
+|---|---|---|
+| Azure RBAC | Azure 리소스(관리 그룹, 구독, RG, 리소스) | 소유자, 기여자, 읽기 권한자, 청구 읽기 권한자 |
+| Entra 역할 | 테넌트의 사용자, 그룹, 앱 | 전역 관리자, 사용자 관리자, 게스트 초대자, 보안 관리자 |
+
+### RBAC 기본 제공 역할
+
+시험 번역이 섞여 나온다. 판독기와 읽기 권한자는 둘 다 Reader다.
+
+| 시험 한국어 | 영어 | 할 수 있는 것 |
+|---|---|---|
+| 소유자 | Owner | 전부. 다른 사람에게 역할도 할당한다 |
+| 기여자 | Contributor | 리소스 생성·변경·삭제. 역할 할당은 못 한다 |
+| 읽기 권한자, 판독기 | Reader | 모든 리소스 보기만 |
+| 사용자 액세스 관리자 | User Access Administrator | 역할 할당만 |
+| 태그 기여자 | Tag Contributor | 태그만. 리소스 자체에는 접근하지 못한다 |
+| 청구 읽기 권한자 | Billing Reader | 청구서와 결제 정보 보기 |
+| Cost Management 읽기 권한자 | Cost Management Reader | 비용 보기 |
+| Cost Management 기여자 | Cost Management Contributor | 비용 보기와 예산 관리 |
+
+| 문제의 요구 | 답 |
+|---|---|
+| 리소스를 볼 수 있게, 최소 권한 | 읽기 권한자 |
+| 모든 리소스를 만들고 관리, 역할 할당은 못 하게 | 기여자 |
+| 리소스는 못 바꾸고 비용 보기와 예산 관리 | Cost Management 기여자 |
+
+### 범위와 상속
+
+```mermaid
+flowchart LR
+    MG["관리 그룹"] --> SUB["구독"] --> RG["리소스 그룹"] --> R["리소스"]
+```
+
+위에서 준 역할은 아래로 상속된다. 구독 여러 개가 관리 그룹 MG1, MG2에 나뉘어 있으면 두 관리 그룹에 읽기 권한자를 주면 모든 구독의 리소스를 볼 수 있다.
+
+### 사용자 지정 역할
+
+권한은 `Actions`에서 `NotActions`를 뺀 것이다.
+
+```json
+"Actions": [
+  "Microsoft.Compute/*/read",
+  "Microsoft.Compute/snapshots/write",
+  "Microsoft.Compute/snapshots/read"
+],
+"NotActions": [ "Microsoft.Compute/snapshots/delete" ]
+```
+
+이 역할로는 모든 Compute 리소스 읽기(VM 설정 포함)와 스냅샷 만들기·읽기가 된다. 스냅샷 삭제는 빠지고, VM을 만드는 `virtualMachines/write`는 없다. `NotActions`는 거부가 아니라 빼기라서 다른 역할이 삭제 권한을 주면 삭제된다. 확실히 막는 건 거부 할당(Deny assignment)이다. `AssignableScopes`는 이 역할을 할당할 수 있는 범위다.
+
 ## 리소스 태그
 
 태그는 리소스에 붙이는 이름-값 쌍 메타데이터다. 한 리소스 그룹에 여러 부서의 VM이 섞여 있을 때 부서를 구분하는 수단이 태그다.
@@ -51,3 +126,10 @@ Start-ADSyncSyncCycle -PolicyType Delta
 ### 헷갈리는 것
 
 - 태그는 리소스 그룹에서 리소스로 자동 상속되지 않는다. 상속이 필요하면 Azure Policy의 태그 상속 정책을 따로 건다
+- 리소스를 부서별로 표시해 보고하라는 문제는 태그다. 이름이 비슷한 것과 구분한다
+
+| 이름 | 묶는 것 | 체계 |
+|---|---|---|
+| 관리 단위(Administrative unit) | 사용자, 그룹, 기기. 일부에만 관리 권한을 위임한다. 예: 영업부 사용자만 비밀번호를 재설정하는 사용자 관리자 | Entra |
+| 관리 그룹(Management group) | 구독. 정책과 RBAC를 상속시킨다 | Azure 리소스 |
+| 태그 | 개별 리소스에 이름=값 표시 | Azure 리소스 |
