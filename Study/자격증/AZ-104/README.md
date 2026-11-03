@@ -1,6 +1,6 @@
 # AZ-104 Microsoft Azure Administrator 재응시
 
-> 시험일: 2026-11-03(화), Pearson VUE
+> 시험일: 미정, Pearson VUE
 > 응시료: 99달러
 
 ---
@@ -29,7 +29,7 @@
 |---|---|
 | 10/17 | ExamTopics 1~30번(무료 범위). 유료 범위는 보지 않기로 했다 |
 | 11/02 | MS Learn 공식 연습 평가 1회차(50문항)를 같이 풀며 질문 정리 |
-| 11/03 | 연습 평가 1회 더 풀고 시험 |
+| 11/03 | 공식 연습 평가 1회 더 |
 
 [MS Learn 공식 연습 평가](https://learn.microsoft.com/ko-kr/credentials/certifications/azure-administrator/practice/assessment?assessment-type=practice&assessmentId=21&practice-assessment-type=certification)는 한 회 50문항이고 시간 제한이 없다. 문항마다 해설과 Learn 문서 링크가 붙어 있다.
 
