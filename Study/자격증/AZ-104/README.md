@@ -30,7 +30,7 @@
 | 10/17 | ExamTopics 1~30번(무료 범위). 유료 범위는 보지 않기로 했다 |
 | 11/02 | MS Learn 공식 연습 평가 1회차(50문항)를 같이 풀며 질문 정리 |
 | 11/03 | 공식 연습 평가 2회차. 72/100 |
-| 11/04 | 공식 연습 평가 3회차, 20:30 응시 |
+| 11/04 | 공식 연습 평가 3회차 80/100, 빈틈 정리 문서 읽기, 20:30 응시 |
 
 [MS Learn 공식 연습 평가](https://learn.microsoft.com/ko-kr/credentials/certifications/azure-administrator/practice/assessment?assessment-type=practice&assessmentId=21&practice-assessment-type=certification)는 한 회 50문항이고 시간 제한이 없다. 문항마다 해설과 Learn 문서 링크가 붙어 있다.
 
@@ -48,6 +48,8 @@
 | [가상-네트워킹-1](가상-네트워킹-1.md) | VNet 구성 요소(서브넷, CIDR, NIC 여러 개, NSG와 우선순위, Bastion, 포트), VPN 종류, 피어링과 게이트웨이 전송, 사용자 정의 경로, 연결 진단 도구, Monitor와 Network Watcher |
 | [가상-네트워킹-2](가상-네트워킹-2.md) | Load Balancer, Application Gateway, Traffic Manager, Front Door 고르기, 일시적 연결 문제와 고르지 않은 분산, SQL 리스너용 내부 부하 분산 장치 |
 | [모니터링-백업](모니터링-백업.md) | Log Analytics와 KQL, 알림 규칙과 작업 그룹, 성능 원인 도구와 Advisor 범주, Backup과 Site Recovery, MARS 에이전트, Hyper-V VM 복제, 백업 정책 숫자, 자격 증명 모음 삭제, 장애 조치 단계 |
+| [시험-직전-빈틈-1](시험-직전-빈틈-1.md) | 연습 평가 밖 주제와 실무 팁. 동적 그룹, 대량 작업, Azure Policy, 리소스 이동, 예산, 저장된 액세스 정책, 개체 복제, 암호화, 파일 공유 스냅샷, File Sync, 서비스·프라이빗 엔드포인트, Bicep, 디스크, VMSS, ACR, App Service 백업과 네트워크 |
+| [시험-직전-빈틈-2](시험-직전-빈틈-2.md) | Azure DNS, Load Balancer 구성 요소, Azure Monitor 에이전트와 DCR, Connection Monitor, VM 복원 방식, 두 종류의 볼트 |
 
 실무 질문 문서다.
 
