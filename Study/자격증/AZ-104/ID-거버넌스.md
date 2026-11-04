@@ -49,6 +49,10 @@ Start-ADSyncSyncCycle -PolicyType Delta
 | 회원, 온프레미스에서 동기화 | 비밀번호 쓰기 저장이 켜져 있으면 된다 | 바꾼 비밀번호가 온프레미스 AD에 저장된다. 꺼져 있으면 AD가 원본이라 안 된다 |
 | 게스트 | 안 된다 | 게스트 비밀번호는 원래 소속 조직(홈 테넌트)이 관리한다 |
 
+## 라이선스 할당
+
+Microsoft 365 같은 라이선스를 할당하려면 사용자의 사용 위치(Usage location)가 먼저 있어야 한다. 나라마다 쓸 수 있는 서비스가 법 규제와 수출 제한 때문에 달라서다. 비어 있으면 할당이 실패하고, 그룹 기반 라이선스에서도 그 사용자만 오류로 남는다. 사용자 유형, 이름, 성, 기타 이메일은 라이선스 조건이 아니다.
+
 ## 게스트와 외부 협업
 
 B2B로 초대한 게스트의 UPN은 원래 메일의 `@`를 `_`로 바꾸고 `#EXT#@우리 테넌트 도메인`을 붙인 형식이다. 예: `bsmith_contoso.com#EXT#@fabrikam.com`. UPN에 `#EXT#`가 있으면 게스트다.
@@ -116,6 +120,24 @@ flowchart LR
 
 이 역할로는 모든 Compute 리소스 읽기(VM 설정 포함)와 스냅샷 만들기·읽기가 된다. 스냅샷 삭제는 빠지고, VM을 만드는 `virtualMachines/write`는 없다. `NotActions`는 거부가 아니라 빼기라서 다른 역할이 삭제 권한을 주면 삭제된다. 확실히 막는 건 거부 할당(Deny assignment)이다. `AssignableScopes`는 이 역할을 할당할 수 있는 범위다.
 
+스크립트로 역할을 할당할 때 `Get-AzRoleDefinition -Name`에는 역할 이름을 넣는다. ID를 넣으면 찾는 역할이 없어서 `$Role`이 비고, 이어지는 `New-AzRoleAssignment`가 실패한다.
+
+```powershell
+$Role = Get-AzRoleDefinition -Name "CustomRole1"
+New-AzRoleAssignment -SignInName user1@contoso.com -RoleDefinitionName $Role.Name -ResourceGroupName RG1
+```
+
+ID로 찾으려면 `-Id`를 쓴다. 역할 정의를 만드는 명령은 `New-AzRoleDefinition`이고, `Get-AzRoleAssignment`와 `Set-AzRoleAssignment`는 할당을 다루는 명령이다.
+
+## 리소스 잠금
+
+| 잠금 | 막는 것 |
+|---|---|
+| 삭제(CanNotDelete) | 삭제만 막는다. 수정은 된다 |
+| 읽기 전용(ReadOnly) | 삭제와 수정을 둘 다 막는다 |
+
+잠금은 구독, 리소스 그룹, 개별 리소스에 걸 수 있고 아래로 상속된다. 관리 그룹에는 걸 수 없다. 잠금은 관리 작업(Azure Resource Manager)만 막는다. 스토리지 계정에 삭제 잠금을 걸어도 계정을 못 지울 뿐 안의 Blob은 지울 수 있다. 데이터는 일시 삭제나 불변성 정책으로 지킨다.
+
 ## 리소스 태그
 
 태그는 리소스에 붙이는 이름-값 쌍 메타데이터다. 한 리소스 그룹에 여러 부서의 VM이 섞여 있을 때 부서를 구분하는 수단이 태그다.
@@ -126,6 +148,7 @@ flowchart LR
 ### 헷갈리는 것
 
 - 태그는 리소스 그룹에서 리소스로 자동 상속되지 않는다. 상속이 필요하면 Azure Policy의 태그 상속 정책을 따로 건다
+- 사용자에게 태그만 붙이게 하라는 문제는 IAM에서 기본 제공 역할인 태그 기여자를 할당한다. `virtualMachines/*/write` 사용자 지정 역할은 VM 설정까지 바꿀 수 있어서 최소 권한이 아니고, 만들기만 해서는 할당되지 않는다. Azure Policy는 태그를 강제하거나 자동으로 붙이는 기능이라 사람에게 권한을 주지 못한다
 - 리소스를 부서별로 표시해 보고하라는 문제는 태그다. 이름이 비슷한 것과 구분한다
 
 | 이름 | 묶는 것 | 체계 |

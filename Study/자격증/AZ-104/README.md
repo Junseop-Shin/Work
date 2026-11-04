@@ -1,6 +1,6 @@
 # AZ-104 Microsoft Azure Administrator 재응시
 
-> 시험일: 미정, Pearson VUE
+> 시험일: 2026-11-04(수) 20:30, Pearson VUE
 > 응시료: 99달러
 
 ---
@@ -29,7 +29,8 @@
 |---|---|
 | 10/17 | ExamTopics 1~30번(무료 범위). 유료 범위는 보지 않기로 했다 |
 | 11/02 | MS Learn 공식 연습 평가 1회차(50문항)를 같이 풀며 질문 정리 |
-| 11/03 | 공식 연습 평가 1회 더 |
+| 11/03 | 공식 연습 평가 2회차. 72/100 |
+| 11/04 | 공식 연습 평가 3회차, 20:30 응시 |
 
 [MS Learn 공식 연습 평가](https://learn.microsoft.com/ko-kr/credentials/certifications/azure-administrator/practice/assessment?assessment-type=practice&assessmentId=21&practice-assessment-type=certification)는 한 회 50문항이고 시간 제한이 없다. 문항마다 해설과 Learn 문서 링크가 붙어 있다.
 
@@ -39,14 +40,14 @@
 
 | 문서 | 다루는 것 |
 |---|---|
-| [ID-거버넌스](ID-거버넌스.md) | Entra ID 인증과 동기화, 조건부 액세스, SSPR, 게스트와 외부 협업, RBAC와 Entra 역할, 사용자 지정 역할, 리소스 태그 |
-| [스토리지-1](스토리지-1.md) | 스토리지 계정과 서비스, 계정 종류, Blob 종류, Data Lake Storage Gen2, 액세스 계층, 수명 주기 관리, 이중화 |
-| [스토리지-2](스토리지-2.md) | 계정 메뉴별 역할, 네트워크 규칙, SAS, Azure Files ID 기반 액세스, 대용량 파일 공유, AzCopy |
-| [컴퓨팅-1](컴퓨팅-1.md) | ARM 템플릿 배포와 내보내기, 가용성 옵션, 가용성 집합, VM 크기 변경, 데이터 디스크 이동, VM 이미지, 스폿 VM |
-| [컴퓨팅-2](컴퓨팅-2.md) | App Service와 Container Apps, App Service 계획 등급, 확장, 진단 로깅, 사용자 지정 도메인, Container Instances 저장소 |
-| [가상-네트워킹-1](가상-네트워킹-1.md) | VNet 구성 요소(서브넷, CIDR, NIC, NSG, Bastion, 포트), VPN 종류, 피어링과 게이트웨이 전송, 사용자 정의 경로, 연결 진단 도구, Monitor와 Network Watcher |
-| [가상-네트워킹-2](가상-네트워킹-2.md) | Load Balancer, Application Gateway, Traffic Manager, Front Door 고르기, 일시적 연결 문제, SQL 리스너용 내부 부하 분산 장치 |
-| [모니터링-백업](모니터링-백업.md) | Log Analytics와 KQL, 알림 규칙과 작업 그룹, Backup과 Site Recovery, Hyper-V VM 복제, 백업 정책 숫자, 자격 증명 모음 삭제, 장애 조치 단계 |
+| [ID-거버넌스](ID-거버넌스.md) | Entra ID 인증과 동기화, 조건부 액세스, SSPR, 라이선스 사용 위치, 게스트와 외부 협업, RBAC와 Entra 역할, 사용자 지정 역할, 리소스 잠금, 리소스 태그 |
+| [스토리지-1](스토리지-1.md) | 스토리지 계정과 서비스, 계정 종류, Blob 종류, Data Lake Storage Gen2, 액세스 계층, 수명 주기 관리, 불변성 정책, 이중화 |
+| [스토리지-2](스토리지-2.md) | 계정 메뉴별 역할, 네트워크 규칙과 ExpressRoute, SAS, Azure Files ID 기반 액세스, 대용량 파일 공유, AzCopy copy와 sync |
+| [컴퓨팅-1](컴퓨팅-1.md) | ARM 템플릿 배포와 내보내기, 템플릿 위치와 배포 범위, 가용성 옵션, 가용성 집합, VM 크기 변경, 데이터 디스크 이동, VM 이미지, 스폿 VM |
+| [컴퓨팅-2](컴퓨팅-2.md) | App Service와 Container Apps, App Service 게시 방식과 계획 등급, 확장, 배포 슬롯, 진단 로깅, 사용자 지정 도메인, Container Instances 저장소, AKS API 서버 접근 |
+| [가상-네트워킹-1](가상-네트워킹-1.md) | VNet 구성 요소(서브넷, CIDR, NIC 여러 개, NSG와 우선순위, Bastion, 포트), VPN 종류, 피어링과 게이트웨이 전송, 사용자 정의 경로, 연결 진단 도구, Monitor와 Network Watcher |
+| [가상-네트워킹-2](가상-네트워킹-2.md) | Load Balancer, Application Gateway, Traffic Manager, Front Door 고르기, 일시적 연결 문제와 고르지 않은 분산, SQL 리스너용 내부 부하 분산 장치 |
+| [모니터링-백업](모니터링-백업.md) | Log Analytics와 KQL, 알림 규칙과 작업 그룹, 성능 원인 도구와 Advisor 범주, Backup과 Site Recovery, MARS 에이전트, Hyper-V VM 복제, 백업 정책 숫자, 자격 증명 모음 삭제, 장애 조치 단계 |
 
 실무 질문 문서다.
 
